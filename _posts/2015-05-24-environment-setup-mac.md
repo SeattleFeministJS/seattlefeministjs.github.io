@@ -11,7 +11,7 @@ Welcome to the first meetup topic Environment Setup. The following post will out
 
 ##Operating System
 
-First best thing to have is an up to date version of OSX on your Mac, today that is v10.10.3 Yosemite. If your Mac can run Mavericks it can run Yosemite, [update instructions here](https://www.apple.com/support/osx/upgrade/). 
+First best thing to have is an up to date version of OSX on your Mac, today that is v10.10.3 Yosemite. If your Mac can run Mavericks it can run Yosemite, [update instructions here](https://www.apple.com/support/osx/upgrade/){:target="_blank"}. 
 
 ##Code Editor
 
