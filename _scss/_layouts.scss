@@ -1,0 +1,21 @@
+@mixin one_col($fluid) {
+	@if $fluid {
+		@extend .container-fluid;
+	}
+	@else {
+		@extend .container;
+	}
+	.col {
+		@extend .col-lg-12;
+		@extend .col-sm-12;
+		@extend col-xs-12;
+	}
+}
+
+.one-col {
+	@include one_col(true);
+}
+
+.one-col-container {
+	@include one_col(false);	
+}

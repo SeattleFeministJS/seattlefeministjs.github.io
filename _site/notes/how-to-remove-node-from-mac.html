@@ -85,27 +85,24 @@
   <main class="one-col-container">
     <div class="row">
       <div class="col">
-        <h1>Seattle Ladies JS</h1>
+        <h1>How to remove Node from Mac</h1>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <p>Welcome to our blog archive of meetup topics.</p>
-<!-- <h2>Posts</h2> -->
-<ul>
-  
-    <li>
-      <a href="/environment-setup-pc">Environment Setup for PC</a>
-    <!--   <br>
-      <span><em>May 24, 2015</em></span> -->
-    </li>
-  
-    <li>
-      <a href="/environment-setup-mac">Environment Setup for Mac</a>
-    <!--   <br>
-      <span><em>May 24, 2015</em></span> -->
-    </li>
-  
+        <ul>
+  <li>
+    <p>Remove everything from old install folders</p>
+
+    <p><code>sudo rm -rf /usr/local/lib/node_modules</code></p>
+
+    <p><code>sudo rm -rf ~/.npm</code></p>
+  </li>
+  <li>
+    <p>If you used Homebrew to install</p>
+
+    <p><code>brew uninstall node</code></p>
+  </li>
 </ul>
 
       </div>

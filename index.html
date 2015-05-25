@@ -1,0 +1,16 @@
+---
+layout: default
+title: Seattle Ladies JS
+---
+
+<p>Welcome to our blog archive of meetup topics.</p>
+<!-- <h2>Posts</h2> -->
+<ul>
+  {% for post in site.posts limit: 10 %}
+    <li>
+      <a href="{{post.url}}">{{ post.title }}</a>
+    <!--   <br>
+      <span><em>{{ post.date | date:"%B %d, %Y" }}</em></span> -->
+    </li>
+  {% endfor %}
+</ul>

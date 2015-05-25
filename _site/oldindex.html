@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Seattle Ladies JS</title>
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="apple-touch-icon" href="icon.png"/>
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+  <!-- bower:css -->
+  <!-- endbower -->
+
+  <!-- bower:js -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+  <!-- endbower -->
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">SLJS</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!-- <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li> -->
+        <!-- <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li> -->
+      </ul>
+    <!--   <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul> -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+  <main class="one-col-container">
+    <div class="row">
+      <div class="col">
+        <h1>Environment Setup</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h1 id="environment-setup-downloads">Environment Setup Downloads</h1>
+
+<h2 id="ide-both-mac-and-pc">IDE (Both Mac and PC)</h2>
+<ul>
+  <li><a href="http://www.sublimetext3.com/2">SublimeText3</a></li>
+  <li><a href="https://packagecontrol.io/installation">Package Control</a></li>
+</ul>
+
+<h2 id="mac">Mac</h2>
+<ul>
+  <li>git 
+    <ul>
+      <li><a href="http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/">Xcode Command Line Tools </a></li>
+      <li><a href="https://mac.github.com/">GitHub Mac</a></li>
+    </ul>
+  </li>
+  <li>node
+    <ul>
+      <li><a href="http://brew.sh/">brew</a></li>
+      <li><a href="http://www.johnpapa.net/how-to-use-npm-global-without-sudo-on-osx/">node</a> </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="windows">Windows</h2>
+<ul>
+  <li>git : <a href="https://windows.github.com/">GitHub Windows</a></li>
+  <li>node 
+    <ul>
+      <li><a href="http://www.mcclean-cooper.com/valentino/cygwin_install/">Cygwin</a> 
+        <ul>
+          <li><a href="http://windows.microsoft.com/en-us/windows/32-bit-and-64-bit-windows#1TC=windows-7">32bit or 64 bit</a></li>
+        </ul>
+      </li>
+      <li><a href="http://howtonode.org/how-to-install-nodejs">node</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>Hi,</p>
+
+<p>I wanted to send out a few items to have installed before our next meetup. Below are step by instructions of what you ll need and where to get it. If anyone has any problems getting these items installed I encourage joining our slack group and posting to the Environment Setup channel, if you want an invite please send your name and email address to seattleladiejs@gmail.com. The following installs are separated into Mac and PC.</p>
+
+<h2 id="mac-1">MAC</h2>
+
+<p>First best thing to have is an up to date version of OSX on your Mac, today that is v10.10.3 Yosemite. If your Mac can run Mavericks it can run Yosemite, <a href="https://www.apple.com/support/osx/upgrade/">update instructions here</a>. </p>
+
+<p>Next thing we need is a code editor, it can be any code editor that you prefer but I will be using SublimeText3 and would reccommend it as a nice simple to use code editor, <a href="http://www.sublimetext3.com/3">download here</a>. </p>
+
+<p>Our environment setup is using an <a href="http://editorconfig.org/">EditorConfig</a> which helps maintain consistency of coding styles across different types of editors and IDEs, if you are using an editor other than SublimeText3 there should be a plugin available, you would have to research your editor to find plugin install instructions. For installing EditorConfig with SublimeText3 you have to use the Package Manager which is a plugin for SublimeText3 that needs to be installed separately, <a href="https://packagecontrol.io/installation">instructions on how to install here</a>. Once you have Package Manager installed you can add packages to customize SublimeText3 to suite your development style. Package Control is driven by the Command Palette. To open the palette, press ctrl+shift+p (Win, Linux) or cmd+shift+p (OS X). All Package Control commands begin with Package Control:, start typing "Package Control: Install Package", and dropdown should appear, select Install Package then type in the name of the package you would like to install, in this case type ‘EditorConfig’</p>
+
+<p>AlignTab
+DocBlockr
+Emmet
+JavaScript Snippets
+Local History
+Sass</p>
+
+      </div>
+    </div>
+  </main>
+
+
+
+</body>
+
+</html>

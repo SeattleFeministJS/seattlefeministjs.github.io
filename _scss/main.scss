@@ -1,0 +1,30 @@
+@import "bootstrap";
+@import "custom_variables";
+@import "layouts";
+
+html {
+  font-size: 100%;
+}
+body {
+  p {
+    color: $gray;
+    font-family:  $font-family-serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.75;
+    letter-spacing: 0.005em;
+    padding-bottom: 1em;
+  }
+  li {
+    color: $gray;
+    font-family:  $font-family-serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.005em;
+    padding-bottom:.45em;
+  }
+  img {
+    margin: .5em
+  }
+}
