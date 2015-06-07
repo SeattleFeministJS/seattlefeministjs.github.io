@@ -1,6 +1,0 @@
-Hello,
-
-I wanted to let everyone know that there is a slack communication board setup for our group which is where an archive of meetup topics and other communication that is private to our group will be available. If you are interested in joining the group on slack you can request an invite to by sending an email to seattleladiesjs@gmail.com including your email address and the name that you use as a memeber to the meetup group. You can learn more about slack here, https://slack.com/is/team-communication.
-
-Thanks,
-Ava
