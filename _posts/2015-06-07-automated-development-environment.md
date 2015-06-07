@@ -17,6 +17,15 @@ The [example repository](https://github.com/SeattleLadiesJS/Environment-Setup){:
 - A local web server.
 - A way to automate repetitive tasks like updating CSS when adding new SASS, linting your code for mistakes and creating a minified build when you are ready to deploy to a live server.
 
+Let's start by cloning the example, open your console and navigate to your home directory.
+
+- `cd "${HOME}"` 
+- ` git clone https://github.com/SeattleLadiesJS/Gulp-Development-Environment.git`
+- `npm install`
+- `bower install`
+- `gulp serve`
+
+
 Using this repository as a guide let's start a brand new repository on your own account and we will add each one of those things step by step.
 
 ##Create a new Github repository
