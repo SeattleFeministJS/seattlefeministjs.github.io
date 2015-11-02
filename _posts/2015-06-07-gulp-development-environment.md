@@ -870,7 +870,7 @@ And write the out put to the `/dist` directory.
         .pipe(gulp.dest('dist'));
     });
 
-Test it out `gulp-inject:dist`
+Test it out `gulp inject:dist`
 
 ## Serve your distribution build
 
