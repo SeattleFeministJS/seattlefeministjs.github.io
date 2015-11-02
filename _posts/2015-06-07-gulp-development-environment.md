@@ -349,7 +349,7 @@ If you try running your new task, `gulp scripts` you should see that jshint has 
 
 We did not add the `use strict` directive at the top of the file and we did not declare the global varaible `$` which is added to the global object by jQuery. Inside `main.js` let's add 
 
-`use strict;`
+`"use strict;"`
 
 to the very top of the file and below add 
 
@@ -427,7 +427,7 @@ Before we can try out our new inject task , we first have to run our wiredep tas
 
 
 ## Copy images and other assets
-Last thing that we need to do before starting up server is to copy any images, or other assets, that aren't getting moved into the build folder. Go ahead and add an `images` directory to your `/src` directory and copy over any image into that directory. Let's also add the image to our `index.html` after our message.
+Last thing that we need to do before starting up server is to copy any images, or other assets, that aren't getting moved into the build folder. Go ahead and add an `images` directory to your `/src` directory and copy over any image into that directory. Let's also add the image to our `src/index.html` after our message.
 
 `<img src="images/adaTheFirst.jpg" alt="Ada Lovelace, The first Programmer">`
 
