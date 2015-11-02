@@ -587,7 +587,7 @@ And pipe those over to our `/dist` directory, where all of our final build will 
         .pipe(gulp.dest('dist/fonts'));
     });
 
-Go ahead and run `gulp-fonts` to test it out, also we can add an icon to our `index.html` to verify that things are working when we run our final build.
+Go ahead and run `gulp fonts` to test it out, also we can add an icon to our `index.html` to verify that things are working when we run our final build.
 
 `<i class="fa fa-diamond"></i>`
 
