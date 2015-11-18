@@ -1,5 +1,12 @@
-name                : Environment Setup
-
+name                : Seattle Ladies JS
+authors             :
+  ava:
+    display_name: Ava Collins
+    gravatar: 74100339cab4aedcf3c66e5b6724a096
+    email: i.am.simplesthing@gmail.com
+    web: http://simplesthing.com
+    twitter: simplesthing
+    github: simplesthing
 source              : .
 destination         : ./_site
 plugins             : ./_plugins

@@ -1,7 +1,12 @@
 ---
 layout: default
 ---
-<p class="meta">{{ page.date | date_to_string }}</p>
+
+{% assign author = site.authors[page.author] %}
+<p class="meta">{{ page.date | date_to_string }} by
+<!-- <img src="http://www.gravatar.com/avatar/{{ author.gravatar }}?s=40"> -->
+<span class="author">{{ author.display_name }}</span>
+</p>
 
 <div class="post">
 {{ content }}

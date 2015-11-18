@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Seattle Ladies JS</title>
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="apple-touch-icon" href="icon.png"/>
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+  <!-- bower:css -->
+  <!-- endbower -->
+
+  <!-- bower:js -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+  <!-- endbower -->
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">SLJS</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!-- <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li> -->
+        <!-- <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li> -->
+      </ul>
+    <!--   <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul> -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+  <main class="one-col-container">
+    <div class="row">
+      <div class="col">
+        <h1>Getting To Know Git</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        
+<p class="meta">19 Nov 2015 by
+<!-- <img src="http://www.gravatar.com/avatar/74100339cab4aedcf3c66e5b6724a096?s=40"> -->
+<span class="author">Ava Collins</span>
+</p>
+
+<div class="post">
+<h2 id="what-is-git">What is Git?</h2>
+<p>Git is Source Control Managment, also called Version Control Software, for storing source files in locations called Repositories. These systems back up files in a way that makes it easy to view files and track changes made over time. Git allows teams of developers, designers and project managers the ability to work on the same group of files without overwriting each other’s work. Git also provides a way to “roll-back” code files to a specific point in history for debugging or simply tracking specific changes. </p>
+
+<p>Git is different from other types of source control management in a few ways but the most significant is the way it thinks about data. Most systems think about their data as list of files, each having their own list of changes to a base version of an individual file.</p>
+
+<figure>
+  <img src="../images/getting-to-know-git/deltas.png" alt="Storing data as changes to a base version of each file." />
+  <figcaption>Source <a href="https://git-scm.com/book/en/v2/Getting-Started-Git-Basics">https://git-scm.com/book/en/v2/Getting-Started-Git-Basics</a></figcaption>  
+ </figure>
+<p><br /></p>
+
+<p>Git instead thinks about its data as a set of snapshots of a mini file system. Everytime you save the state of your project in Git, called a commit, it takes a picture of what all of your files look like at that moment, called a snapshot, and stores a reference to that moment in time of the entire mini file system. Git thinks about it’s data like a <strong>stream of snapshots</strong> rather than individual file changes. This means that at any time you can recall the state of an entire project, or just a few files, by recalling a snapshot, versus calling individual file changes.</p>
+
+<figure>
+   <img src="../images/getting-to-know-git/snapshots.png" alt="Storing data as snapshots of the project over time." />
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Getting-Started-Git-Basics">https://git-scm.com/book/en/v2/Getting-Started-Git-Basics</a></figcaption>  
+</figure>
+<p><br /></p>
+
+<p>Another important difference is that Git is distributed which means that everyone working on a project has their own full copy of the code on their own machine. Because of this most operations seem instantaneous since you have the history on your own machine Git doesn’t have to connect to a network to look up file changes. This also means that you can safely work offline, commit changes locally and you can upload your changes at a later time.</p>
+
+<p>Git also has the advantage of Github which provides a central place to store code for free and to manage issues, they even provide GUI tools to work with repositories, however we will be using the command line. The command line has advantages of being scripted into build systems to trigger tasks to be run upon each commit, for instance run tests or deploy new code to a live web server.</p>
+
+<h2 id="git-concepts">Git Concepts</h2>
+
+<h3 id="repository">Repository</h3>
+<p>To understand what a repository is let’s first define a term called “Working Directory”. Working Directory is the directory which contains all uncompressed project files and assets along with a hidden directory named <code>.git</code>. That hidden directory <em>is</em> the repository.</p>
+
+<figure>
+   <img src="../images/getting-to-know-git/git-working_directory-repository.png" alt="Screenshot of working directory and .git directory on a file system." />
+</figure>
+<p><br /></p>
+
+<h3 id="objects">Objects</h3>
+<p>Git is essentially a <a href="https://en.wikipedia.org/wiki/Key-value_database">key value store database</a> that compresses and stores snapshots of the working directory in Git Objects. Objects are referenced by a 40 digit hash called <a href="https://en.wikipedia.org/wiki/SHA-1">SHA1</a> (Secure Hash Algorithm 1) which is the key and the value of the object consists of a <strong>type</strong>, a <strong>size</strong> and <strong>content</strong>. There are four different types of objects which are used to store content.</p>
+
+<p><img src="../images/getting-to-know-git/object-blob.png" alt="Git Blob Object" /> <strong>blob</strong> - Used to store file data. </p>
+
+<p><img src="../images/getting-to-know-git/object-tree.png" alt="Git Tree Object" />  <strong>tree</strong> - A tree structure that references other trees or blobs.</p>
+
+<p><img src="../images/getting-to-know-git/object-commit.png" alt="Git Commit Object" />  <strong>commit</strong> - Points to a top level tree which references what the working directory looked like at a certain point in time, and contains meta information about the commit.</p>
+
+<p><img src="../images/getting-to-know-git/object-tag.png" alt="Git Tag Object" /> <strong>tag</strong> - A way to mark a commit in a special way, such as releases canidates.</p>
+
+<p>Putting it all together a commit can be visualized as something like this.</p>
+<figure>
+   <img src="../images/getting-to-know-git/objects-example-flow.png" alt="Storing data as snapshots of the project over time." />
+    <figcaption>Source <a href="http://schacon.github.io/gitbook/1_the_git_object_model.html">http://schacon.github.io/gitbook/1_the_git_object_model.html</a></figcaption>  
+</figure>
+<p><br /></p>
+
+<h3 id="index">Index</h3>
+<p>The index file, also known as the “Staging Area”, is where changes to the working directory are collected between commits. When you make a commit all of the changes added to the index (staging area) will be included in the snapshot of the working directory at the point in time that the commit was made. If files were not added to the index (staging area) a reference to the files in the last committed state they were in will be included in the snapshot regardless if they have changes in the working directory or not.</p>
+
+<h3 id="head">HEAD</h3>
+<p>The HEAD file is symbolic reference or pointer to the SHA1 hash to that points to the branch and commit that you are working on. We won’t go into much detail about the different types of references that Git uses but you can read more in the <a href="https://git-scm.com/book/en/v2/Git-Internals-Git-References">official documentation</a> if you wanted to know more.</p>
+
+<figure>
+   <img src="../images/getting-to-know-git/simple-git-lifecycle.png" alt="Storing data as snapshots of the project over time." />
+    <figcaption>Source <a href="http://rogerdudler.github.io/git-guide/">http://rogerdudler.github.io/git-guide/</a></figcaption>  
+</figure>
+<p><br /></p>
+
+<h2 id="installing">Installing</h2>
+<p>Installing Git can be done in a few different ways depending on your platform. SLJS has covered a couple of ways to  install Git in a previous post called Environment Setup, Mac installation can be found <a href="http://seattleladiesjs.github.io/environment-setup-mac/#git">here</a> and Windows installation can be found <a href="http://seattleladiesjs.github.io/environment-setup-pc/#git">here</a>. Of course these are not the only ways to install Git and with some Googling many other ways can be found that would be just as good while have some differences or advantages for certain users depending on your preferences.</p>
+
+<p>There are a variety of GUI tools for using Git but we will only be using the command line. The command line is the only way that you can run all the Git commands, whereas most GUIs only implement a subset of functionality. If you know how to use the command line you will be able to figure out any GUI, but the opposite of that is not likely true.</p>
+
+<h3 id="configuring-git">Configuring Git</h3>
+<p>Git comes with a tool called <code>git config</code> that lets you set configuration variables that control how Git operates. Git configurations can be set at three levels of specification where each level overrides the previous one. (<a href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">Note</a> Windows systems may save files in different directories from what is below depending on your installation)</p>
+
+<ol>
+  <li><strong>Global</strong> - Found at <code>/etc/gitconfig</code> sets values for every user of a a given operating system and is modified using the <code>--system</code> flag in the command line.</li>
+  <li><strong>User</strong> - Found at <code>~/.gitconfig</code> or <code>~/.config/git/config</code> sets values specific to your user on an operating system and is modified using <code>--global</code> flag in the command line.</li>
+  <li><strong>Repository</strong> - Found in <code>.git/config</code> and is specific for only the repository that the <code>.git</code> directory is inside of and is modified by opening that file in your choice of editor.</li>
+</ol>
+
+<p>At the very least you should configure your Username and Email at the user level to let Git know who is working on the repository each time you make a commit. This is easily done by issuing the following two commands:</p>
+
+<p><code>git config --global user.name "Your Name"</code></p>
+
+<p><code>git config --global user.email "youremail@name.domain"</code></p>
+
+<p>You can verify your settings by issuing the <code>git config --list</code> command, or check individual settings by issuing <code>git config &lt;key&gt;</code> i.e. <code>git config user.name</code> for username value. There are other configurations that can be made using the <code>git config</code> tool which you can read more about in the <a href="https://git-scm.com/docs/git-config">official documentation</a>.</p>
+
+<h2 id="getting-a-git-repository">Getting a Git Repository</h2>
+<p>There are two ways of getting a git repository.</p>
+
+<ol>
+  <li>Import a project into Git from an existing directory</li>
+  <li>Export a project out of Git from an existing repository</li>
+</ol>
+
+<h3 id="initializing-a-new-repository">Initializing a new Repository</h3>
+<p>You can initialize a new git repository inside an existing working directory of files, or empty directory for a new project, by navigating in your command line to the project directory root and issuing the command <code>git init</code>. You should see a confirmation message that starts off <code>Initialized empty Git repository in ...</code> telling you that it is done. </p>
+
+<p>If you <code>ls -a</code> in that directory you should see that Git has added a new hidden subdirectory named <code>.git</code>. If you change directories by issuing <code>cd .git</code> and the another <code>ls</code> command you can see the files and directories that have been added.</p>
+
+<h3 id="cloning-an-existing-repository">Cloning an existing Repository</h3>
+<p>If you want to get a copy of an existing project registered in a Git Server that you have access to, most likely public GitHub servers, onto your computer you can issue <code>git clone [url]</code>. This will create a directory for the project by the nameof the project, or alternatively you can name the directory by add name after url <code>git clone [url [directory_name]</code>, install a Git repository directory and then check out a working copy of the latest version.</p>
+
+<p>The cloning url can be found on GitHub on the lower right column of the page and can be copied to the clipboard by clicking the button next to the url for command lines that support copy and paste. There are also buttons to have GitHub clone to your Desktop for you or to simply Download a .zip file of the project in a location of your choice and extract it.</p>
+
+<p><img src="../images/getting-to-know-git/clone-url.png" alt="Location of cloning urls on GitHUb" /></p>
+
+<h3 id="forking">Forking</h3>
+<p>GutHub offers a way of copying a repository to your GitHub profile as a starting point for you to make changes to another persons project. This is done by clicking on the Fork button on the top right corner of an existing repository page.</p>
+
+<p><img src="../images/getting-to-know-git/fork.png" alt="Fork a repository button on GitHub" /></p>
+
+<p>Once you click that button GitHub will do it’s thing.</p>
+
+<p><img src="../images/getting-to-know-git/github-forking.png" alt="Screenshot of GitHub forking a respository" /></p>
+
+<p>You should then be redirected to your fresh forked copy of the existing repository under your own profile on GitHub. Notice the repository will have an icon indicating that the repository was forked along with a caption below the name of the repository linking to the repository which your repository was derived.</p>
+
+<p><img src="../images/getting-to-know-git/forked-repo.png" alt="Screenshot of GitHub forking a respository" /></p>
+
+<p>From there you can clone the project into your workspace and make changes. Forking is most commonly used when developers want to submit bug fixes or additional code to an existing project by opening up a “pull request” for the project owner to <em>pull</em> the changes into the original product repository.</p>
+
+<h2 id="committing">Committing</h2>
+<p>All files in the working directory can be in one of two base states, <strong>tracked</strong> or <strong>untracked</strong>. Tracked files are the only files that can be committed to the repository because tracked files are files that have been added to the index (staging area) at some point in the lifetime of the repository.</p>
+
+<p>Furthermore tracked files  have three states to them, <strong>unmodified</strong>, <strong>modified</strong> and <strong>staged</strong> for keeping track of the changes made to them. When you have freshly cloned a repository all the files will be in a tracked unmodified state, if you make a change to any file that file changes to the tracked modified state, and when you commit add a file they change into the tracked staged state.</p>
+
+<p>Untracked files are files that have never been added to the index (staging area) before and so Git is unaware of them. When you initialize a new repository in an existing directory this is the state in which your existing files will be, likewise whenever you add new files to a working directory those files will continue to remain untracked by Git until you add them to the index.</p>
+
+<figure>
+   <img src="../images/getting-to-know-git/file-lifecycle.png" alt="Storing data as snapshots of the project over time." />
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository">https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository</a></figcaption>  
+</figure>
+<p><br /></p>
+
+<h3 id="status">Status</h3>
+<p>If you’d like to see that state in which your working directory is at any time you can issue <code>git status</code> to see if you have untracked files and/or tracked files with changes waiting to be added to the staging area and committed.</p>
+
+<h3 id="adding-files">Adding Files</h3>
+<p>Regardless whether files are tracked or untracked all files must first be added to the staging area before committing using the command <code>git add [path_to_file] [flag]</code>. You can add individual files by path, in reference to the root of the project, such as <code>git add /Users/avac/myRepo/index.html</code> or if you wanted to add all files, tracked or untracked, at once you can skip the path and just use  the flag for all files <code>git add --all</code>.</p>
+
+<h3 id="commit">Commit</h3>
+<p>Once files have been adding to staging area you might want to review your tracked changes before committing by issuing <code>git status</code> once again to verify all the changes you want to be added are included. If you have added file that you don’t want to have added you can reset those files, in other words move them out of the staging area, by issuing <code>git reset [path_to_file]</code>. If for some reason you want to reset all the files in staging area to the last commit you can issue <code>git reset</code> and it will move all the files back into an untracked or untracked and modified state.</p>
+
+<p>When you are ready to commit them to the repository you would issue <code>git commit -m "initial commit comment"</code>. The <code>-m</code> flag is required for adding a message to the commit object.</p>
+
+<h2 id="file-management">File Management</h2>
+
+<h3 id="ignoring-files">Ignoring Files</h3>
+<p>Working with JavaScript and Git you will most likely be adding packages or modules to your project using <a href="https://www.npmjs.com/">NPM</a> or <a href="http://bower.io/">Bower</a>. When you do this you should be saving the list of which dependencies you have installed in a config file so that you can re-install them at anytime using this config. Since these packages are dependencies of your project, and possibly large in size, you probably don’t want to save their source code in your repository but you do want to save the config file. Git makes this easy to do using a config file the root of your project telling Git which files and directories to ignore.</p>
+
+<p>Create a file and save it as <code>.gitignore</code>. Inside that file you can add comments, paths to files and directories using “Glob Patterns” which are simplified regular expressions for the file system to parse.</p>
+
+<ul>
+  <li><code>*</code> An asterisk matches zero or more characters</li>
+  <li><code>images/**/kittens</code> Two asterisks match nested directories; i.e. would match <em>images/retina/kittens</em> and <em>images/mobile/kittens</em></li>
+  <li><code>[abc]</code> Square brackets match anything inside them; i.e. <em>a, b or c</em></li>
+  <li><code>[0-9]</code> Squre brackets with a hyphen match anything in between them; i.e. <em>0,1,2,3,4,5,6,7,8 or 9</em></li>
+</ul>
+
+<p>The rules for patterns you can use are</p>
+
+<ul>
+  <li>Blank lines or line starting <code>#</code> are ignored</li>
+  <li>Standard glob patterns work</li>
+  <li>You can start patterns with <code>/</code> to avoid resistivity</li>
+  <li>You can end patterns with <code>/</code>to specify a directory</li>
+  <li>You can negate patterns by starting <code>!</code></li>
+</ul>
+
+<h3 id="removing-files">Removing Files</h3>
+<p>Often times you will refactor and decide that you want to remove some files from a project and you’d like Git to stop tracking them. To do this you can issue <code>git rm [path_to_file]</code> and they will be staged for removal on your next commit.</p>
+
+<h3 id="moving-files">Moving Files</h3>
+<p>Likewise during a refactor you might decide to move a file to different location and you want Git to stop tracking that file from the old directory and start tracking it in the new one. You might think that Git automatically knows that a file has been moved and would update it’s snapshot accordingly, but you’d be wrong. Moving files requires you to issue <code>git mv [from_path_to_file] [to_path_to_file]</code>, this is the same as running <code>git rm [path_to_file]</code> followed by <code>git add [path_to_file]</code>.</p>
+
+<h2 id="logging">Logging</h2>
+<p>There are many times during development that you will need to view a log of commits that have been made to a project over time. Git provides a powerful tool called <code>git log</code>. By default the logger will list the commits made in that repository in reverse chronological order with information about the commit. </p>
+
+<p>Looking at a simple <code>git log</code> we get the SHA1 hash pointing to the commit object which defines the snapshot of the code at the time of commit the author’s name and email, the date the commit was made and a commit message.</p>
+
+<p><img src="../images/getting-to-know-git/git-log.png" alt="output from git log command" /></p>
+
+<p>This output will continue until the initial commit information is reached and you may need to paginate the results multiple times to view it all, which makes it difficult to get a broad overview of all the commits made in a repository history, when you have reached the end you will need to issue <code>ctrl+z</code> to exit the log viewer. To shorten this we can use the flag <code>git log --oneline</code> to show commits on a single line, allowing more history to be shown on a single page of results. </p>
+
+<p><img src="../images/getting-to-know-git/git-log-oneline.png" alt="output from git log command" /></p>
+
+<p>You will notice that you are no longer getting a 40 digit hash but a much shorter abbreviated commit hash and you are not getting the name of the author or date but you still get the message. If you’d like to see more information you can use the <code>git --pretty=format:"[options]"</code> format. There are many possible options that can be used with the pretty flag which you can use to construct the log to display exactly which information you are interested in. Some common options are shown below.</p>
+
+<ul>
+  <li><code>H%</code> Full commit hash</li>
+  <li><code>h%</code> Abbreviated commit hash</li>
+  <li><code>%an</code> Author name</li>
+  <li><code>%ad</code> Author date (format respects the –date=option)</li>
+  <li><code>%s</code> Subject</li>
+</ul>
+
+<p>In addition to formatting options you can limit the number of results shown by using limiting options such as <code>git log -5</code> to show only the previous five commits. You can use date objects, such as <code>2015-11-01</code>, to specify time ranges or use relative dates such as <code>10 days ago</code> along with the <code>--since</code>,<code>--after</code>, <code>--until</code>, and <code>--before</code> flags. 
+For example to <em>see all commits after August 1, 2015</em> you could issue <code>git log --after=2015-08-01</code>. </p>
+
+<p>If you are searching for commits that contain a specific string inside a commit message you would use the <code>git log --grep="[string_to_match]"</code>. Or if you are only looking for commits made by a certain user you can use <code>git log --author="[author]"</code>.</p>
+
+<p>All of the available flags and options can be combined to get exactly what you want from the log, for example <em>all commits made by user “simplesthing” after August 1, 2015 with the word “fix” in the commit message formatted as the just abbreviated commit hash, the date and the message</em> would look like this <code>git log --author="simplesthing" --after=2015-08-01 --grep="fix" --pretty=format:"%h %ad %s"</code>.</p>
+
+<p>There are a huge number of options available for <code>git log</code> that we didn’t cover and if you’d like to learn more you can refer to the <a href="https://git-scm.com/docs/git-log">official documentation</a>.</p>
+
+
+</div>
+
+      </div>
+    </div>
+  </main>
+
+
+
+</body>
+
+</html>

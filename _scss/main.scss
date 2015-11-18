@@ -28,3 +28,13 @@ body {
     margin: .5em
   }
 }
+
+.float-box {
+  overflow: auto;
+  figure {
+    float:left;
+  }
+  p {
+    float:left;
+  }
+}

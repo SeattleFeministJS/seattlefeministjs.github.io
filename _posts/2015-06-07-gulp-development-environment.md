@@ -3,6 +3,7 @@ layout: post
 title:  "Gulp Development Environment"
 date:   2015-06-07
 categories: meetup
+author: ava
 ---
 
 Developing a website or web application can include any number of plugins and pre-processors that are tedious to manage. Enter [Gulp.js](http://gulpjs.com/), a build system that can automate repetitive tasks like compiling SASS into CSS, adding plugins, frameworks and libraries, checking your code for syntax errors and reloading the browser while you are editing content. This post should help you get started using Gulp to build your next project but it is not the only way or even the best way to use gulp, it's just a starter, you may choose to organize your project very differently from the examples given here. If you haven't already installed git and node.js please refer to previous posts [Environment Setup for PC](http://seattleladiesjs.github.io/environment-setup-pc/) or [Environment Setup for Mac](http://seattleladiesjs.github.io/environment-setup-mac/) depending on your operating system.

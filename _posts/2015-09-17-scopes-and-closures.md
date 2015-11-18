@@ -3,6 +3,7 @@ layout: post
 title:  "Scope and Closure"
 date:   2015-09-17
 categories: meetup
+author: ava
 ---
 
 The topic for discussion is scope in JavaScript, what it is, why it is needed and how it is defined and used to create "closures" in our functions. Much of the source material for this discussion has been gleaned from Kyle Simpson's book ["You Don't Know Scopes & Closures"](https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/README.md#you-dont-know-js-scope--closures) and is free to read online at github.

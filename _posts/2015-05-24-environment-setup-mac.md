@@ -3,6 +3,7 @@ layout: post
 title:  "Environment Setup for Mac"
 date:   2015-05-24
 categories: meetup
+author: ava
 ---
 
 ##Introduction
