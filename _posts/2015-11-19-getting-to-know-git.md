@@ -211,6 +211,20 @@ If you are searching for commits that contain a specific string inside a commit 
 
 There are a huge number of options available for `git log` that we didn't cover and if you'd like to learn more you can refer to the [official documentation](https://git-scm.com/docs/git-log).
 
+##Branches
+A branch is a tree structure of commits with pointers, all pointing backward to their ancestor, until reaching the initial commit. The main line from initial commit to current HEAD is called the **master** branch. 
+<figure>
+   <img src="../images/getting-to-know-git/basic-branching-master.png" alt="A simple commit history">
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>  
+</figure>
+<br>
+
+You can create branches at anytime from any point to start making changes to a snapshot of the 
+<figure>
+   <img src="../images/getting-to-know-git/basic-branching-branch.png" alt="A commit history with a branch">
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>  
+</figure>
+<br>
 
 
 
