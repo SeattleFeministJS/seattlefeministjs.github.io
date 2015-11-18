@@ -92,10 +92,6 @@ At the very least you should configure your Username and Email at the user level
 
 You can verify your settings by issuing the `git config --list` command, or check individual settings by issuing `git config <key>` i.e. `git config user.name` for username value. There are other configurations that can be made using the `git config` tool which you can read more about in the [official documentation](https://git-scm.com/docs/git-config).
 
-
-
-
-
 ##Getting a Git Repository
 There are two ways of getting a git repository.
 
@@ -129,7 +125,7 @@ You should then be redirected to your fresh forked copy of the existing reposito
 
 <img src="../images/getting-to-know-git/forked-repo.png" alt="Screenshot of GitHub forking a respository">
 
-From there you can clone the project into your workspace and make changes. Forking is most commonly used when developers want to submit bug fixes or additional code to an existing project by opening up a "pull request" for the project owner to *pull* the changes into the original product repository.
+From there you can clone the project into your workspace and make changes. Forking is most commonly used when developers want to submit bug fixes or additional code to an existing project by opening up a "pull request" for the project owner to *pull* the changes into the original product repository (more on that later).
 
 ##Committing
 All files in the working directory can be in one of two base states, **tracked** or **untracked**. Tracked files are the only files that can be committed to the repository because tracked files are files that have been added to the index (staging area) at some point in the lifetime of the repository.
@@ -183,6 +179,9 @@ Often times you will refactor and decide that you want to remove some files from
 ###Moving Files
 Likewise during a refactor you might decide to move a file to different location and you want Git to stop tracking that file from the old directory and start tracking it in the new one. You might think that Git automatically knows that a file has been moved and would update it's snapshot accordingly, but you'd be wrong. Moving files requires you to issue `git mv [from_path_to_file] [to_path_to_file]`, this is the same as running `git rm [path_to_file]` followed by `git add [path_to_file]`.
 
+###Stashing Files
+
+
 ##Logging
 There are many times during development that you will need to view a log of commits that have been made to a project over time. Git provides a powerful tool called `git log`. By default the logger will list the commits made in that repository in reverse chronological order with information about the commit. 
 
@@ -212,6 +211,54 @@ If you are searching for commits that contain a specific string inside a commit 
 There are a huge number of options available for `git log` that we didn't cover and if you'd like to learn more you can refer to the [official documentation](https://git-scm.com/docs/git-log).
 
 
+
+##Branches
+A branch is a tree structure of commits with pointers, all pointing backward to their ancestor, until reaching the initial commit. The main line from initial commit to current HEAD is called the **master** branch. 
+
+<figure>
+   <img src="../images/getting-to-know-git/basic-branching-master.png" alt="A simple commit history">
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>  
+</figure>
+<br>
+
+Branches take a snapshot of the current working directory and create a copy for you to make changes to without affecting the original branch snapshot. You can create branches at anytime from any point to start making changes to a snapshot of the starting point that you want to branch off of. You can create a new branch using `git branch [name_of_branch]`. Now you created the new branch but you are not yet pointing at it in your `HEAD`. When you want to switch branches you use `git checkout [name_of_branch]`.
+
+Before you can do that you should make sure that any files in your working directory are committed or stashed before trying to switch branches, best practice is to have a clean working directory when you switch branches. 
+
+Once you are in the new branch you can switch back and forth between the new branch and the master using the `git checkout master` alternately with `git checkout [name_of_branch]` . 
+
+<figure>
+   <img src="../images/getting-to-know-git/basic-branching-branch.png" alt="A commit history with a branch">
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>  
+</figure>
+<br>
+
+
+##Merging
+After you have made some changes to a branch and you want to move them back into the ancestor branch you should make sure the working directory is clean and checkout the ancestor branch folowed by `git merge [name_of_branch_to_merge]`. This will merge a snapshot of the branch back into the most the recent snapshot of your working directory, in this case its `master`. If your branch commit is not a direct ancestor of the latest commit on the branch you are merging into Git has to look backward to find the common ancestor commit.Git does the work of merging the snapshots to create a new snapshot of the two histories and makes a commit, this is referred to as a *merge commit*. 
+
+<figure>
+   <img src="../images/getting-to-know-git/basic-merging-2.png" alt="A commit history with a branch">
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>  
+</figure>
+<br>
+
+###Conflicts
+Hopefully you have a smooth ride merging two snapshots, but its likely that you will run into some merge conflicts. If some part of a file was changed in both the ancestor and the branch then Git won't be able to merge them cleanly. When that happens Git will stop the merging process and point out the  location of the conflict. You will need to resolve the conflicts, and then `git add [files]` back to the staging area to mark them as resolved and re-run the merge command. 
+
+Git provides tools and hooks for resolving merge conflicts which we are not covering but you can read more about them on the [official documentation on Advanced Merging](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging).
+
+##Fetching and Pulling
+If you are working on a branch and you would like to merge the contents of another another branch into your branch, for example you would like to update your branch with the latest from `master`, you can do a `git pull . master`, the `.` means that we are pulling from the local repository followed by the branch we want to merge.
+
+Fetching downloads objects from one or more repositories. When you issue a `git pull` Git calls `git fetch` in the background immediately followed by a `git merge`. 
+
+
+###Remote Repositories
+More than likely you will be working with a remote repository such as one hosted on GitHub, In this situation there is a good chance that the code on the remote has been updated beyond the point at which your `HEAD` is pointed at. In order to get the latest changes you would use `git pull [name_of_remote] [name_of_branch]` if you don't know the name of the remote repository you can use `git remote show` to show a list of remote branches, `origin` is the default.
+
+####Pushing
+When you want to share a branch with a remote repository you need to "push" it up to a remote using `git push [name_of_remote] [name_of_branch]` 
 
 
 
