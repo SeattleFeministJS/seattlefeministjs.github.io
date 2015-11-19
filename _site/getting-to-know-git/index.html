@@ -272,6 +272,7 @@
 <p>Likewise during a refactor you might decide to move a file to different location and you want Git to stop tracking that file from the old directory and start tracking it in the new one. You might think that Git automatically knows that a file has been moved and would update it’s snapshot accordingly, but you’d be wrong. Moving files requires you to issue <code>git mv [from_path_to_file] [to_path_to_file]</code>, this is the same as running <code>git rm [path_to_file]</code> followed by <code>git add [path_to_file]</code>.</p>
 
 <h3 id="stashing-files">Stashing Files</h3>
+<p>Often you will find yourself working on some files and for whatever reason you need to clean up your working directory and move the changes that you were working on out of the way, and return to the state of the last commit. That is what <code>git stash save [optional_name_of_stash]</code> command does. When you are ready to move those stashed files back into your working directory you can first run <code>git stash list</code> to see all available stashes that have been saved along with a stash id, something like <code>stash@{0}: On test: stashing</code>  where <code>{0}</code> is the id <code>On test</code> is the branch and <code>stashing</code> is the name of the saved stash. When you are ready you can issue  <code>git stash apply stash@{0}</code> to move the stashed files back into the working directory.</p>
 
 <h2 id="logging">Logging</h2>
 <p>There are many times during development that you will need to view a log of commits that have been made to a project over time. Git provides a powerful tool called <code>git log</code>. By default the logger will list the commits made in that repository in reverse chronological order with information about the commit. </p>
@@ -302,6 +303,37 @@ For example to <em>see all commits after August 1, 2015</em> you could issue <co
 <p>All of the available flags and options can be combined to get exactly what you want from the log, for example <em>all commits made by user “simplesthing” after August 1, 2015 with the word “fix” in the commit message formatted as the just abbreviated commit hash, the date and the message</em> would look like this <code>git log --author="simplesthing" --after=2015-08-01 --grep="fix" --pretty=format:"%h %ad %s"</code>.</p>
 
 <p>There are a huge number of options available for <code>git log</code> that we didn’t cover and if you’d like to learn more you can refer to the <a href="https://git-scm.com/docs/git-log">official documentation</a>.</p>
+
+<h2 id="diffing">Diffing</h2>
+<p>Diffing a file is when you compare the changes made between two versions of the same file or directory. There are many third party tools that can help visualize changes in way that easy to understand. I won’t go into specifics of any GUIs here but just know that diffing can be complex and the help of a visual tool can greatly improve accuracy when comparing files, I would suggest spending some time finding a tool of your liking. I use a simple tool called <a href="https://sourcegear.com/diffmerge/">DiffMerge</a>.</p>
+
+<p>That being said let’s look at the Git command <code>git diff</code>. There are three main types of <code>git diff</code> commands that you can use</p>
+
+<ol>
+  <li><code>git diff</code> Shows differences between your working directory and the index</li>
+  <li><code>git diff --cache</code> Shows differences between the index and the most recent commit</li>
+  <li><code>git diff HEAD</code> Show difference between your working directory and the most recent commit</li>
+</ol>
+
+<p>After issuing any of the above commands you will see a summary.</p>
+
+<ul>
+  <li>Compared files preceded by <code>a/</code> and <code>b/</code></li>
+  <li>Metadata of the two snapshot hashes that are being compared</li>
+  <li>Markers of <code>---</code> or <code>+++</code> for which output belongs to <em>a</em> or <em>b</em></li>
+  <li>Chunk Headers signify at which point in the file content changes</li>
+  <li>Changes that were made preceded by either <code>-</code> or <code>+</code> denoting if these changes are in <em>a</em> or <em>b</em></li>
+</ul>
+
+<figure>
+   <img src="../images/getting-to-know-git/example-diff.jpg" alt="A simple commit history" />
+    <figcaption>Source <a href="http://www.git-tower.com/learn/git/ebook/command-line/advanced-topics/diffs">http://www.git-tower.com/learn/git/ebook/command-line/advanced-topics/diffs</a></figcaption>  
+</figure>
+<p><br /></p>
+
+<p>In the example below my shell has a color scheme to highlight the changes with color coding where <code>a</code> is aqua blue and <code>b</code> is green and white is unchanged.</p>
+
+<p><img src="../images/getting-to-know-git/git-diff.png" alt="Git Diff results" /></p>
 
 <h2 id="branches">Branches</h2>
 <p>A branch is a tree structure of commits with pointers, all pointing backward to their ancestor, until reaching the initial commit. The main line from initial commit to current HEAD is called the <strong>master</strong> branch. </p>

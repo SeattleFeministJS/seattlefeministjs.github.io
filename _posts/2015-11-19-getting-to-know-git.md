@@ -180,6 +180,8 @@ Often times you will refactor and decide that you want to remove some files from
 Likewise during a refactor you might decide to move a file to different location and you want Git to stop tracking that file from the old directory and start tracking it in the new one. You might think that Git automatically knows that a file has been moved and would update it's snapshot accordingly, but you'd be wrong. Moving files requires you to issue `git mv [from_path_to_file] [to_path_to_file]`, this is the same as running `git rm [path_to_file]` followed by `git add [path_to_file]`.
 
 ###Stashing Files
+Often you will find yourself working on some files and for whatever reason you need to clean up your working directory and move the changes that you were working on out of the way, and return to the state of the last commit. That is what `git stash save [optional_name_of_stash]` command does. When you are ready to move those stashed files back into your working directory you can first run `git stash list` to see all available stashes that have been saved along with a stash id, something like `stash@{0}: On test: stashing`  where `{0}` is the id `On test` is the branch and `stashing` is the name of the saved stash. When you are ready you can issue  `git stash apply stash@{0}` to move the stashed files back into the working directory.
+
 
 
 ##Logging
@@ -210,6 +212,33 @@ If you are searching for commits that contain a specific string inside a commit 
 
 There are a huge number of options available for `git log` that we didn't cover and if you'd like to learn more you can refer to the [official documentation](https://git-scm.com/docs/git-log).
 
+
+##Diffing
+Diffing a file is when you compare the changes made between two versions of the same file or directory. There are many third party tools that can help visualize changes in way that easy to understand. I won't go into specifics of any GUIs here but just know that diffing can be complex and the help of a visual tool can greatly improve accuracy when comparing files, I would suggest spending some time finding a tool of your liking. I use a simple tool called [DiffMerge](https://sourcegear.com/diffmerge/).
+
+That being said let's look at the Git command `git diff`. There are three main types of `git diff` commands that you can use
+
+1. `git diff` Shows differences between your working directory and the index
+2. `git diff --cache` Shows differences between the index and the most recent commit
+3. `git diff HEAD` Show difference between your working directory and the most recent commit
+
+After issuing any of the above commands you will see a summary.
+
+- Compared files preceded by `a/` and `b/`
+- Metadata of the two snapshot hashes that are being compared
+- Markers of `---` or `+++` for which output belongs to *a* or *b*
+- Chunk Headers signify at which point in the file content changes
+- Changes that were made preceded by either `-` or `+` denoting if these changes are in *a* or *b*
+
+<figure>
+   <img src="../images/getting-to-know-git/example-diff.jpg" alt="A simple commit history">
+    <figcaption>Source <a href="http://www.git-tower.com/learn/git/ebook/command-line/advanced-topics/diffs">http://www.git-tower.com/learn/git/ebook/command-line/advanced-topics/diffs</a></figcaption>  
+</figure>
+<br>
+
+In the example below my shell has a color scheme to highlight the changes with color coding where `a` is aqua blue and `b` is green and white is unchanged.
+
+<img src="../images/getting-to-know-git/git-diff.png" alt="Git Diff results">
 
 
 ##Branches
