@@ -286,8 +286,30 @@ After you have made some changes to a branch and you want to move them back into
 </figure>
 <br>
 
-###Conflicts
+
+##Rebasing
+There is another way of to apply a patch of code between two branches called *rebasing*. With rebasing you can take all the changes that were committed on one branch and replay them on another branch. Instead of starting by checking out the destination branch, you instead checkout the branch you would like to rebase, `git checkout my-branch` and then  issue the rebase command followed by the branch name that you are applying changes to `git rebase [destination_branch]`.  It works similarly to merge in that it finds the common ancestor and applies the changes forward.
+
+<figure>
+   <img src="../images/getting-to-know-git/basic-rebase-2.png" alt="A commit history with a branch">
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">https://git-scm.com/book/en/v2/Git-Branching-Rebasing</a></figcaption>  
+</figure>
+<br>
+
+It differs in that it saves the changes to temporary files that are used to reset the destination branch to the same commit as the branch you are rebasing onto and finally applying each change in turn until all changes are applied. This method is sometime preferable to maintain a clean commit history as it does not add an additional merge commit to the history.
+
+<figure>
+   <img src="../images/getting-to-know-git/basic-rebase-3.png" alt="A commit history with a branch">
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">https://git-scm.com/book/en/v2/Git-Branching-Rebasing</a></figcaption>  
+</figure>
+<br>
+
+
+
+##Conflicts
 Hopefully you have a smooth ride merging two snapshots, but its likely that you will run into some merge conflicts. If some part of a file was changed in both the ancestor and the branch then Git won't be able to merge them cleanly. When that happens Git will stop the merging process and point out the  location of the conflict. You will need to resolve the conflicts, and then `git add [files]` back to the staging area to mark them as resolved and re-run the merge command. 
+
+
 
 Git provides tools and hooks for resolving merge conflicts which we are not covering but you can read more about them on the [official documentation on Advanced Merging](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging).
 
@@ -302,6 +324,11 @@ More than likely you will be working with a remote repository such as one hosted
 
 ####Pushing
 When you want to share a branch with a remote repository you need to "push" it up to a remote using `git push [name_of_remote] [name_of_branch]` 
+
+##Tags
+Tags are used to mark a point in the repository history, hence pointing to a specific commit. Tags cannot be committed to or changed, they will always point to the same commit in history. There are two types of tags, **lightweight** and **annotated**.
+
+A lightweight tag is just a pointer to a specific commit. Annotated tags are stored as objects and contain the tagger name, email, the date and a tagging message and can be signed and verified. It's recommended to use annotated tags so you have all of that information included. Creating an annotated tag is simple `git tag -a v0.1 -m "Initial Version"`. If you want to see a list of tags, and verify that you have made your tag, use `git tag` and if you want to inspect what is included in the tag use `git show [tag_name]`.
 
 
 
