@@ -215,7 +215,7 @@
 
 <p><img src="../images/getting-to-know-git/forked-repo.png" alt="Screenshot of GitHub forking a respository" /></p>
 
-<p>From there you can clone the project into your workspace and make changes. Forking is most commonly used when developers want to submit bug fixes or additional code to an existing project by opening up a “pull request” for the project owner to <em>pull</em> the changes into the original product repository.</p>
+<p>From there you can clone the project into your workspace and make changes. Forking is most commonly used when developers want to submit bug fixes or additional code to an existing project by opening up a “pull request” for the project owner to <em>pull</em> the changes into the original product repository (more on that later).</p>
 
 <h2 id="committing">Committing</h2>
 <p>All files in the working directory can be in one of two base states, <strong>tracked</strong> or <strong>untracked</strong>. Tracked files are the only files that can be committed to the repository because tracked files are files that have been added to the index (staging area) at some point in the lifetime of the repository.</p>
@@ -271,6 +271,9 @@
 <h3 id="moving-files">Moving Files</h3>
 <p>Likewise during a refactor you might decide to move a file to different location and you want Git to stop tracking that file from the old directory and start tracking it in the new one. You might think that Git automatically knows that a file has been moved and would update it’s snapshot accordingly, but you’d be wrong. Moving files requires you to issue <code>git mv [from_path_to_file] [to_path_to_file]</code>, this is the same as running <code>git rm [path_to_file]</code> followed by <code>git add [path_to_file]</code>.</p>
 
+<h3 id="stashing-files">Stashing Files</h3>
+<p>Often you will find yourself working on some files and for whatever reason you need to clean up your working directory and move the changes that you were working on out of the way, and return to the state of the last commit. That is what <code>git stash save [optional_name_of_stash]</code> command does. When you are ready to move those stashed files back into your working directory you can first run <code>git stash list</code> to see all available stashes that have been saved along with a stash id, something like <code>stash@{0}: On test: stashing</code>  where <code>{0}</code> is the id <code>On test</code> is the branch and <code>stashing</code> is the name of the saved stash. When you are ready you can issue  <code>git stash apply stash@{0}</code> to move the stashed files back into the working directory.</p>
+
 <h2 id="logging">Logging</h2>
 <p>There are many times during development that you will need to view a log of commits that have been made to a project over time. Git provides a powerful tool called <code>git log</code>. By default the logger will list the commits made in that repository in reverse chronological order with information about the commit. </p>
 
@@ -315,6 +318,83 @@ For example to <em>see all commits after August 1, 2015</em> you could issue <co
     <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>  
 </figure>
 <p><br /></p>
+
+<h2 id="diffing">Diffing</h2>
+<p>Diffing a file is when you compare the changes made between two versions of the same file or directory. There are many third party tools that can help visualize changes in way that easy to understand. I won’t go into specifics of any GUIs here but just know that diffing can be complex and the help of a visual tool can greatly improve accuracy when comparing files, I would suggest spending some time finding a tool of your liking. I use a simple tool called <a href="https://sourcegear.com/diffmerge/">DiffMerge</a>.</p>
+
+<p>That being said let’s look at the Git command <code>git diff</code>. There are three main types of <code>git diff</code> commands that you can use</p>
+
+<ol>
+  <li><code>git diff</code> Shows differences between your working directory and the index</li>
+  <li><code>git diff --cache</code> Shows differences between the index and the most recent commit</li>
+  <li><code>git diff HEAD</code> Show difference between your working directory and the most recent commit</li>
+</ol>
+
+<p>After issuing any of the above commands you will see a summary.</p>
+
+<ul>
+  <li>Compared files preceded by <code>a/</code> and <code>b/</code></li>
+  <li>Metadata of the two snapshot hashes that are being compared</li>
+  <li>Markers of <code>---</code> or <code>+++</code> for which output belongs to <em>a</em> or <em>b</em></li>
+  <li>Chunk Headers signify at which point in the file content changes</li>
+  <li>Changes that were made preceded by either <code>-</code> or <code>+</code> denoting if these changes are in <em>a</em> or <em>b</em></li>
+</ul>
+
+<figure>
+   <img src="../images/getting-to-know-git/example-diff.jpg" alt="A simple commit history" />
+    <figcaption>Source <a href="http://www.git-tower.com/learn/git/ebook/command-line/advanced-topics/diffs">http://www.git-tower.com/learn/git/ebook/command-line/advanced-topics/diffs</a></figcaption>  
+</figure>
+<p><br /></p>
+
+<p>In the example below my shell has a color scheme to highlight the changes with color coding where <code>a</code> is aqua blue and <code>b</code> is green and white is unchanged.</p>
+
+<p><img src="../images/getting-to-know-git/git-diff.png" alt="Git Diff results" /></p>
+
+<h2 id="branches-1">Branches</h2>
+<p>A branch is a tree structure of commits with pointers, all pointing backward to their ancestor, until reaching the initial commit. The main line from initial commit to current HEAD is called the <strong>master</strong> branch. </p>
+
+<figure>
+   <img src="../images/getting-to-know-git/basic-branching-master.png" alt="A simple commit history" />
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>  
+</figure>
+<p><br /></p>
+
+<p>Branches take a snapshot of the current working directory and create a copy for you to make changes to without affecting the original branch snapshot. You can create branches at anytime from any point to start making changes to a snapshot of the starting point that you want to branch off of. You can create a new branch using <code>git branch [name_of_branch]</code>. Now you created the new branch but you are not yet pointing at it in your <code>HEAD</code>. When you want to switch branches you use <code>git checkout [name_of_branch]</code>.</p>
+
+<p>Before you can do that you should make sure that any files in your working directory are committed or stashed before trying to switch branches, best practice is to have a clean working directory when you switch branches. </p>
+
+<p>Once you are in the new branch you can switch back and forth between the new branch and the master using the <code>git checkout master</code> alternately with <code>git checkout [name_of_branch]</code> . </p>
+
+<figure>
+   <img src="../images/getting-to-know-git/basic-branching-branch.png" alt="A commit history with a branch" />
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>  
+</figure>
+<p><br /></p>
+
+<h2 id="merging">Merging</h2>
+<p>After you have made some changes to a branch and you want to move them back into the ancestor branch you should make sure the working directory is clean and checkout the ancestor branch folowed by <code>git merge [name_of_branch_to_merge]</code>. This will merge a snapshot of the branch back into the most the recent snapshot of your working directory, in this case its <code>master</code>. If your branch commit is not a direct ancestor of the latest commit on the branch you are merging into Git has to look backward to find the common ancestor commit.Git does the work of merging the snapshots to create a new snapshot of the two histories and makes a commit, this is referred to as a <em>merge commit</em>. </p>
+
+<figure>
+   <img src="../images/getting-to-know-git/basic-merging-2.png" alt="A commit history with a branch" />
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>  
+</figure>
+<p><br /></p>
+
+<h3 id="conflicts">Conflicts</h3>
+<p>Hopefully you have a smooth ride merging two snapshots, but its likely that you will run into some merge conflicts. If some part of a file was changed in both the ancestor and the branch then Git won’t be able to merge them cleanly. When that happens Git will stop the merging process and point out the  location of the conflict. You will need to resolve the conflicts, and then <code>git add [files]</code> back to the staging area to mark them as resolved and re-run the merge command. </p>
+
+<p>Git provides tools and hooks for resolving merge conflicts which we are not covering but you can read more about them on the <a href="https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging">official documentation on Advanced Merging</a>.</p>
+
+<h2 id="fetching-and-pulling">Fetching and Pulling</h2>
+<p>If you are working on a branch and you would like to merge the contents of another another branch into your branch, for example you would like to update your branch with the latest from <code>master</code>, you can do a <code>git pull . master</code>, the <code>.</code> means that we are pulling from the local repository followed by the branch we want to merge.</p>
+
+<p>Fetching downloads objects from one or more repositories. When you issue a <code>git pull</code> Git calls <code>git fetch</code> in the background immediately followed by a <code>git merge</code>. </p>
+
+<h3 id="remote-repositories">Remote Repositories</h3>
+<p>More than likely you will be working with a remote repository such as one hosted on GitHub, In this situation there is a good chance that the code on the remote has been updated beyond the point at which your <code>HEAD</code> is pointed at. In order to get the latest changes you would use <code>git pull [name_of_remote] [name_of_branch]</code> if you don’t know the name of the remote repository you can use <code>git remote show</code> to show a list of remote branches, <code>origin</code> is the default.</p>
+
+<h4 id="pushing">Pushing</h4>
+<p>When you want to share a branch with a remote repository you need to “push” it up to a remote using <code>git push [name_of_remote] [name_of_branch]</code> </p>
 
 
 </div>
