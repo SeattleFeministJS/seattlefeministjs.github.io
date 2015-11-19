@@ -141,7 +141,7 @@ Untracked files are files that have never been added to the index (staging area)
 <br>
 
 ###Status
-If you'd like to see that state in which your working directory is at any time you can issue `git status` to see if you have untracked files and/or tracked files with changes waiting to be added to the staging area and committed.
+If you'd like to see that state in which your working directory is at any time you can issue `git status` to see if you have untracked files and/or tracked files with changes waiting to be added to the staging area and committed. I would suggest making `git status` your reflexive first command to issue whenever manipulating files to check the branch you are working and the number changes or untracked files in your working directory.
 
 ###Adding Files
 Regardless whether files are tracked or untracked all files must first be added to the staging area before committing using the command `git add [path_to_file] [flag]`. You can add individual files by path, in reference to the root of the project, such as `git add /Users/avac/myRepo/index.html` or if you wanted to add all files, tracked or untracked, at once you can skip the path and just use  the flag for all files `git add --all`.
@@ -329,6 +329,10 @@ When you want to share a branch with a remote repository you need to "push" it u
 Tags are used to mark a point in the repository history, hence pointing to a specific commit. Tags cannot be committed to or changed, they will always point to the same commit in history. There are two types of tags, **lightweight** and **annotated**.
 
 A lightweight tag is just a pointer to a specific commit. Annotated tags are stored as objects and contain the tagger name, email, the date and a tagging message and can be signed and verified. It's recommended to use annotated tags so you have all of that information included. Creating an annotated tag is simple `git tag -a v0.1 -m "Initial Version"`. If you want to see a list of tags, and verify that you have made your tag, use `git tag` and if you want to inspect what is included in the tag use `git show [tag_name]`.
+
+
+##GitHub Pages
+GitHub pages are free public web pages hosted by GitHub. These pages are hosted over HTTP so do not host anything with sensitive data there. There two main types of pages, *User or company pages* and *project or repository pages*. Since GitHub has done such a great job at documenting how-to create these pages there's no use in trying to do better and I'll link to their instruction page [here](https://pages.github.com/).
 
 
 

@@ -231,7 +231,7 @@
 <p><br /></p>
 
 <h3 id="status">Status</h3>
-<p>If you’d like to see that state in which your working directory is at any time you can issue <code>git status</code> to see if you have untracked files and/or tracked files with changes waiting to be added to the staging area and committed.</p>
+<p>If you’d like to see that state in which your working directory is at any time you can issue <code>git status</code> to see if you have untracked files and/or tracked files with changes waiting to be added to the staging area and committed. I would suggest making <code>git status</code> your reflexive first command to issue whenever manipulating files to check the branch you are working and the number changes or untracked files in your working directory.</p>
 
 <h3 id="adding-files">Adding Files</h3>
 <p>Regardless whether files are tracked or untracked all files must first be added to the staging area before committing using the command <code>git add [path_to_file] [flag]</code>. You can add individual files by path, in reference to the root of the project, such as <code>git add /Users/avac/myRepo/index.html</code> or if you wanted to add all files, tracked or untracked, at once you can skip the path and just use  the flag for all files <code>git add --all</code>.</p>
@@ -417,6 +417,9 @@ For example to <em>see all commits after August 1, 2015</em> you could issue <co
 <p>Tags are used to mark a point in the repository history, hence pointing to a specific commit. Tags cannot be committed to or changed, they will always point to the same commit in history. There are two types of tags, <strong>lightweight</strong> and <strong>annotated</strong>.</p>
 
 <p>A lightweight tag is just a pointer to a specific commit. Annotated tags are stored as objects and contain the tagger name, email, the date and a tagging message and can be signed and verified. It’s recommended to use annotated tags so you have all of that information included. Creating an annotated tag is simple <code>git tag -a v0.1 -m "Initial Version"</code>. If you want to see a list of tags, and verify that you have made your tag, use <code>git tag</code> and if you want to inspect what is included in the tag use <code>git show [tag_name]</code>.</p>
+
+<h2 id="github-pages">GitHub Pages</h2>
+<p>GitHub pages are free public web pages hosted by GitHub. These pages are hosted over HTTP so do not host anything with sensitive data there. There two main types of pages, <em>User or company pages</em> and <em>project or repository pages</em>. Since GitHub has done such a great job at documenting how-to create these pages there’s no use in trying to do better and I’ll link to their instruction page <a href="https://pages.github.com/">here</a>.</p>
 
 
 </div>
