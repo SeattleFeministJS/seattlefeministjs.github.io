@@ -23,12 +23,12 @@ Built with:
  - Currently in version 1.2, version 2 is in Beta that will follow the official release of Angular 2
 
 ## "Are Hybrid Apps Really a Thing?"
- - Yes! You can build fully-functioning apps, that resemble native apps with javascript
+ - Yes! You can build fully-functioning apps that resemble native apps with javascript
  - The Ionic Team continually works on the suite of tools to make development easier and allow you to build apps that function just as well as a native app.
     - Well documented
-    - Ionic forum is well-managed, monitored for bugs ideas for improvement
-    - With MyNeighbor, Our first iterations were built with Ionic pre version 1. We saw improvements in the set of tools as we were working...
- - We saw some loss of "Slickness" in the app vs a native app, but saw improvements as updates to Ionic were released
+    - Ionic forum is well-managed, monitored for bugs and ideas for improvement
+    - With MyNeighbor, Our first iterations were built with Ionic pre version 1. We saw improvements in the set of tools as we were working.
+ - We saw some loss of "slickness" in the app vs a native app, but saw improvements as updates to Ionic were released
  - iOS is definitely easier/more consistent than android (mostly due to inconsistencies in hardware)
  - Definitely a great tool for producing apps cheaply and quick, especially a no-brainer for:
      + Internal Tools
@@ -109,9 +109,9 @@ Inspect the app by opening Chrome on your computer and entering `chrome://inspec
  - [Ionic Lab](http://lab.ionic.io/)
      - If you prefer GUI over CLI
 
-
 ## Good Things to Know
- - The Ionic CLI tools are relatively new, and have some kinks. Testing on a device is flaky. Most of the time you can get away with livereload/web browser view. But when you need to work on a feature involving the phone features like camera, this can be real frustrating. One alternative is [AppGyver Steroids](http://www.appgyver.io/steroids) - which has its own separate quirks, but pretty solid for dev/test workflow
+ - The Ionic CLI tools are relatively new, and have some kinks. Testing on a device can be flaky. Most of the time you can get away with livereload/web browser view. But when you need to work on a feature involving the phone features like camera, this can be real frustrating.  
+ If its a real problem, one alternative is [AppGyver Steroids](http://www.appgyver.io/steroids) - to handle the building/previewing/deploying. This has its own separate quirks, but pretty solid for dev/test workflow
  - Take the time to understand what is available to you with with the framework. If it feels like you are fighting the framework, you may want to rethink your strategy. Build with the basics first and then embellish as the design requires
      + What is the Ionic Way?
      + What is the Angular Way?

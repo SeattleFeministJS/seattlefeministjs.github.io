@@ -112,7 +112,7 @@ Welcome to the first meetup topic Environment Setup. The following post will out
 
 <p>For installing EditorConfig with SublimeText3 you have to use the Package Manager which is a plugin for SublimeText3 that needs to be installed separately, <a href="https://packagecontrol.io/installation" target="_blank">instructions on how to install here</a>. Once you have Package Manager installed you can add packages to customize SublimeText3 to suite your development style.</p>
 
-<p>Package Control is driven by the Command Palette, to open the palette, press <code>cmd+shift+p</code>.  A drop down should appear start typing “Package Control: Install Package” until the menu option appears, select it and hit enter. A new drop down will appear then type in the name of the package you would like to install, in this case type ‘EditorConfig’, select it and hit enter. You can see the package install progress in the bottom left corner of SublimeText. When it has finished you must restart SublimeText for it to be activated.</p>
+<p>Package Control is driven by the Command Palette, to open the palette, press <code class="highlighter-rouge">cmd+shift+p</code>.  A drop down should appear start typing “Package Control: Install Package” until the menu option appears, select it and hit enter. A new drop down will appear then type in the name of the package you would like to install, in this case type ‘EditorConfig’, select it and hit enter. You can see the package install progress in the bottom left corner of SublimeText. When it has finished you must restart SublimeText for it to be activated.</p>
 
 <p>There are lots of great packages for SublimeText that you can install to customize your environment, none of them are required but there are a few that I use and recommend below.</p>
 
@@ -143,9 +143,9 @@ Welcome to the first meetup topic Environment Setup. The following post will out
 
 <p>Now that you have Git installed let’s go git some code.</p>
 
-<p>Open the Terminal Application and type <code>pwd</code> and hit enter to “print working directory” and tell you where your command line is operating from inside your system files. Hopefully you are in your User home directory, <code>/Users/&lt;username&gt;</code>, if not you can “change directory” by typing <code>cd "${HOME}"</code> and hit enter.</p>
+<p>Open the Terminal Application and type <code class="highlighter-rouge">pwd</code> and hit enter to “print working directory” and tell you where your command line is operating from inside your system files. Hopefully you are in your User home directory, <code class="highlighter-rouge">/Users/&lt;username&gt;</code>, if not you can “change directory” by typing <code class="highlighter-rouge">cd "${HOME}"</code> and hit enter.</p>
 
-<p>Type <code>git clone https://github.com/SeattleLadiesJS/Environment-Setup.git</code> and hit enter. If everything is setup correctly you should now see a new folder created in your User home called “Environment-Setup” which includes the code files that we will be using for our Environment Setup</p>
+<p>Type <code class="highlighter-rouge">git clone https://github.com/SeattleLadiesJS/Environment-Setup.git</code> and hit enter. If everything is setup correctly you should now see a new folder created in your User home called “Environment-Setup” which includes the code files that we will be using for our Environment Setup</p>
 
 <p>*Note For meetup we will be forking this repository into your own git repository which means that you’ll need to have a github account, be sure to have signed up for your own account at <a href="https://github.com/" target="_blank">github.com</a> before the meetup if you don’t already have an one.</p>
 
@@ -153,14 +153,14 @@ Welcome to the first meetup topic Environment Setup. The following post will out
 
 <p>Last step to getting our Environment running is to install Node.js, which is a runtime environment for JavaScript. If you’re not familiar with Node.js I would suggest watching <a href="https://www.youtube.com/watch?v=pU9Q6oiQNd0" target="_blank">What is Node.js Exactly? - a beginners introduction to Nodejs</a>.</p>
 
-<p>You can install Node by downloading a <code>.dmg</code> installer but there is a better way, on Mac we can use <a href="http://computers.tutsplus.com/tutorials/homebrew-demystified-os-xs-ultimate-package-manager--mac-44884" target="_blank">HomeBrew Package Manager</a> to manage our node and npm installs and there are two main reasons why:</p>
+<p>You can install Node by downloading a <code class="highlighter-rouge">.dmg</code> installer but there is a better way, on Mac we can use <a href="http://computers.tutsplus.com/tutorials/homebrew-demystified-os-xs-ultimate-package-manager--mac-44884" target="_blank">HomeBrew Package Manager</a> to manage our node and npm installs and there are two main reasons why:</p>
 
 <ol>
-  <li>It makes setting up your system permissions easier, you don’t have to use <code>sudo</code> to run npm because Homebrew will place packages in areas that it can access to execute.</li>
+  <li>It makes setting up your system permissions easier, you don’t have to use <code class="highlighter-rouge">sudo</code> to run npm because Homebrew will place packages in areas that it can access to execute.</li>
   <li>It makes updates and uninstalling very easy compared to manually searching through your file system to delete files.</li>
 </ol>
 
-<p>If you already have Node on your Mac and you are having issues with permissions and are having to use <code>sudo</code> when installing and running some packages you may want to delete your old install of Node and follow along with Homebrew Instructions below. <a href="/notes/how-to-remove-node-from-mac.html">How to delete your old install of Node</a>.</p>
+<p>If you already have Node on your Mac and you are having issues with permissions and are having to use <code class="highlighter-rouge">sudo</code> when installing and running some packages you may want to delete your old install of Node and follow along with Homebrew Instructions below. <a href="/notes/how-to-remove-node-from-mac.html">How to delete your old install of Node</a>.</p>
 
 <p>Go to <a href="http://brew.sh/" target="_blank">Homebrew homepage</a> and copy the line of ruby code below the title “Install Homebrew” and paste that into your Terminal and hit enter to install.</p>
 
@@ -172,67 +172,67 @@ Welcome to the first meetup topic Environment Setup. The following post will out
   <li>
     <p>This adds node, sans npm</p>
 
-    <p><code>brew install node --without-npm</code></p>
+    <p><code class="highlighter-rouge">brew install node --without-npm</code></p>
   </li>
   <li>
-    <p>Create a directory for your global packages. I prefer to name my folder <code>.npm-packages</code>, you can choose what you want as long as you replace it throughout these steps. The <code>${HOME}</code> is a variable that translates to <code>~/</code> or <code>/Users/john/</code> for me.</p>
+    <p>Create a directory for your global packages. I prefer to name my folder <code class="highlighter-rouge">.npm-packages</code>, you can choose what you want as long as you replace it throughout these steps. The <code class="highlighter-rouge">${HOME}</code> is a variable that translates to <code class="highlighter-rouge">~/</code> or <code class="highlighter-rouge">/Users/john/</code> for me.</p>
 
-    <p><code>mkdir "${HOME}/.npm-packages"</code></p>
+    <p><code class="highlighter-rouge">mkdir "${HOME}/.npm-packages"</code></p>
   </li>
   <li>
-    <p>Reference this directory for future usage in your <code>.bashrc</code> file. The <code>echo</code> command helps write the statement. The <code>&gt;&gt;</code> tells it where to write it which is followed by the file to write it to.</p>
+    <p>Reference this directory for future usage in your <code class="highlighter-rouge">.bashrc</code> file. The <code class="highlighter-rouge">echo</code> command helps write the statement. The <code class="highlighter-rouge">&gt;&gt;</code> tells it where to write it which is followed by the file to write it to.</p>
 
-    <p><code>echo NPM_PACKAGES="${HOME}/.npm-packages" &gt;&gt; ${HOME}/.bashrc</code></p>
+    <p><code class="highlighter-rouge">echo NPM_PACKAGES="${HOME}/.npm-packages" &gt;&gt; ${HOME}/.bashrc</code></p>
   </li>
   <li>
-    <p>Indicate to npm where to store your globally installed package, in your <code>~/.npmrc</code> file.</p>
+    <p>Indicate to npm where to store your globally installed package, in your <code class="highlighter-rouge">~/.npmrc</code> file.</p>
 
-    <p><code>echo prefix=${HOME}/.npm-packages &gt;&gt; ${HOME}/.npmrc</code></p>
+    <p><code class="highlighter-rouge">echo prefix=${HOME}/.npm-packages &gt;&gt; ${HOME}/.npmrc</code></p>
   </li>
   <li>
     <p>This gets and installs the latest npm, which is 2.1.16 at the time of this writing.</p>
 
-    <p><code>curl -L https://www.npmjs.org/install.sh | sh</code></p>
+    <p><code class="highlighter-rouge">curl -L https://www.npmjs.org/install.sh | sh</code></p>
   </li>
   <li>
-    <p>Ensure node will find the packages by adding the path to your <code>.bashrc</code>. Notice the escape characters before special characters.</p>
+    <p>Ensure node will find the packages by adding the path to your <code class="highlighter-rouge">.bashrc</code>. Notice the escape characters before special characters.</p>
 
-    <p><code>echo NODE_PATH=\"\$NPM_PACKAGES/lib/node_modules\:\$NODE_PATH\" &gt;&gt; ${HOME}/.bashrc</code></p>
+    <p><code class="highlighter-rouge">echo NODE_PATH=\"\$NPM_PACKAGES/lib/node_modules\:\$NODE_PATH\" &gt;&gt; ${HOME}/.bashrc</code></p>
   </li>
   <li>
-    <p>Ensure you’ll find installed binaries by adding the following to your <code>.bashrc</code>.</p>
+    <p>Ensure you’ll find installed binaries by adding the following to your <code class="highlighter-rouge">.bashrc</code>.</p>
 
-    <p><code>echo PATH=\"\$NPM_PACKAGES/bin\:\$PATH\" &gt;&gt; ${HOME}/.bashrc</code></p>
+    <p><code class="highlighter-rouge">echo PATH=\"\$NPM_PACKAGES/bin\:\$PATH\" &gt;&gt; ${HOME}/.bashrc</code></p>
   </li>
   <li>
-    <p>Ensure that you source your <code>.bashrc</code> file by adding the following to your</p>
+    <p>Ensure that you source your <code class="highlighter-rouge">.bashrc</code> file by adding the following to your</p>
 
-    <p><code>.bash_profile</code>.<code>echo source "~/.bashrc" &gt;&gt; ${HOME}/.bash_profile</code></p>
+    <p><code class="highlighter-rouge">.bash_profile</code>.<code class="highlighter-rouge">echo source "~/.bashrc" &gt;&gt; ${HOME}/.bash_profile</code></p>
   </li>
   <li>
-    <p><a href="http://tldp.org/HOWTO/Bash-Prompt-HOWTO/x237.html" target="_blank">Source</a> your <code>.bashrc</code> file once. Previous step did this for the future, but this does it right away.</p>
+    <p><a href="http://tldp.org/HOWTO/Bash-Prompt-HOWTO/x237.html" target="_blank">Source</a> your <code class="highlighter-rouge">.bashrc</code> file once. Previous step did this for the future, but this does it right away.</p>
 
-    <p><code>echo source "~/.bashrc" &gt;&gt; ${HOME}/.bash_profile</code></p>
+    <p><code class="highlighter-rouge">echo source "~/.bashrc" &gt;&gt; ${HOME}/.bash_profile</code></p>
   </li>
 </ol>
 
-<p>Let’s test to make sure we have everything installed correctly. In Terminal type <code>node -v</code> hit enter, you should see v0.12.4 the current version of Node.js. Now let’s test that you have Node’s package manager installed as well by typing <code>npm -v</code> and hit enter you should see 2.10.1.</p>
+<p>Let’s test to make sure we have everything installed correctly. In Terminal type <code class="highlighter-rouge">node -v</code> hit enter, you should see v0.12.4 the current version of Node.js. Now let’s test that you have Node’s package manager installed as well by typing <code class="highlighter-rouge">npm -v</code> and hit enter you should see 2.10.1.</p>
 
 <p>Before we an run our Environment Setup project we need to get a couple of frontend tools installed, <a href="http://gulpjs.com/" target="_blank">gulp</a> and <a href="http://bower.io/" target="_blank">bower</a>.</p>
 
-<p>Type <code>npm install -g gulp bower</code> in the Terminal and hit enter.</p>
+<p>Type <code class="highlighter-rouge">npm install -g gulp bower</code> in the Terminal and hit enter.</p>
 
 <p>Almost ready to run our project, we still have a few more things to install.</p>
 
-<p>Type <code>cd "${HOME}/Environment-Setup"</code> and hit enter</p>
+<p>Type <code class="highlighter-rouge">cd "${HOME}/Environment-Setup"</code> and hit enter</p>
 
 <p>Now we can install all the required modules we’ll need from NPM and Git:</p>
 
-<p>Type <code>npm install</code> and hit enter</p>
+<p>Type <code class="highlighter-rouge">npm install</code> and hit enter</p>
 
-<p>Type <code>bower install</code> and hit enter.</p>
+<p>Type <code class="highlighter-rouge">bower install</code> and hit enter.</p>
 
-<p>Lastly type <code>gulp</code> and hit enter, you should see output which is similar to a help menu for command line which lists the config file for the project followed by Main Tasks and Sub Tasks.</p>
+<p>Lastly type <code class="highlighter-rouge">gulp</code> and hit enter, you should see output which is similar to a help menu for command line which lists the config file for the project followed by Main Tasks and Sub Tasks.</p>
 
 <p>##Conclusion</p>
 

@@ -119,15 +119,15 @@ Built with:</p>
 
 <h2 id="are-hybrid-apps-really-a-thing">“Are Hybrid Apps Really a Thing?”</h2>
 <ul>
-  <li>Yes! You can build fully-functioning apps, that resemble native apps with javascript</li>
+  <li>Yes! You can build fully-functioning apps that resemble native apps with javascript</li>
   <li>The Ionic Team continually works on the suite of tools to make development easier and allow you to build apps that function just as well as a native app.
     <ul>
       <li>Well documented</li>
-      <li>Ionic forum is well-managed, monitored for bugs ideas for improvement</li>
-      <li>With MyNeighbor, Our first iterations were built with Ionic pre version 1. We saw improvements in the set of tools as we were working…</li>
+      <li>Ionic forum is well-managed, monitored for bugs and ideas for improvement</li>
+      <li>With MyNeighbor, Our first iterations were built with Ionic pre version 1. We saw improvements in the set of tools as we were working.</li>
     </ul>
   </li>
-  <li>We saw some loss of “Slickness” in the app vs a native app, but saw improvements as updates to Ionic were released</li>
+  <li>We saw some loss of “slickness” in the app vs a native app, but saw improvements as updates to Ionic were released</li>
   <li>iOS is definitely easier/more consistent than android (mostly due to inconsistencies in hardware)</li>
   <li>Definitely a great tool for producing apps cheaply and quick, especially a no-brainer for:
     <ul>
@@ -146,23 +146,23 @@ Built with:</p>
     <ul>
       <li><a href="https://nodejs.org/en/download/">Requires node</a></li>
       <li>Install latest npm
- <code>$ sudo npm install npm -g</code></li>
+ <code class="highlighter-rouge">$ sudo npm install npm -g</code></li>
       <li>install ionic and cordova
- <code>$ npm install -g ionic cordova</code></li>
+ <code class="highlighter-rouge">$ npm install -g ionic cordova</code></li>
     </ul>
   </li>
   <li>
     <p>Start a project
-<code>$ ionic start myApp tabs</code></p>
+<code class="highlighter-rouge">$ ionic start myApp tabs</code></p>
   </li>
   <li>Run the project<br />
-<code>$ cd myApp</code><br />
-<code>$ ionic serve</code> - preview in browser<br />
-<code>$ ionic serve --lab</code> -preview android/ios side-by-side (not an emulator, but can view differences in styling)</li>
+<code class="highlighter-rouge">$ cd myApp</code><br />
+<code class="highlighter-rouge">$ ionic serve</code> - preview in browser<br />
+<code class="highlighter-rouge">$ ionic serve --lab</code> -preview android/ios side-by-side (not an emulator, but can view differences in styling)</li>
 </ol>
 
 <h3 id="preview-on-device-or-emulator---ios">Preview on Device or Emulator - IOS</h3>
-<p><code>$ cordova platform add ios</code> - just have to to do this once</p>
+<p><code class="highlighter-rouge">$ cordova platform add ios</code> - just have to to do this once</p>
 
 <h4 id="view-on-device---requires-an-xcode-7-and-ios-9">View on device - requires an xcode 7+ and iOS 9</h4>
 <ol>
@@ -173,27 +173,27 @@ Built with:</p>
   <li>An error will pop-up, click ‘Fix This’ - to authenticate your phone to use your app - <a href="http://stackoverflow.com/a/33928777/3681880">more details</a></li>
 </ol>
 
-<p><code>$ ionic run ios --device --livereload</code> - to preview on phone<br />
-<code>$ ionic emulate ios</code> - opens the emulator (requires ios-sim &amp; xcode)</p>
+<p><code class="highlighter-rouge">$ ionic run ios --device --livereload</code> - to preview on phone<br />
+<code class="highlighter-rouge">$ ionic emulate ios</code> - opens the emulator (requires ios-sim &amp; xcode)</p>
 
 <h4 id="debug-ios">Debug iOS</h4>
 <p>Safari &gt; Preferences &gt; Advanced - check show Develop Menu, when plugged in, your phone should show up</p>
 
 <h3 id="preview-on-device-or-emulator---android">Preview on Device or Emulator - Android</h3>
-<p><code>$ cordova platform add android</code> - just have to to do this once</p>
+<p><code class="highlighter-rouge">$ cordova platform add android</code> - just have to to do this once</p>
 
-<p><code>$ ionic run android</code> - if your phone is connected, you can simply preview it there</p>
+<p><code class="highlighter-rouge">$ ionic run android</code> - if your phone is connected, you can simply preview it there</p>
 
 <h4 id="debug-android">Debug Android</h4>
-<p>Inspect the app by opening Chrome on your computer and entering <code>chrome://inspect</code> in the address bar<br />
-<code>$ ionic emulate android</code> - opens the emulator (requires Android Eclipse)</p>
+<p>Inspect the app by opening Chrome on your computer and entering <code class="highlighter-rouge">chrome://inspect</code> in the address bar<br />
+<code class="highlighter-rouge">$ ionic emulate android</code> - opens the emulator (requires Android Eclipse)</p>
 
 <h2 id="related-tools">Related Tools</h2>
 <ul>
   <li><a href="http://ionicons.com/">Ionic icons</a></li>
   <li><a href="http://ionicframework.com/docs/cli/">Ionic CLI</a>
     <ul>
-      <li>SASS - <code>$ ionic setup sass</code></li>
+      <li>SASS - <code class="highlighter-rouge">$ ionic setup sass</code></li>
       <li><a href="http://ionicframework.com/docs/cli/icon-splashscreen.html">App Icon and Splash Screen Generation</a></li>
     </ul>
   </li>
@@ -242,7 +242,8 @@ Built with:</p>
 
 <h2 id="good-things-to-know">Good Things to Know</h2>
 <ul>
-  <li>The Ionic CLI tools are relatively new, and have some kinks. Testing on a device is flaky. Most of the time you can get away with livereload/web browser view. But when you need to work on a feature involving the phone features like camera, this can be real frustrating. One alternative is <a href="http://www.appgyver.io/steroids">AppGyver Steroids</a> - which has its own separate quirks, but pretty solid for dev/test workflow</li>
+  <li>The Ionic CLI tools are relatively new, and have some kinks. Testing on a device can be flaky. Most of the time you can get away with livereload/web browser view. But when you need to work on a feature involving the phone features like camera, this can be real frustrating.<br />
+ If its a real problem, one alternative is <a href="http://www.appgyver.io/steroids">AppGyver Steroids</a> - to handle the building/previewing/deploying. This has its own separate quirks, but pretty solid for dev/test workflow</li>
   <li>Take the time to understand what is available to you with with the framework. If it feels like you are fighting the framework, you may want to rethink your strategy. Build with the basics first and then embellish as the design requires
     <ul>
       <li>What is the Ionic Way?</li>

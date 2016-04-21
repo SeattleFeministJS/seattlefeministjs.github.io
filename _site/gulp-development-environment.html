@@ -103,7 +103,7 @@
 The <a href="https://github.com/SeattleLadiesJS/Environment-Setup" target="_blank">example repository</a> that we will be working from provides the following common things:</p>
 
 <ul>
-  <li>An entry point into your website or application, usually <code>index.html</code>.</li>
+  <li>An entry point into your website or application, usually <code class="highlighter-rouge">index.html</code>.</li>
   <li>A source folder for scripts, stylesheets and other html files, usually organized in a fashion that reflects your site structure.</li>
   <li>A place to download third party plugins.</li>
   <li>A way to compile SASS into CSS.</li>
@@ -114,11 +114,11 @@ The <a href="https://github.com/SeattleLadiesJS/Environment-Setup" target="_blan
 <p>Let’s start by cloning the example, open your console and navigate to your home directory.</p>
 
 <ul>
-  <li><code>cd "${HOME}"</code></li>
-  <li><code> git clone https://github.com/SeattleLadiesJS/Gulp-Development-Environment.git</code></li>
-  <li><code>npm install</code></li>
-  <li><code>bower install</code></li>
-  <li><code>gulp serve</code></li>
+  <li><code class="highlighter-rouge">cd "${HOME}"</code></li>
+  <li><code class="highlighter-rouge"> git clone https://github.com/SeattleLadiesJS/Gulp-Development-Environment.git</code></li>
+  <li><code class="highlighter-rouge">npm install</code></li>
+  <li><code class="highlighter-rouge">bower install</code></li>
+  <li><code class="highlighter-rouge">gulp serve</code></li>
 </ul>
 
 <p>Using this repository as a guide let’s start a brand new repository on your own account and we will add each one of those things step by step.</p>
@@ -132,19 +132,19 @@ Sign into your Github account and go to our sample repository <a href="https://g
 
 <p><img src="../images/git-repo-copy-url.png" alt="Copy to clipboard" /></p>
 
-<p>In your home directory open a command line and enter <code>git clone </code> followed by the URL that you copied from github GUI.</p>
+<p>In your home directory open a command line and enter <code class="highlighter-rouge">git clone </code> followed by the URL that you copied from github GUI.</p>
 
-<p><code>git clone https://github.com/simplesthing/Gulp-Development-Environment.git</code></p>
+<p><code class="highlighter-rouge">git clone https://github.com/simplesthing/Gulp-Development-Environment.git</code></p>
 
 <p>Change directories to be inside your “Gulp-Development-Environment” directory.</p>
 
-<p><code>cd Gulp-Development-Environment/</code></p>
+<p><code class="highlighter-rouge">cd Gulp-Development-Environment/</code></p>
 
 <p>Install dependencies.</p>
 
 <ul>
-  <li><code>npm install</code></li>
-  <li><code>bower install</code></li>
+  <li><code class="highlighter-rouge">npm install</code></li>
+  <li><code class="highlighter-rouge">bower install</code></li>
 </ul>
 
 <p>##Create a new Github repository
@@ -152,165 +152,171 @@ Sign into your Github account and go to <a href="https://github.com/new" target=
 
 <p><img src="../images/git-repo-setup.png" alt="URL to clone git repo" /></p>
 
-<p>In your home directory open a command line and enter <code>git clone </code> followed by the URL that you copied from github GUI.</p>
+<p>In your home directory open a command line and enter <code class="highlighter-rouge">git clone </code> followed by the URL that you copied from github GUI.</p>
 
-<p><code>git clone https://github.com/simplesthing/test.git</code></p>
+<p><code class="highlighter-rouge">git clone https://github.com/simplesthing/test.git</code></p>
 
-<p>Copy the <code>.gitignore</code>, <code>.editorconfig</code> and <code>.jshintrc</code> files from example repository into your new repository. Now create a <code>src</code> folder in the root of your project and inside that add an <code>index.html</code>. Go ahead and add standard <code>&lt;html&gt;, &lt;head&gt; and &lt;body&gt;</code> tags and let’s also add message to ourselves like “Hello World”.</p>
+<p>Copy the <code class="highlighter-rouge">.gitignore</code>, <code class="highlighter-rouge">.editorconfig</code> and <code class="highlighter-rouge">.jshintrc</code> files from example repository into your new repository. Now create a <code class="highlighter-rouge">src</code> folder in the root of your project and inside that add an <code class="highlighter-rouge">index.html</code>. Go ahead and add standard <code class="highlighter-rouge"><span class="nt">&lt;html&gt;</span>, <span class="nt">&lt;head&gt;</span> and <span class="nt">&lt;body&gt;</span></code> tags and let’s also add message to ourselves like “Hello World”.</p>
 
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;Hello World&lt;/h1&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>Hello World<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
 </code></pre>
+</div>
 
 <!-- adding in best practices for mobile and SEO -->
 
 <h2 id="automate-all-the-things">Automate all the things</h2>
-<p>Now we’re ready to start using Gulp to automate some development tasks. On the command line navigate into your new repository and if you have followed the setup instructions from previous post you should already have Bower and NPM installed globally and ready to use. We’re going to initialize an NPM <code>package.json</code> file by typing <code>npm init</code>. It will ask a few questions about the project, you can enter answers or hit enter to accept defaults, and save a <code>package.json</code> file to the root of your project. Now that we have a <code>package.json</code> we can start adding our development tools, the first thing we’re going to need is get Gulp, in your command line enter:</p>
+<p>Now we’re ready to start using Gulp to automate some development tasks. On the command line navigate into your new repository and if you have followed the setup instructions from previous post you should already have Bower and NPM installed globally and ready to use. We’re going to initialize an NPM <code class="highlighter-rouge">package.json</code> file by typing <code class="highlighter-rouge">npm init</code>. It will ask a few questions about the project, you can enter answers or hit enter to accept defaults, and save a <code class="highlighter-rouge">package.json</code> file to the root of your project. Now that we have a <code class="highlighter-rouge">package.json</code> we can start adding our development tools, the first thing we’re going to need is get Gulp, in your command line enter:</p>
 
-<p><code>npm install --save-dev gulp</code></p>
+<p><code class="highlighter-rouge">npm install --save-dev gulp</code></p>
 
-<p>We’ll need to create <code>gulpfile.js</code> in our project root. Start that file by declaring a variable for gulp</p>
+<p>We’ll need to create <code class="highlighter-rouge">gulpfile.js</code> in our project root. Start that file by declaring a variable for gulp</p>
 
-<p><code>var gulp = require('gulp');</code></p>
+<p><code class="highlighter-rouge">var gulp = require('gulp');</code></p>
 
-<p>This is a pattern which we would have to use for every node module that we add to the project and want to use in our gulpfile except we’re going to use a utility called <a href="https://github.com/jackfranklin/gulp-load-plugins" target="_blank">gulp-load-plugins</a> which will automate that repetitive task and require any module that begins with <code>gulp-</code> so that we don’t have to. In command line type</p>
+<p>This is a pattern which we would have to use for every node module that we add to the project and want to use in our gulpfile except we’re going to use a utility called <a href="https://github.com/jackfranklin/gulp-load-plugins" target="_blank">gulp-load-plugins</a> which will automate that repetitive task and require any module that begins with <code class="highlighter-rouge">gulp-</code> so that we don’t have to. In command line type</p>
 
-<p><code>npm install --save-dev gulp-load-plugins</code></p>
+<p><code class="highlighter-rouge">npm install --save-dev gulp-load-plugins</code></p>
 
 <p>Now in our gulpfile add</p>
 
-<p><code>var $ = require('gulp-load-plugins')();</code></p>
+<p><code class="highlighter-rouge">var $ = require('gulp-load-plugins')();</code></p>
 
-<p>Now whenever we want to use a <code>gulp-</code> module we can refer to using the <code>$.</code> to prefix followed by the name of the module, for example if we were to add a module called ‘gulp-example’ we could call that module from within our gulpfile by using <code>$.example</code>.</p>
+<p>Now whenever we want to use a <code class="highlighter-rouge">gulp-</code> module we can refer to using the <code class="highlighter-rouge">$.</code> to prefix followed by the name of the module, for example if we were to add a module called ‘gulp-example’ we could call that module from within our gulpfile by using <code class="highlighter-rouge">$.example</code>.</p>
 
 <h2 id="adding-third-party-libraries-using-bower">Adding third party libraries using Bower</h2>
-<p>Almost every web application uses some third party libraries to enhance functionality, so let’s add some to ours we’ll start off with three very common ones jQuery, Bootstrap SASS, and Fontawesome. Back on the command line enter <code>bower init</code> this will initialize bower and create a <code>bower.json</code> by asking you a few questions about your project. Now we have a <code>bower.json</code> file we can use the command line to add packages and save them to <code>bower.json</code> which can be used to install your project anywhere.</p>
+<p>Almost every web application uses some third party libraries to enhance functionality, so let’s add some to ours we’ll start off with three very common ones jQuery, Bootstrap SASS, and Fontawesome. Back on the command line enter <code class="highlighter-rouge">bower init</code> this will initialize bower and create a <code class="highlighter-rouge">bower.json</code> by asking you a few questions about your project. Now we have a <code class="highlighter-rouge">bower.json</code> file we can use the command line to add packages and save them to <code class="highlighter-rouge">bower.json</code> which can be used to install your project anywhere.</p>
 
 <p>Adding these libraries enter the following commands</p>
 
 <ul>
-  <li><code>bower install jquery --save</code></li>
-  <li><code>bower install fontawesome --save</code></li>
-  <li><code>bower install bootstrap-sass --save</code></li>
+  <li><code class="highlighter-rouge">bower install jquery --save</code></li>
+  <li><code class="highlighter-rouge">bower install fontawesome --save</code></li>
+  <li><code class="highlighter-rouge">bower install bootstrap-sass --save</code></li>
 </ul>
 
-<p>You should see that a directory named <code>/bower_coponents</code> has been added to your project and plugins have been installed. but we need to have them added to our <code>index.html</code> for us whenever we add new ones. So let’s install <a href="https://github.com/taptapship/wiredep" target="_blank">wiredep</a> to do this for us.</p>
+<p>You should see that a directory named <code class="highlighter-rouge">/bower_coponents</code> has been added to your project and plugins have been installed. but we need to have them added to our <code class="highlighter-rouge">index.html</code> for us whenever we add new ones. So let’s install <a href="https://github.com/taptapship/wiredep" target="_blank">wiredep</a> to do this for us.</p>
 
 <p>“How it works
 Installing a Bower package with –save will add the package as a dependency in your project’s bower.json file. This library reads that file, then reads the bower.json files for each of those dependencies. Based on these connections, it determines the order your scripts must be included before injecting them between placeholders in your source code.”</p>
 
-<p><code>npm install --save-dev wiredep</code></p>
+<p><code class="highlighter-rouge">npm install --save-dev wiredep</code></p>
 
-<p>Since this is not a ‘gulp-‘ prefixed package we are going to have to require the package ourselves by adding a new <code>var</code> at the top of our gulpfile.</p>
+<p>Since this is not a ‘gulp-‘ prefixed package we are going to have to require the package ourselves by adding a new <code class="highlighter-rouge">var</code> at the top of our gulpfile.</p>
 
-<p><code>var wiredep = require('wiredep').stream;</code></p>
+<p><code class="highlighter-rouge">var wiredep = require('wiredep').stream;</code></p>
 
-<p>To create a new task for gulp to execute we use the gulp library function call <code>gulp.task(name[, deps], fn)</code> where we pass in task name, optional array of dependencies, and a callback function. Now we can add a new task called wiredep below our styles task.</p>
+<p>To create a new task for gulp to execute we use the gulp library function call <code class="highlighter-rouge">gulp.task(name[, deps], fn)</code> where we pass in task name, optional array of dependencies, and a callback function. Now we can add a new task called wiredep below our styles task.</p>
 
-<pre><code>gulp.task('wiredep', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('wiredep', function(){
 
 });
 </code></pre>
+</div>
 
-<p>Inside the wiredep callback we are going to return our source which is our <code>index.html</code> file.</p>
+<p>Inside the wiredep callback we are going to return our source which is our <code class="highlighter-rouge">index.html</code> file.</p>
 
-<p><code>return gulp.src(['src/index.html'])</code></p>
+<p><code class="highlighter-rouge">return gulp.src(['src/index.html'])</code></p>
 
-<pre><code>gulp.task('wiredep', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('wiredep', function(){
   return gulp.src(['src/index.html'])
 });
 </code></pre>
+</div>
 
-<p><a href="http://en.wikipedia.org/wiki/Anonymous_pipe" target="_blank">Pipe</a> the source to the wiredep function and write to our <code>src</code> directory destination.</p>
+<p><a href="http://en.wikipedia.org/wiki/Anonymous_pipe" target="_blank">Pipe</a> the source to the wiredep function and write to our <code class="highlighter-rouge">src</code> directory destination.</p>
 
-<p><code>.pipe(wiredep())</code> <br />
-  <code>.pipe(gulp.dest('build'));</code></p>
+<p><code class="highlighter-rouge">.pipe(wiredep())</code> <br />
+  <code class="highlighter-rouge">.pipe(gulp.dest('build'));</code></p>
 
-<pre><code>gulp.task('wiredep', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('wiredep', function(){
   return gulp.src(['src/index.html'])
     .pipe(wiredep())
     .pipe(gulp.dest('build'));
 });
 </code></pre>
+</div>
 
-<p>Lastly we’ll need to add placeholders in our <code>index.html</code> to tell wiredep where to add our plugin files, add the following to the head section of your <code>index.html</code>.</p>
+<p>Lastly we’ll need to add placeholders in our <code class="highlighter-rouge">index.html</code> to tell wiredep where to add our plugin files, add the following to the head section of your <code class="highlighter-rouge">index.html</code>.</p>
 
-<p><code>&lt;!-- bower:css --&gt;</code> <br />
-  <code>&lt;!-- endbower --&gt;</code></p>
+<p><code class="highlighter-rouge">&lt;!-- bower:css --&gt;</code> <br />
+  <code class="highlighter-rouge">&lt;!-- endbower --&gt;</code></p>
 
-<p><code>&lt;!-- bower:js --&gt;</code> <br />
-  <code>&lt;!-- endbower --&gt;</code></p>
+<p><code class="highlighter-rouge">&lt;!-- bower:js --&gt;</code> <br />
+  <code class="highlighter-rouge">&lt;!-- endbower --&gt;</code></p>
 
-<p>Go ahead and run <code>gulp wiredep</code> and you should now see that the <code>index.html</code> file has added <code>fontawesome.css</code> in between the css placeholders and added <code>jquery.js</code> and <code>bootstrap.js</code> between the js placeholders.</p>
+<p>Go ahead and run <code class="highlighter-rouge">gulp wiredep</code> and you should now see that the <code class="highlighter-rouge">index.html</code> file has added <code class="highlighter-rouge">fontawesome.css</code> in between the css placeholders and added <code class="highlighter-rouge">jquery.js</code> and <code class="highlighter-rouge">bootstrap.js</code> between the js placeholders.</p>
 
 <h2 id="get-sassy">Get Sassy</h2>
-<p>Now let’s add some style to our site by creating a <code>/styles</code> directory to our <code>/src</code> and inside that add a <code>styles.scss</code>  and a <code>_main.scss</code> file to that same directory.</p>
+<p>Now let’s add some style to our site by creating a <code class="highlighter-rouge">/styles</code> directory to our <code class="highlighter-rouge">/src</code> and inside that add a <code class="highlighter-rouge">styles.scss</code>  and a <code class="highlighter-rouge">_main.scss</code> file to that same directory.</p>
 
-<p>Inside <code>_main.scss</code> and add a body style with a background color and a text color, for example.</p>
+<p>Inside <code class="highlighter-rouge">_main.scss</code> and add a body style with a background color and a text color, for example.</p>
 
-<p><code>body {
+<p><code class="highlighter-rouge">body {
   background: #FF05DE;
   color: #05FF26;
 }</code></p>
 
-<p>In our <code>styles.scss</code> we can import our main file by adding following.</p>
+<p>In our <code class="highlighter-rouge">styles.scss</code> we can import our main file by adding following.</p>
 
-<p><code>@import "main";</code></p>
+<p><code class="highlighter-rouge">@import "main";</code></p>
 
 <p>Let’s add some bootstrap by copying the file at</p>
 
-<p><code>/bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss</code></p>
+<p><code class="highlighter-rouge">/bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss</code></p>
 
-<p>into a file in your <code>/src/styles</code> directory named <code>_bootstrap.scss</code>. Then update all the <code>@import</code> paths to add <code>../../bower_components/bootstrap-sass/assets/stylesheets/</code> to the beginning of the file paths so they look like this</p>
+<p>into a file in your <code class="highlighter-rouge">/src/styles</code> directory named <code class="highlighter-rouge">_bootstrap.scss</code>. Then update all the <code class="highlighter-rouge">@import</code> paths to add <code class="highlighter-rouge">../../bower_components/bootstrap-sass/assets/stylesheets/</code> to the beginning of the file paths so they look like this</p>
 
-<p><code>@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";</code></p>
+<p><code class="highlighter-rouge">@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";</code></p>
 
-<p>Now add <code>@import "bootstrap";</code> to your styles.scss file at the very top, above your main.</p>
+<p>Now add <code class="highlighter-rouge">@import "bootstrap";</code> to your styles.scss file at the very top, above your main.</p>
 
 <p>We’ll be using a few different packages to compile, minify, create sourcemaps and watch our sass files while we are developing them. On the command line type the following.</p>
 
 <ul>
-  <li><code>npm install --save-dev gulp-sass</code></li>
-  <li><code>npm install --save-dev gulp-sourcemaps</code></li>
-  <li><code>npm install --save-dev gulp-autoprefixer</code></li>
+  <li><code class="highlighter-rouge">npm install --save-dev gulp-sass</code></li>
+  <li><code class="highlighter-rouge">npm install --save-dev gulp-sourcemaps</code></li>
+  <li><code class="highlighter-rouge">npm install --save-dev gulp-autoprefixer</code></li>
 </ul>
 
 <p>In our gulpfile let’s start adding a task to compile our sass into css called ‘styles’, add the following above the ‘serve’ task.</p>
 
-<p><code>gulp.task('styles', function(){</code></p>
+<p><code class="highlighter-rouge">gulp.task('styles', function(){</code></p>
 
-<p><code>});</code></p>
+<p><code class="highlighter-rouge">});</code></p>
 
-<p>Inside the callback we need to acquire our source sass files in order to return them back to the gulp stream by calling the gulp src function <code>gulp.src(globs[, options])</code> and passing in an array of <a href="http://en.wikipedia.org/wiki/Glob_%28programming%29" target="_blank">globs</a>, filepaths that can use ‘wildcards’ characters, followed by an optional options object, which we won’t be using this time. Since we are using the <code>style.scss</code> to import all of our sass files we don’t need to pass in anything other than this file.</p>
+<p>Inside the callback we need to acquire our source sass files in order to return them back to the gulp stream by calling the gulp src function <code class="highlighter-rouge">gulp.src(globs[, options])</code> and passing in an array of <a href="http://en.wikipedia.org/wiki/Glob_%28programming%29" target="_blank">globs</a>, filepaths that can use ‘wildcards’ characters, followed by an optional options object, which we won’t be using this time. Since we are using the <code class="highlighter-rouge">style.scss</code> to import all of our sass files we don’t need to pass in anything other than this file.</p>
 
-<pre><code>gulp.task('styles', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('styles', function(){
   return gulp.src(['src/styles/styles.scss'])
 });
 </code></pre>
+</div>
 
 <p>Now we want to pipe those files to the next process <a href="https://www.npmjs.com/package/gulp-sourcemaps" target="_blank">‘gulp-sourcemaps’</a>, which will add inline references to the sass source code that was used to create the final CSS output which is used when debugging in the browser to find the location in you source SASS files of compiled CSS. We will pass our source files stream into the next step by calling</p>
 
-<p><code>$.sourcemaps.init()</code>.</p>
+<p><code class="highlighter-rouge">$.sourcemaps.init()</code>.</p>
 
-<pre><code>gulp.task('styles', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('styles', function(){
   return gulp.src(['src/styles/styles.scss'])
     .pipe($.sourcemaps.init())
 });
 </code></pre>
+</div>
 
-<p>To compile our SASS we want to call <code>gulp-sass</code> and pass in a <a href="https://github.com/sass/node-sass#options" target="_blank">options</a> object by adding</p>
+<p>To compile our SASS we want to call <code class="highlighter-rouge">gulp-sass</code> and pass in a <a href="https://github.com/sass/node-sass#options" target="_blank">options</a> object by adding</p>
 
-<p><code>.pipe($.sass({precision: 10,errLogToConsole: true}))</code>.</p>
+<p><code class="highlighter-rouge">.pipe($.sass({precision: 10,errLogToConsole: true}))</code>.</p>
 
-<pre><code>gulp.task('styles', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('styles', function(){
   return gulp.src(['src/styles/styles.scss'])
     .pipe($.sourcemaps.init())
     .pipe($.sass({
@@ -319,12 +325,13 @@ Installing a Bower package with –save will add the package as a dependency in 
     }))
 });
 </code></pre>
+</div>
 
 <p>The first option precision tells the compiler how many digits after a decimal place will be allowed when calculating values in CSS measurement such as pixels or em’s. The second option is called if an error occurs during compilation and will log that error to the console.</p>
 
-<p>Now that we have our SASS converted to CSS we’d like gulp to add our browser prefixes for us by using <a href="https://www.npmjs.com/package/gulp-autoprefixer" target="_blank">gulp-autoprefixer</a> but first we need to tell it which browsers we are interested in adding prefixes for by adding a configuration object. In our gulpfile near the top where we declare our <code>vars</code> add the following, which adds support for most major browsers.</p>
+<p>Now that we have our SASS converted to CSS we’d like gulp to add our browser prefixes for us by using <a href="https://www.npmjs.com/package/gulp-autoprefixer" target="_blank">gulp-autoprefixer</a> but first we need to tell it which browsers we are interested in adding prefixes for by adding a configuration object. In our gulpfile near the top where we declare our <code class="highlighter-rouge">vars</code> add the following, which adds support for most major browsers.</p>
 
-<pre><code>var AUTOPREFIXER_BROWSERS = [
+<div class="highlighter-rouge"><pre class="highlight"><code>var AUTOPREFIXER_BROWSERS = [
   'ie &gt;= 10',
   'ie_mob &gt;= 10',
   'ff &gt;= 30',
@@ -336,12 +343,13 @@ Installing a Bower package with –save will add the package as a dependency in 
   'bb &gt;= 10'
 ];
 </code></pre>
+</div>
 
 <p>Back in our ‘styles’ task callback add the following line to add our browser prefixes.</p>
 
-<p><code>.pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))</code></p>
+<p><code class="highlighter-rouge">.pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))</code></p>
 
-<pre><code>gulp.task('styles', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('styles', function(){
   return gulp.src(['src/styles/styles.scss'])
     .pipe($.sourcemaps.init())
     .pipe($.sass({
@@ -351,12 +359,13 @@ Installing a Bower package with –save will add the package as a dependency in 
     .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
 });
 </code></pre>
+</div>
 
 <p>Now that our CSS is finished we can call to gulp-sourcemaps to write our sourcemap files.</p>
 
-<p><code>.pipe($.sourcemaps.write())</code></p>
+<p><code class="highlighter-rouge">.pipe($.sourcemaps.write())</code></p>
 
-<pre><code>gulp.task('styles', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('styles', function(){
   return gulp.src(['src/styles/styles.scss'])
     .pipe($.sourcemaps.init())
     .pipe($.sass({
@@ -367,12 +376,13 @@ Installing a Bower package with –save will add the package as a dependency in 
     .pipe($.sourcemaps.write())
 });
 </code></pre>
+</div>
 
-<p>Finally we want to write our CSS to a file in our <code>build/styles</code> directory. Note that we are adding a <code>/build</code> directory to our project using gulp which is where we will be moving files to as we add them to the project</p>
+<p>Finally we want to write our CSS to a file in our <code class="highlighter-rouge">build/styles</code> directory. Note that we are adding a <code class="highlighter-rouge">/build</code> directory to our project using gulp which is where we will be moving files to as we add them to the project</p>
 
-<p><code>.pipe(gulp.dest('src/styles'))</code></p>
+<p><code class="highlighter-rouge">.pipe(gulp.dest('src/styles'))</code></p>
 
-<pre><code>gulp.task('styles', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('styles', function(){
   return gulp.src(['src/styles/styles.scss'])
     .pipe($.sourcemaps.init())
     .pipe($.sass({
@@ -384,597 +394,649 @@ Installing a Bower package with –save will add the package as a dependency in 
     .pipe(gulp.dest('./build/styles'));
 });
 </code></pre>
+</div>
 
-<p>Give it a try by running <code>gulp styles</code> in your command line you will see the output is executing styles then creating a new directory structure <code>/build/styles</code> and writing you CSS in there along with sourcemap comments pointing back to original SASS code files.</p>
+<p>Give it a try by running <code class="highlighter-rouge">gulp styles</code> in your command line you will see the output is executing styles then creating a new directory structure <code class="highlighter-rouge">/build/styles</code> and writing you CSS in there along with sourcemap comments pointing back to original SASS code files.</p>
 
 <h2 id="checking-your-javascript-for-errors">Checking your JavaScript for Errors</h2>
-<p>Add a new directory inside your <code>/src</code> directory called <code>scripts</code> and inside there add a new JavaScript file called <code>main.js</code>. Inside that file let’s add a a simple script to append a message to index on page load using jQuery.</p>
+<p>Add a new directory inside your <code class="highlighter-rouge">/src</code> directory called <code class="highlighter-rouge">scripts</code> and inside there add a new JavaScript file called <code class="highlighter-rouge">main.js</code>. Inside that file let’s add a a simple script to append a message to index on page load using jQuery.</p>
 
-<pre><code>$(document).ready(function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>$(document).ready(function(){
   $('body').append('&lt;h2&gt;It works!&lt;/h2&gt;');
 });
 </code></pre>
+</div>
 
-<p>Now we are going to want to run <a href="http://jshint.com/about/" target="_blank">jshint</a> to check for errors in JavaScript. To setup jshint we will be using the rules from the <code>.jshintrc</code> file that we copied over from example repository, next we need to install the jshint module and a reporter module for printing reports to console.</p>
+<p>Now we are going to want to run <a href="http://jshint.com/about/" target="_blank">jshint</a> to check for errors in JavaScript. To setup jshint we will be using the rules from the <code class="highlighter-rouge">.jshintrc</code> file that we copied over from example repository, next we need to install the jshint module and a reporter module for printing reports to console.</p>
 
 <ul>
-  <li><code>npm install --save-dev gulp-jshint</code></li>
-  <li><code>npm install --save-dev jshint-stylish</code></li>
+  <li><code class="highlighter-rouge">npm install --save-dev gulp-jshint</code></li>
+  <li><code class="highlighter-rouge">npm install --save-dev jshint-stylish</code></li>
 </ul>
 
 <p>Now we can add a new task to our gulpfile for linting our code to check for errors, we’ll call it ‘scripts’.</p>
 
-<pre><code>gulp.task('scripts', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('scripts', function(){
 
 });
 </code></pre>
+</div>
 
-<p>Inside that callback we return a source glob of all JS files in <code>src</code>.</p>
+<p>Inside that callback we return a source glob of all JS files in <code class="highlighter-rouge">src</code>.</p>
 
-<p><code>return gulp.src('src/**/*.js')</code></p>
+<p><code class="highlighter-rouge">return gulp.src('src/**/*.js')</code></p>
 
-<pre><code>gulp.task('scripts', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('scripts', function(){
   return gulp.src('src/**/*.js')
 });
 </code></pre>
+</div>
 
 <p>Then we can call to jshint to run it’s linter.</p>
 
-<p><code>.pipe($.jshint())</code></p>
+<p><code class="highlighter-rouge">.pipe($.jshint())</code></p>
 
-<pre><code>gulp.task('scripts', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('scripts', function(){
   return gulp.src('src/**/*.js')
     .pipe($.jshint())
 });
 </code></pre>
+</div>
 
 <p>We tell jshint to pipe results to the reporter</p>
 
-<p><code> .pipe($.jshint.reporter('jshint-stylish'));</code></p>
+<p><code class="highlighter-rouge"> .pipe($.jshint.reporter('jshint-stylish'));</code></p>
 
-<pre><code>gulp.task('scripts', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('scripts', function(){
   return gulp.src('src/**/*.js')
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
 }); And finally to write the files to the build directory.
 </code></pre>
+</div>
 
-<p><code>.pipe(gulp.dest('build'));</code></p>
+<p><code class="highlighter-rouge">.pipe(gulp.dest('build'));</code></p>
 
-<pre><code>gulp.task('scripts', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('scripts', function(){
   return gulp.src('src/**/*.js')
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
     .pipe(gulp.dest('build'));
 });
 </code></pre>
+</div>
 
-<p>If you try running your new task, <code>gulp scripts</code> you should see that jshint has found some issues that we need to fix, the first line tells you which file the issues are in and then each issue with line numbers.</p>
+<p>If you try running your new task, <code class="highlighter-rouge">gulp scripts</code> you should see that jshint has found some issues that we need to fix, the first line tells you which file the issues are in and then each issue with line numbers.</p>
 
-<pre><code>/Users/avacollins/test/src/scripts/main.js
+<div class="highlighter-rouge"><pre class="highlight"><code>/Users/avacollins/test/src/scripts/main.js
 line 2  col 3  Missing "use strict" statement.
 line 1  col 1  '$' is not defined.
 line 2  col 3  '$' is not defined.
 </code></pre>
+</div>
 
-<p>We did not add the <code>use strict</code> directive at the top of the file and we did not declare the global varaible <code>$</code> which is added to the global object by jQuery. Inside <code>main.js</code> let’s add</p>
+<p>We did not add the <code class="highlighter-rouge">use strict</code> directive at the top of the file and we did not declare the global varaible <code class="highlighter-rouge">$</code> which is added to the global object by jQuery. Inside <code class="highlighter-rouge">main.js</code> let’s add</p>
 
-<p><code>"use strict;"</code></p>
+<p><code class="highlighter-rouge">"use strict;"</code></p>
 
 <p>to the very top of the file and below add</p>
 
-<p><code>/* global $ */</code></p>
+<p><code class="highlighter-rouge">/* global $ */</code></p>
 
-<p>This instruct jshint that <code>$</code> is a global variable added to <code>window</code> by jQuery. Now re-run <code>gulp scripts</code> and everything should check out as well as you should now see a <code>/build/scripts</code> directory with your <code>main.js</code> copied.</p>
+<p>This instruct jshint that <code class="highlighter-rouge">$</code> is a global variable added to <code class="highlighter-rouge">window</code> by jQuery. Now re-run <code class="highlighter-rouge">gulp scripts</code> and everything should check out as well as you should now see a <code class="highlighter-rouge">/build/scripts</code> directory with your <code class="highlighter-rouge">main.js</code> copied.</p>
 
 <h2 id="injecting-css-and-javascript">Injecting CSS and JavaScript</h2>
-<p>Now we’re can use <a href="https://github.com/klei/gulp-inject" target="_blank">gulp-inject</a> to add our CSS and JS to our <code>index.html</code>, in the command line let’s install the package.</p>
+<p>Now we’re can use <a href="https://github.com/klei/gulp-inject" target="_blank">gulp-inject</a> to add our CSS and JS to our <code class="highlighter-rouge">index.html</code>, in the command line let’s install the package.</p>
 
-<p><code>npm install --save-dev gulp-inject</code></p>
+<p><code class="highlighter-rouge">npm install --save-dev gulp-inject</code></p>
 
 <p>Now in our gulpfile in near the top add the gulp-inject options object as a variable.</p>
 
-<pre><code>var INJECT_OPTS = {
+<div class="highlighter-rouge"><pre class="highlight"><code>var INJECT_OPTS = {
       addRootSlash : false,
       relative     : true
 };
 </code></pre>
+</div>
 
-<p>Below the styles task add the following <code>inject</code> task.</p>
+<p>Below the styles task add the following <code class="highlighter-rouge">inject</code> task.</p>
 
-<pre><code>gulp.task('inject', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('inject', function(){
 
 });
 </code></pre>
+</div>
 
-<p>Inside the <code>inject</code> task callback start by declaring a variable for our assets to be injected, note that this is an array which you can add additional file globs to as your project grows and all of them will be injected.</p>
+<p>Inside the <code class="highlighter-rouge">inject</code> task callback start by declaring a variable for our assets to be injected, note that this is an array which you can add additional file globs to as your project grows and all of them will be injected.</p>
 
-<p><code>var assets = gulp.src(['build/**/*.css', 'build/**/*.js']);</code></p>
+<p><code class="highlighter-rouge">var assets = gulp.src(['build/**/*.css', 'build/**/*.js']);</code></p>
 
-<pre><code>gulp.task('inject', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('inject', function(){
   var assets = gulp.src(['build/**/*.css', 'build/**/*.js']);
 });
 </code></pre>
+</div>
 
 <p>Then we acquire and return the source html which we will be adding our assets to, again note that source is an array and you can add additional files here as needed also.</p>
 
-<p><code>return gulp.src(['build/index.html'])</code></p>
+<p><code class="highlighter-rouge">return gulp.src(['build/index.html'])</code></p>
 
-<pre><code>gulp.task('inject', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('inject', function(){
   var assets = gulp.src(['build/**/*.css', 'build/**/*.js']);
   return gulp.src(['build/index.html'])
 });
 </code></pre>
+</div>
 
 <p>Pipe our source to gulp-inject passing in our assets variable and our inject options.</p>
 
-<p><code>.pipe($.inject(assets, INJECT_OPTS))</code></p>
+<p><code class="highlighter-rouge">.pipe($.inject(assets, INJECT_OPTS))</code></p>
 
-<pre><code>gulp.task('inject', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('inject', function(){
   var assets = gulp.src(['build/**/*.css', 'build/**/*.js']);
   return gulp.src(['build/index.html'])
     .pipe($.inject(assets, INJECT_OPTS))
 });
 </code></pre>
+</div>
 
 <p>Now return our source back into src directory as well as into our distribution directory.</p>
 
-<p><code>.pipe(gulp.dest('build/'))</code></p>
+<p><code class="highlighter-rouge">.pipe(gulp.dest('build/'))</code></p>
 
-<pre><code>gulp.task('inject', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('inject', function(){
   var assets = gulp.src(['build/**/*.css', 'build/**/*.js']);
   return gulp.src(['build/index.html'])
     .pipe($.inject(assets, INJECT_OPTS))
     .pipe(gulp.dest('build'));
 });
 </code></pre>
+</div>
 
-<p>Lastly we need to tell gulp-inject where in our <code>index.html</code> we want to inject our assets, so inside our <code>index.html</code> file we need to add the following in the <code>head</code> area, below our bower placeholders that were added earlier.</p>
+<p>Lastly we need to tell gulp-inject where in our <code class="highlighter-rouge">index.html</code> we want to inject our assets, so inside our <code class="highlighter-rouge">index.html</code> file we need to add the following in the <code class="highlighter-rouge">head</code> area, below our bower placeholders that were added earlier.</p>
 
-<p><code>&lt;!-- inject:css --&gt;</code> <br />
-  <code>&lt;!-- endinject --&gt;</code></p>
+<p><code class="highlighter-rouge">&lt;!-- inject:css --&gt;</code> <br />
+  <code class="highlighter-rouge">&lt;!-- endinject --&gt;</code></p>
 
-<p><code>&lt;!-- inject:js --&gt;</code> <br />
-  <code>&lt;!-- endinject --&gt;</code></p>
+<p><code class="highlighter-rouge">&lt;!-- inject:js --&gt;</code> <br />
+  <code class="highlighter-rouge">&lt;!-- endinject --&gt;</code></p>
 
-<p>Before we can try out our new inject task , we first have to run our wiredep task which will copy over our <code>index.html</code> with the new inject placeholders, in the command line first run <code>gulp wiredep</code> then <code>gulp inject</code>. Now open up your <code>src/index.html</code> you will see that your <code>styles.css</code> and <code>main.js</code> has been added.</p>
+<p>Before we can try out our new inject task , we first have to run our wiredep task which will copy over our <code class="highlighter-rouge">index.html</code> with the new inject placeholders, in the command line first run <code class="highlighter-rouge">gulp wiredep</code> then <code class="highlighter-rouge">gulp inject</code>. Now open up your <code class="highlighter-rouge">src/index.html</code> you will see that your <code class="highlighter-rouge">styles.css</code> and <code class="highlighter-rouge">main.js</code> has been added.</p>
 
 <h2 id="copy-images-and-other-assets">Copy images and other assets</h2>
-<p>Last thing that we need to do before starting up server is to copy any images, or other assets, that aren’t getting moved into the build folder. Go ahead and add an <code>images</code> directory to your <code>/src</code> directory and copy over any image into that directory. Let’s also add the image to our <code>src/index.html</code> after our message.</p>
+<p>Last thing that we need to do before starting up server is to copy any images, or other assets, that aren’t getting moved into the build folder. Go ahead and add an <code class="highlighter-rouge">images</code> directory to your <code class="highlighter-rouge">/src</code> directory and copy over any image into that directory. Let’s also add the image to our <code class="highlighter-rouge">src/index.html</code> after our message.</p>
 
-<p><code>&lt;img src="images/adaTheFirst.jpg" alt="Ada Lovelace, The first Programmer"&gt;</code></p>
+<p><code class="highlighter-rouge">&lt;img src="images/adaTheFirst.jpg" alt="Ada Lovelace, The first Programmer"&gt;</code></p>
 
-<p>This task is simple and no <code>npm</code> packages are required. Add the following task to your gulpfile.</p>
+<p>This task is simple and no <code class="highlighter-rouge">npm</code> packages are required. Add the following task to your gulpfile.</p>
 
-<pre><code>gulp.task('copy', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('copy', function(){
 
 });
 </code></pre>
+</div>
 
-<p>Inside the callback we start by returning our source globs, looking for everything in <code>/src</code> except for the processed files which are already in <code>/build</code>.</p>
+<p>Inside the callback we start by returning our source globs, looking for everything in <code class="highlighter-rouge">/src</code> except for the processed files which are already in <code class="highlighter-rouge">/build</code>.</p>
 
-<p><code> return gulp.src(['src/**/*.*', '!src/**/*.scss', '!src/**/*.js', '!src/index.html'])</code></p>
+<p><code class="highlighter-rouge"> return gulp.src(['src/**/*.*', '!src/**/*.scss', '!src/**/*.js', '!src/index.html'])</code></p>
 
-<pre><code>gulp.task('copy', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('copy', function(){
    return gulp.src(['src/**/*.*', '!src/**/*.scss', '!src/**/*.js', '!src/index.html'])
 }); And piping that into it's destination `/build`.
 </code></pre>
+</div>
 
-<p><code>.pipe(gulp.dest('build'));</code></p>
+<p><code class="highlighter-rouge">.pipe(gulp.dest('build'));</code></p>
 
-<pre><code>gulp.task('copy', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('copy', function(){
    return gulp.src(['src/**/*.*', '!src/**/*.scss', '!src/**/*.js', '!src/index.html'])
     .pipe(gulp.dest('build'));
 });
 </code></pre>
+</div>
 
-<p>Now you can run <code>gulp copy</code> and you shoudl see that your <code>images</code> directory has been moved over to the <code>build</code> directory.</p>
+<p>Now you can run <code class="highlighter-rouge">gulp copy</code> and you shoudl see that your <code class="highlighter-rouge">images</code> directory has been moved over to the <code class="highlighter-rouge">build</code> directory.</p>
 
 <h2 id="build">Build</h2>
-<p>Now that we have individual tasks to process all our code let’s put it all together to create a build of our files in one step. Here is where JavaScript gets tricky, <code>node.js</code> and <code>gulp.js</code> are asynchronous, which means that tasks will execute in which ever order your computer processes the fastest, they most likely will not execute in the order in which you called them. This issue can break our injects and copies and wreak havoc on our development environment. To fix this we’ll use <a href="https://github.com/OverZealous/run-sequence" target="_blank">run-sequence</a>.</p>
+<p>Now that we have individual tasks to process all our code let’s put it all together to create a build of our files in one step. Here is where JavaScript gets tricky, <code class="highlighter-rouge">node.js</code> and <code class="highlighter-rouge">gulp.js</code> are asynchronous, which means that tasks will execute in which ever order your computer processes the fastest, they most likely will not execute in the order in which you called them. This issue can break our injects and copies and wreak havoc on our development environment. To fix this we’ll use <a href="https://github.com/OverZealous/run-sequence" target="_blank">run-sequence</a>.</p>
 
-<p><code>npm install --save-dev run-sequence</code></p>
+<p><code class="highlighter-rouge">npm install --save-dev run-sequence</code></p>
 
-<p>Since this is not a ‘gulp-‘ prefixed package we are going to have to require the package ourselves by adding a new <code>var</code> at the top of our gulpfile.</p>
+<p>Since this is not a ‘gulp-‘ prefixed package we are going to have to require the package ourselves by adding a new <code class="highlighter-rouge">var</code> at the top of our gulpfile.</p>
 
-<p><code>var runSequence = require('run-sequence');</code></p>
+<p><code class="highlighter-rouge">var runSequence = require('run-sequence');</code></p>
 
 <p>Now we can add our build task.</p>
 
-<pre><code>gulp.task('build', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('build', function(){
 
 });
 </code></pre>
+</div>
 
-<p>And inside our build task callback let’s make a call to <code>runSequence</code> and pass in all of our tasks. Tasks that are included in an <code>Array</code> are tasks that can be run in paralell safely, tasks that are passed in a a <code>String</code> should run to completion, before the next task can start. In our example we have two sets of parallel tasks.</p>
+<p>And inside our build task callback let’s make a call to <code class="highlighter-rouge">runSequence</code> and pass in all of our tasks. Tasks that are included in an <code class="highlighter-rouge">Array</code> are tasks that can be run in paralell safely, tasks that are passed in a a <code class="highlighter-rouge">String</code> should run to completion, before the next task can start. In our example we have two sets of parallel tasks.</p>
 
-<p><code>runSequence(['styles', 'wiredep', 'scripts'], ['inject', 'copy']);</code></p>
+<p><code class="highlighter-rouge">runSequence(['styles', 'wiredep', 'scripts'], ['inject', 'copy']);</code></p>
 
-<pre><code>gulp.task('build', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('build', function(){
   runSequence(['styles', 'wiredep', 'scripts'], ['inject', 'copy']);
 });
 </code></pre>
+</div>
 
-<p>Go ahead and run <code>gulp build</code> and you should see your tasks executing in console output.</p>
+<p>Go ahead and run <code class="highlighter-rouge">gulp build</code> and you should see your tasks executing in console output.</p>
 
 <h2 id="adding-a-local-web-server">Adding a local web server</h2>
 <p>Now we ready for a server to run our code, instead of setting up Apache, or use node’s connect middleware we’ll be using <a href="https://github.com/BrowserSync/browser-sync" target="_blank">Browsersync</a> a tool which will run a local server while you develop and will reload files that change as you change them. There are a ton of great features and examples that can be found through the <a href="http://www.browsersync.io/" target="_blank">browsersync.io</a> website. First add the Browsersync module to our project through command line and npm.</p>
 
-<p><code>npm install --save-dev browser-sync</code></p>
+<p><code class="highlighter-rouge">npm install --save-dev browser-sync</code></p>
 
 <p>Back in our gulpfile we need to require the module and assign it to a variable.</p>
 
-<p><code>var browserSync = require('browser-sync');</code></p>
+<p><code class="highlighter-rouge">var browserSync = require('browser-sync');</code></p>
 
 <p>Since we are using RunSequence to order our tasks we can take advantage of a feature which allows us to pass in a callback as the last parameter in a sequence, which means that we will be calling BrowserSync as a function instead of a gulp task. Add the following function to your gulpfile.</p>
 
-<pre><code>function serveCallback() {
+<div class="highlighter-rouge"><pre class="highlight"><code>function serveCallback() {
    browserSync({
     server: ['build', './']
   });
 }
 </code></pre>
+</div>
 
-<p>Here we are telling BrowserSync to start a new server and to serve files from the <code>/build</code> and root <code>./</code> directory of our project. We are using a very simple implementation of BrowserSynce, there are  many possible options that you use and can read more about <a href="http://www.browsersync.io/docs/options" target="_blank">here</a>.</p>
+<p>Here we are telling BrowserSync to start a new server and to serve files from the <code class="highlighter-rouge">/build</code> and root <code class="highlighter-rouge">./</code> directory of our project. We are using a very simple implementation of BrowserSynce, there are  many possible options that you use and can read more about <a href="http://www.browsersync.io/docs/options" target="_blank">here</a>.</p>
 
 <p>Now let’s create a task to serve our build files.</p>
 
-<pre><code>gulp.task('serve',  function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('serve',  function(){
 
 });
 </code></pre>
+</div>
 
 <p>And very simply we add a runSequence with the same tasks as the build task, and a callback to our server.</p>
 
-<pre><code>gulp.task('serve', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('serve', function(){
   runSequence(['styles', 'wiredep', 'scripts'], ['inject', 'copy'], serveCallback);
 });
 </code></pre>
+</div>
 
-<p>Let’s give it try, on the command line type <code>gulp serve</code> you should see output as gulp processes the command and Browsersync launches a new web server, it should also open your <code>index.html</code> for you. After we verify that it is working we can tell BroswerSync to quit by typing <code>ctrl c</code> (on Mac).</p>
+<p>Let’s give it try, on the command line type <code class="highlighter-rouge">gulp serve</code> you should see output as gulp processes the command and Browsersync launches a new web server, it should also open your <code class="highlighter-rouge">index.html</code> for you. After we verify that it is working we can tell BroswerSync to quit by typing <code class="highlighter-rouge">ctrl c</code> (on Mac).</p>
 
 <h2 id="watch-it">Watch it!</h2>
 <p>Now let’s add some functions to listen for changes in our source code and re-run our tasks and reload the browser for us so that we don’t have to stop and manually do those things. First let’s install the <a href="https://github.com/floatdrop/gulp-watch" target="_blank">gulp-watch</a> module from npm.</p>
 
-<p><code>npm install --save-dev gulp-watch</code></p>
+<p><code class="highlighter-rouge">npm install --save-dev gulp-watch</code></p>
 
 <p>Also let’s add a variable to the top of our gulpfile to call BrowserSync’s reload function so we can manually trigger a reload.</p>
 
-<p><code>var reload = browserSync.reload;</code></p>
+<p><code class="highlighter-rouge">var reload = browserSync.reload;</code></p>
 
-<p>Let’s start by adding a new task called <code>watch:html</code>.</p>
+<p>Let’s start by adding a new task called <code class="highlighter-rouge">watch:html</code>.</p>
 
-<pre><code>gulp.task('watch:html', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('watch:html', function(){
 
 });
 </code></pre>
+</div>
 
-<p>Now add a sequence to run <code>wiredep</code> and <code>inject</code> and finally <code>reload</code> the browser with new content.</p>
+<p>Now add a sequence to run <code class="highlighter-rouge">wiredep</code> and <code class="highlighter-rouge">inject</code> and finally <code class="highlighter-rouge">reload</code> the browser with new content.</p>
 
-<pre><code>gulp.task('watch:html', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('watch:html', function(){
   runSequence('wiredep', 'inject', reload);
 });
 </code></pre>
+</div>
 
-<p>Inside our <code>serve</code> task let’s add a line below <code>runSequence</code> that will handle watching our <code>html</code> by first passing a glob of files to watch and then tasks to be run when changes are detected.</p>
+<p>Inside our <code class="highlighter-rouge">serve</code> task let’s add a line below <code class="highlighter-rouge">runSequence</code> that will handle watching our <code class="highlighter-rouge">html</code> by first passing a glob of files to watch and then tasks to be run when changes are detected.</p>
 
-<p><code>gulp.watch(['src/**/*.html'], ['watch:html']);</code></p>
+<p><code class="highlighter-rouge">gulp.watch(['src/**/*.html'], ['watch:html']);</code></p>
 
 <p>Now let’s add a watch for our styles to compile and reload the css file in the browser so you can immediately see the changes.</p>
 
-<p><code>gulp.watch(['src/**/*.scss'], ['styles', reload]);</code></p>
+<p><code class="highlighter-rouge">gulp.watch(['src/**/*.scss'], ['styles', reload]);</code></p>
 
 <p>Finally add a watch for our JavaScript files to be linted and copied when we make changes.</p>
 
-<p><code>gulp.watch(['src/**/*.js'], ['scripts', 'copy', reload]);</code></p>
+<p><code class="highlighter-rouge">gulp.watch(['src/**/*.js'], ['scripts', 'copy', reload]);</code></p>
 
-<p>Restart your <code>serve</code> task and change your background color in <code>main.scss</code>, change your message in your <code>main.js</code>, add some new text to your <code>index.html</code>, all of these changes should trigger the tasks to be re-run and you should see the changes immediately reflected in the browser. Prett nifty huh?</p>
+<p>Restart your <code class="highlighter-rouge">serve</code> task and change your background color in <code class="highlighter-rouge">main.scss</code>, change your message in your <code class="highlighter-rouge">main.js</code>, add some new text to your <code class="highlighter-rouge">index.html</code>, all of these changes should trigger the tasks to be re-run and you should see the changes immediately reflected in the browser. Prett nifty huh?</p>
 
 <h2 id="distribute">Distribute</h2>
 
-<p>Well now it feels like we have a pretty good development environment setup, but what about when we are ready to publish our code to a live server? We’re going to need to add a few more tasks that will create a web ready distribution of our code. Let’s add some new tasks similar to our build tasks but add the suffix <code>:dist</code> to tell us that this is the distribution version of building.</p>
+<p>Well now it feels like we have a pretty good development environment setup, but what about when we are ready to publish our code to a live server? We’re going to need to add a few more tasks that will create a web ready distribution of our code. Let’s add some new tasks similar to our build tasks but add the suffix <code class="highlighter-rouge">:dist</code> to tell us that this is the distribution version of building.</p>
 
-<p>Starting with <code>wiredep</code>, we are gong to need to do some extra steps for our <code>bower_components</code> because we do not want to publish the entire bower repository to our web server, just the code that we need. We’ll also need to copy over component assets like fonts. Let’s start by adding a new fonts task.</p>
+<p>Starting with <code class="highlighter-rouge">wiredep</code>, we are gong to need to do some extra steps for our <code class="highlighter-rouge">bower_components</code> because we do not want to publish the entire bower repository to our web server, just the code that we need. We’ll also need to copy over component assets like fonts. Let’s start by adding a new fonts task.</p>
 
 <h3 id="fonts">Fonts</h3>
 
-<pre><code>gulp.task('fonts', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('fonts', function(){
 
 });
 </code></pre>
+</div>
 
-<p>Since we have <code>fontawesome</code> we start by returning the source fonts.</p>
+<p>Since we have <code class="highlighter-rouge">fontawesome</code> we start by returning the source fonts.</p>
 
-<p><code> return  gulp.src(['bower_components/fontawesome/fonts/**/*.*'])</code></p>
+<p><code class="highlighter-rouge"> return  gulp.src(['bower_components/fontawesome/fonts/**/*.*'])</code></p>
 
-<pre><code>gulp.task('fonts', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('fonts', function(){
   return  gulp.src(['bower_components/fontawesome/fonts/**/*.*'])
 });
 </code></pre>
+</div>
 
-<p>And pipe those over to our <code>/dist</code> directory, where all of our final build will go.</p>
+<p>And pipe those over to our <code class="highlighter-rouge">/dist</code> directory, where all of our final build will go.</p>
 
-<p><code>.pipe(gulp.dest('dist/fonts'));</code></p>
+<p><code class="highlighter-rouge">.pipe(gulp.dest('dist/fonts'));</code></p>
 
-<pre><code>gulp.task('fonts', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('fonts', function(){
   return  gulp.src(['bower_components/fontawesome/fonts/**/*.*'])
     .pipe(gulp.dest('dist/fonts'));
 });
 </code></pre>
+</div>
 
-<p>Go ahead and run <code>gulp fonts</code> to test it out, also we can add an icon to our <code>index.html</code> to verify that things are working when we run our final build.</p>
+<p>Go ahead and run <code class="highlighter-rouge">gulp fonts</code> to test it out, also we can add an icon to our <code class="highlighter-rouge">index.html</code> to verify that things are working when we run our final build.</p>
 
-<p><code>&lt;i class="fa fa-diamond"&gt;&lt;/i&gt;</code></p>
+<p><code class="highlighter-rouge">&lt;i class="fa fa-diamond"&gt;&lt;/i&gt;</code></p>
 
 <h3 id="minify">Minify</h3>
 
 <p>Next we are going to want to concatenate all our bower components into a single file and then run a minifier to remove comments and whitespace to optimize download speeds.</p>
 
 <ul>
-  <li><code>npm install --save-dev gulp-concat</code></li>
-  <li><code>npm install --save-dev gulp-uglify</code></li>
+  <li><code class="highlighter-rouge">npm install --save-dev gulp-concat</code></li>
+  <li><code class="highlighter-rouge">npm install --save-dev gulp-uglify</code></li>
 </ul>
 
-<p>Now let’s add a task for our bower JavaScript dependencies below our <code>wiredep</code> task.</p>
+<p>Now let’s add a task for our bower JavaScript dependencies below our <code class="highlighter-rouge">wiredep</code> task.</p>
 
-<pre><code>gulp.task('wiredep:js:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('wiredep:js:dist', function(){
 
 });
 </code></pre>
+</div>
 
-<p>Return our source, which is a function of the <code>wiredep</code> library to get all JavaScript.</p>
+<p>Return our source, which is a function of the <code class="highlighter-rouge">wiredep</code> library to get all JavaScript.</p>
 
-<p><code> return gulp.src(require('wiredep')().js)</code></p>
+<p><code class="highlighter-rouge"> return gulp.src(require('wiredep')().js)</code></p>
 
-<pre><code>gulp.task('wiredep:js:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('wiredep:js:dist', function(){
   return gulp.src(require('wiredep')().js)
 });
 </code></pre>
+</div>
 
-<p>Pipe that over to <a href="https://github.com/wearefractal/gulp-concat" target="_blank">gulp-concat</a> and tell it to create a file named <code>vendor.js</code> from the all the files.</p>
+<p>Pipe that over to <a href="https://github.com/wearefractal/gulp-concat" target="_blank">gulp-concat</a> and tell it to create a file named <code class="highlighter-rouge">vendor.js</code> from the all the files.</p>
 
-<p><code>.pipe($.concat('vendor.js'))</code></p>
+<p><code class="highlighter-rouge">.pipe($.concat('vendor.js'))</code></p>
 
-<pre><code>gulp.task('wiredep:js:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('wiredep:js:dist', function(){
   return gulp.src(require('wiredep')().js)
     .pipe($.concat('vendor.js'))
 });
 </code></pre>
+</div>
 
 <p>Pipe again to <a href="https://github.com/terinjokes/gulp-uglify" target="_blank">gulp-uglify</a>.</p>
 
-<pre><code>gulp.task('wiredep:js:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('wiredep:js:dist', function(){
   return gulp.src(require('wiredep')().js)
     .pipe($.concat('vendor.js'))
     .pipe($.uglify())
 });
 </code></pre>
+</div>
 
-<p>And finally write our file to our <code>/dist</code> directory.</p>
+<p>And finally write our file to our <code class="highlighter-rouge">/dist</code> directory.</p>
 
-<pre><code>gulp.task('wiredep:js:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('wiredep:js:dist', function(){
   return gulp.src(require('wiredep')().js)
     .pipe($.concat('vendor.js'))
     .pipe($.uglify())
     .pipe(gulp.dest('dist/scripts'));
 });
 </code></pre>
+</div>
 
-<p>Let’s test by running <code>gulp wiredep:js:dist</code>. You should see a minified file named <code>vendor.js</code> creates and saved in your <code>/dist/scripts</code> directory.</p>
+<p>Let’s test by running <code class="highlighter-rouge">gulp wiredep:js:dist</code>. You should see a minified file named <code class="highlighter-rouge">vendor.js</code> creates and saved in your <code class="highlighter-rouge">/dist/scripts</code> directory.</p>
 
 <p>Let’s do essentially the same thing for our CSS now. Start by installing <a href="https://github.com/ben-eb/gulp-csso" target="_blank">gulp-csso</a>, a package to minify CSS.</p>
 
-<p><code>npm install --save-dev gulp-csso</code></p>
+<p><code class="highlighter-rouge">npm install --save-dev gulp-csso</code></p>
 
 <p>Add a new task.</p>
 
-<pre><code>gulp.task('wiredep:css:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('wiredep:css:dist', function(){
 
 });
 </code></pre>
+</div>
 
 <p>Return our source.</p>
 
-<p><code>return gulp.src(require('wiredep')().css)</code></p>
+<p><code class="highlighter-rouge">return gulp.src(require('wiredep')().css)</code></p>
 
-<pre><code>gulp.task('wiredep:css:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('wiredep:css:dist', function(){
    return gulp.src(require('wiredep')().css)
 });
 </code></pre>
+</div>
 
-<p>Pipe that to <code>gulp-concat</code> and name final file <code>vendor.css</code>.</p>
+<p>Pipe that to <code class="highlighter-rouge">gulp-concat</code> and name final file <code class="highlighter-rouge">vendor.css</code>.</p>
 
-<pre><code>gulp.task('wiredep:css:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('wiredep:css:dist', function(){
    return gulp.src(require('wiredep')().css)
     .pipe($.concat('vendor.css'))
 });
 </code></pre>
+</div>
 
-<p>Pipe into <code>gulp-csso</code> to do it’s thing.</p>
+<p>Pipe into <code class="highlighter-rouge">gulp-csso</code> to do it’s thing.</p>
 
-<pre><code>gulp.task('wiredep:css:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('wiredep:css:dist', function(){
    return gulp.src(require('wiredep')().css)
     .pipe($.concat('vendor.css'))
     .pipe($.csso())
 });
 </code></pre>
+</div>
 
-<p>Finally write our output to <code>/dist/styles</code> directory.</p>
+<p>Finally write our output to <code class="highlighter-rouge">/dist/styles</code> directory.</p>
 
-<pre><code>gulp.task('wiredep:css:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('wiredep:css:dist', function(){
    return gulp.src(require('wiredep')().css)
     .pipe($.concat('vendor.css'))
     .pipe($.csso())
     .pipe(gulp.dest('dist/styles'));
 });
 </code></pre>
+</div>
 
-<p>Go ahead and run <code>gulp wiredep:css:dist</code>  to test.</p>
+<p>Go ahead and run <code class="highlighter-rouge">gulp wiredep:css:dist</code>  to test.</p>
 
-<p>Let’s do the same for our own JavaScript and styles. Below our <code>styles</code> task add a new task.</p>
+<p>Let’s do the same for our own JavaScript and styles. Below our <code class="highlighter-rouge">styles</code> task add a new task.</p>
 
-<pre><code>gulp.task('styles:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('styles:dist', function(){
 
 });
 </code></pre>
+</div>
 
 <p>Start by returning our source, which is our compiled CSS in the build directory.</p>
 
-<p><code>return gulp.src(['build/styles/styles.css'])</code></p>
+<p><code class="highlighter-rouge">return gulp.src(['build/styles/styles.css'])</code></p>
 
-<pre><code>gulp.task('styles:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('styles:dist', function(){
   return gulp.src(['build/styles/styles.css'])
 });
 </code></pre>
+</div>
 
 <p>Pipe that into the minifier.</p>
 
-<p><code>.pipe($.csso())</code></p>
+<p><code class="highlighter-rouge">.pipe($.csso())</code></p>
 
-<pre><code>gulp.task('styles:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('styles:dist', function(){
   return gulp.src(['build/styles/styles.css'])
     .pipe($.csso())
 });
 </code></pre>
+</div>
 
-<p>And write our final file to the <code>/dist/styles</code> directory.</p>
+<p>And write our final file to the <code class="highlighter-rouge">/dist/styles</code> directory.</p>
 
-<pre><code> gulp.task('styles:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code> gulp.task('styles:dist', function(){
   return gulp.src(['build/styles/styles.css'])
     .pipe($.csso())
     .pipe(gulp.dest('dist/styles'));
 });
 </code></pre>
+</div>
 
-<p>Test it out, <code>gulp styles:dist</code>.</p>
+<p>Test it out, <code class="highlighter-rouge">gulp styles:dist</code>.</p>
 
 <p>And for our JavaScript let’s add a task.</p>
 
-<pre><code>gulp.task('scripts:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('scripts:dist', function(){
 
 });
 </code></pre>
+</div>
 
-<p>Return our source from the <code>build</code> directory.</p>
+<p>Return our source from the <code class="highlighter-rouge">build</code> directory.</p>
 
-<p><code>return gulp.src(['build/**/*.js'])</code></p>
+<p><code class="highlighter-rouge">return gulp.src(['build/**/*.js'])</code></p>
 
-<pre><code>gulp.task('scripts:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('scripts:dist', function(){
   return gulp.src(['build/**/*.js'])
 });
 </code></pre>
+</div>
 
-<p>Concatenate into a single file <code>app.js</code>.</p>
+<p>Concatenate into a single file <code class="highlighter-rouge">app.js</code>.</p>
 
-<p><code>.pipe($.concat('app.js'))</code></p>
+<p><code class="highlighter-rouge">.pipe($.concat('app.js'))</code></p>
 
-<pre><code>gulp.task('scripts:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('scripts:dist', function(){
   return gulp.src(['build/**/*.js'])
     .pipe($.concat('app.js'))
 });
 </code></pre>
+</div>
 
 <p>Minify code.</p>
 
-<p><code>.pipe($.uglify())</code></p>
+<p><code class="highlighter-rouge">.pipe($.uglify())</code></p>
 
-<pre><code>gulp.task('scripts:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('scripts:dist', function(){
   return gulp.src(['build/**/*.js'])
     .pipe($.concat('app.js'))
     .pipe($.uglify())
 });
 </code></pre>
+</div>
 
-<p>Write to our <code>dist/scripts</code> directory.</p>
+<p>Write to our <code class="highlighter-rouge">dist/scripts</code> directory.</p>
 
-<p><code>.pipe(gulp.dest('dist/scripts'));</code></p>
+<p><code class="highlighter-rouge">.pipe(gulp.dest('dist/scripts'));</code></p>
 
-<pre><code>gulp.task('scripts:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('scripts:dist', function(){
   return gulp.src(['build/**/*.js'])
     .pipe($.concat('app.js'))
     .pipe($.uglify())
     .pipe(gulp.dest('dist/scripts'));
 });
 </code></pre>
+</div>
 
-<p>Test it out <code>gulp scripts:dist</code></p>
+<p>Test it out <code class="highlighter-rouge">gulp scripts:dist</code></p>
 
 <h2 id="copy-assets">Copy assets</h2>
 <p>Copying our assets is the same process as it was for our development build, we just have different sources and destinations. Add your task.</p>
 
-<pre><code>gulp.task('copy:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('copy:dist', function(){
 
 });
 </code></pre>
+</div>
 
-<p>Return source globs from <code>/build</code> directory</p>
+<p>Return source globs from <code class="highlighter-rouge">/build</code> directory</p>
 
-<pre><code>gulp.task('copy:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('copy:dist', function(){
   return gulp.src(['build/**/*.*','!build/**/*.css', '!build/**/*.js', '!build/index.html', 'src/index.html'])
 });
 </code></pre>
+</div>
 
-<p>Pipe to <code>/dist</code> destination.</p>
+<p>Pipe to <code class="highlighter-rouge">/dist</code> destination.</p>
 
-<p><code>.pipe(gulp.dest('dist'));</code></p>
+<p><code class="highlighter-rouge">.pipe(gulp.dest('dist'));</code></p>
 
-<pre><code>gulp.task('copy:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('copy:dist', function(){
   return gulp.src(['build/**/*.*','!build/**/*.css', '!build/**/*.js', '!build/index.html', 'src/index.html'])
     .pipe(gulp.dest('dist'));
 });
 </code></pre>
+</div>
 
-<p>Test it out <code>gulp copy:dist</code></p>
+<p>Test it out <code class="highlighter-rouge">gulp copy:dist</code></p>
 
 <h3 id="injecting">Injecting</h3>
 <p>Injecting our assets is exactly the same as before with the exception of our source values which need to be injected in a specific order, meaning third party assets first. To do that we need to install <a href="https://github.com/rschmukler/stream-series" target="_blank">stream-series</a> to manage the order for us.</p>
 
-<p><code>npm install --save-dev stream-series</code></p>
+<p><code class="highlighter-rouge">npm install --save-dev stream-series</code></p>
 
-<p>Since it is not a <code>gulp-</code> prefixed package we need to add our variable reference to the top of our gulpfile.</p>
+<p>Since it is not a <code class="highlighter-rouge">gulp-</code> prefixed package we need to add our variable reference to the top of our gulpfile.</p>
 
-<p><code>var series = require('stream-series');</code></p>
+<p><code class="highlighter-rouge">var series = require('stream-series');</code></p>
 
-<p>We’re also going to want to minify our html after injecting our assets, so we’ll need to get <a href="https://github.com/murphydanger/gulp-minify-html" target="_blank">gulp-minify-html</a> from <code>npm</code>.</p>
+<p>We’re also going to want to minify our html after injecting our assets, so we’ll need to get <a href="https://github.com/murphydanger/gulp-minify-html" target="_blank">gulp-minify-html</a> from <code class="highlighter-rouge">npm</code>.</p>
 
-<p><code>npm install --save-dev gulp-minify-html</code></p>
+<p><code class="highlighter-rouge">npm install --save-dev gulp-minify-html</code></p>
 
 <p>Let’s add our task.</p>
 
-<pre><code>gulp.task('inject:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('inject:dist', function(){
 
 });
 </code></pre>
+</div>
 
 <p>We need to add a couple variables one for each source.</p>
 
-<p><code> var vendor = gulp.src(['dist/scripts/vendor.js', 'dist/styles/vendor.css']);</code> <br /><br />
-<code>var app = gulp.src(['dist/scripts/app.js', 'dist/styles/styles.css']);</code></p>
+<p><code class="highlighter-rouge"> var vendor = gulp.src(['dist/scripts/vendor.js', 'dist/styles/vendor.css']);</code> <br /><br />
+<code class="highlighter-rouge">var app = gulp.src(['dist/scripts/app.js', 'dist/styles/styles.css']);</code></p>
 
-<pre><code>gulp.task('inject:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('inject:dist', function(){
   var vendor = gulp.src(['dist/scripts/vendor.js', 'dist/styles/vendor.css']);
   var app = gulp.src(['dist/scripts/app.js', 'dist/styles/styles.css']);
 
 });
 </code></pre>
+</div>
 
-<p>Return our source <code>index.html</code> from the <code>/dist</code> directory, you will need to have run <code>gulp copy</code> prior to this to ensure that your source is in the <code>/dist</code> directory.</p>
+<p>Return our source <code class="highlighter-rouge">index.html</code> from the <code class="highlighter-rouge">/dist</code> directory, you will need to have run <code class="highlighter-rouge">gulp copy</code> prior to this to ensure that your source is in the <code class="highlighter-rouge">/dist</code> directory.</p>
 
-<p><code>return gulp.src(['dist/index.html'])</code></p>
+<p><code class="highlighter-rouge">return gulp.src(['dist/index.html'])</code></p>
 
-<pre><code>gulp.task('inject:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('inject:dist', function(){
   var vendor = gulp.src(['dist/scripts/vendor.js', 'dist/styles/vendor.css']);
   var app = gulp.src(['dist/scripts/app.js', 'dist/styles/styles.css']);
 
   return gulp.src(['dist/index.html'])
 });
 </code></pre>
+</div>
 
-<p>Pipe that into <code>gulp-inject</code> using <code>stream-series</code> to manage the ordering.</p>
+<p>Pipe that into <code class="highlighter-rouge">gulp-inject</code> using <code class="highlighter-rouge">stream-series</code> to manage the ordering.</p>
 
-<p><code>.pipe($.inject(series(vendor, app), INJECT_OPTS))</code></p>
+<p><code class="highlighter-rouge">.pipe($.inject(series(vendor, app), INJECT_OPTS))</code></p>
 
-<pre><code>gulp.task('inject:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('inject:dist', function(){
   var vendor = gulp.src(['dist/scripts/vendor.js', 'dist/styles/vendor.css']);
   var app = gulp.src(['dist/scripts/app.js', 'dist/styles/styles.css']);
 
@@ -982,12 +1044,13 @@ line 2  col 3  '$' is not defined.
     .pipe($.inject(series(vendor, app), INJECT_OPTS))
 });
 </code></pre>
+</div>
 
-<p>Minify the <code>html</code></p>
+<p>Minify the <code class="highlighter-rouge">html</code></p>
 
-<p><code>.pipe($.minifyHtml())</code></p>
+<p><code class="highlighter-rouge">.pipe($.minifyHtml())</code></p>
 
-<pre><code>gulp.task('inject:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('inject:dist', function(){
   var vendor = gulp.src(['dist/scripts/vendor.js', 'dist/styles/vendor.css']);
   var app = gulp.src(['dist/scripts/app.js', 'dist/styles/styles.css']);
 
@@ -996,12 +1059,13 @@ line 2  col 3  '$' is not defined.
     .pipe($.minifyHtml())
 });
 </code></pre>
+</div>
 
-<p>And write the out put to the <code>/dist</code> directory.</p>
+<p>And write the out put to the <code class="highlighter-rouge">/dist</code> directory.</p>
 
-<p><code>.pipe(gulp.dest('dist'));</code></p>
+<p><code class="highlighter-rouge">.pipe(gulp.dest('dist'));</code></p>
 
-<pre><code>gulp.task('inject:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('inject:dist', function(){
   var vendor = gulp.src(['dist/scripts/vendor.js', 'dist/styles/vendor.css']);
   var app = gulp.src(['dist/scripts/app.js', 'dist/styles/styles.css']);
 
@@ -1011,19 +1075,21 @@ line 2  col 3  '$' is not defined.
     .pipe(gulp.dest('dist'));
 });
 </code></pre>
+</div>
 
-<p>Test it out <code>gulp inject:dist</code></p>
+<p>Test it out <code class="highlighter-rouge">gulp inject:dist</code></p>
 
 <h2 id="serve-your-distribution-build">Serve your distribution build</h2>
 
-<p>Almost done! Last step to building and deploying your project is to serve your distribution build, which is very similar to what we’ve done with the development build. Add your distribution serve callback function, just like before but we are now serving files only from the <code>/dist</code> directory.</p>
+<p>Almost done! Last step to building and deploying your project is to serve your distribution build, which is very similar to what we’ve done with the development build. Add your distribution serve callback function, just like before but we are now serving files only from the <code class="highlighter-rouge">/dist</code> directory.</p>
 
-<pre><code>function serveDistCallback() {
+<div class="highlighter-rouge"><pre class="highlight"><code>function serveDistCallback() {
     browserSync({
     server: ['dist']
   });
 }
 </code></pre>
+</div>
 
 <p>Add your distribution serve task.</p>
 
@@ -1034,12 +1100,13 @@ line 2  col 3  '$' is not defined.
 <p>Call runSequence and pass in your build steps, and end with your serve callback.
   ` runSequence([‘styles’, ‘scripts’],’copy’, [ ‘wiredep:css:dist’, ‘wiredep:js:dist’, ‘styles:dist’, ‘scripts:dist’,’copy:dist’, ‘fonts’], ‘inject:dist’, serveDistCallback);`</p>
 
-<pre><code>gulp.task('serve:dist', function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>gulp.task('serve:dist', function(){
   runSequence(['styles', 'scripts'],'copy', [ 'wiredep:css:dist', 'wiredep:js:dist', 'styles:dist', 'scripts:dist','copy:dist', 'fonts'], 'inject:dist', serveDistCallback);
 });
 </code></pre>
+</div>
 
-<p>Test it out <code>gulp serve:dist</code></p>
+<p>Test it out <code class="highlighter-rouge">gulp serve:dist</code></p>
 
 <p>##Links for further reading</p>
 

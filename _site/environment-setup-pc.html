@@ -102,7 +102,7 @@ Welcome to the first meetup topic Environment Setup. The following post will out
 
 <p>##Operating System</p>
 
-<p>First best thing to have is an up to date version of your OS, this post is using Windows 7, go to Start menu and run Windows Update. Another good thing to know before getting started is if you are running a 64-bit version of Windows so that you can choose the correct <code>.exe</code> installers to use, you can read more about what that means and how to find out which version you have <a href="http://windows.microsoft.com/en-us/windows/32-bit-and-64-bit-windows#1TC=windows-7" target="_blank">here</a>.</p>
+<p>First best thing to have is an up to date version of your OS, this post is using Windows 7, go to Start menu and run Windows Update. Another good thing to know before getting started is if you are running a 64-bit version of Windows so that you can choose the correct <code class="highlighter-rouge">.exe</code> installers to use, you can read more about what that means and how to find out which version you have <a href="http://windows.microsoft.com/en-us/windows/32-bit-and-64-bit-windows#1TC=windows-7" target="_blank">here</a>.</p>
 
 <p>##Code Editor</p>
 
@@ -112,7 +112,7 @@ Welcome to the first meetup topic Environment Setup. The following post will out
 
 <p>For installing EditorConfig with SublimeText3 you have to use the Package Manager which is a plugin for SublimeText3 that needs to be installed separately, <a href="https://packagecontrol.io/installation" target="_blank">instructions on how to install here</a>. Once you have Package Manager installed you can add packages to customize SublimeText3 to suite your development style.</p>
 
-<p>Package Control is driven by the Command Palette, to open the palette, press <code>ctrl+shift+p</code>.  A drop down should appear start typing “Package Control: Install Package” until the menu option appears, select it and hit enter. A new drop down will appear then type in the name of the package you would like to install, in this case type ‘EditorConfig’, select it and hit enter. You can see the package install progress in the bottom left corner of SublimeText. When it has finished you must restart SublimeText for it to be activated.</p>
+<p>Package Control is driven by the Command Palette, to open the palette, press <code class="highlighter-rouge">ctrl+shift+p</code>.  A drop down should appear start typing “Package Control: Install Package” until the menu option appears, select it and hit enter. A new drop down will appear then type in the name of the package you would like to install, in this case type ‘EditorConfig’, select it and hit enter. You can see the package install progress in the bottom left corner of SublimeText. When it has finished you must restart SublimeText for it to be activated.</p>
 
 <p>There are lots of great packages for SublimeText that you can install to customize your environment, none of them are required but there are a few that I use and recommend below.</p>
 
@@ -140,9 +140,9 @@ Welcome to the first meetup topic Environment Setup. The following post will out
 
 <p>Now that you have Git installed let’s go git some code.</p>
 
-<p>Open the Git Bash application. In the command line type <code>pwd</code> and hit enter to “print working directory” and tell you where your command line is operating from inside your system files. Hopefully you are in your User home directory, <code>c/Users/&lt;username&gt;</code> if not you can change directory by typing <code>cd "${HOME}"</code> and hit enter.</p>
+<p>Open the Git Bash application. In the command line type <code class="highlighter-rouge">pwd</code> and hit enter to “print working directory” and tell you where your command line is operating from inside your system files. Hopefully you are in your User home directory, <code class="highlighter-rouge">c/Users/&lt;username&gt;</code> if not you can change directory by typing <code class="highlighter-rouge">cd "${HOME}"</code> and hit enter.</p>
 
-<p>Type <code>git clone https://github.com/SeattleLadiesJS/Environment-Setup.git</code> and hit enter. If everything is setup correctly you should now see a new folder created in your User home called “Environment-Setup” which includes the code files that we will be using for our Environment Setup.</p>
+<p>Type <code class="highlighter-rouge">git clone https://github.com/SeattleLadiesJS/Environment-Setup.git</code> and hit enter. If everything is setup correctly you should now see a new folder created in your User home called “Environment-Setup” which includes the code files that we will be using for our Environment Setup.</p>
 
 <p>*Note For meetup we will be forking this repository into your own git repository which means that you’ll need to have a github account, be sure to have signed up for your own account at <a href="https://github.com/" target="_blank">github.com</a> before the meetup if you don’t already have an one.</p>
 
@@ -152,23 +152,23 @@ Welcome to the first meetup topic Environment Setup. The following post will out
 
 <p>First thing to do is <a href="https://nodejs.org/download/" target="_blank">download a copy of Node.js</a> and run the installer. When it has finished you will need to restart your computer to run Node.js.</p>
 
-<p>Let’s test to make sure we have everything installed correctly. In Git Bash type <code>node -v</code> hit enter, you should see v0.12.4 the current version of Node.js. Now let’s test that you have Node’s package manager installed as well by typing <code>npm -v</code> and hit enter you should see 2.10.1.</p>
+<p>Let’s test to make sure we have everything installed correctly. In Git Bash type <code class="highlighter-rouge">node -v</code> hit enter, you should see v0.12.4 the current version of Node.js. Now let’s test that you have Node’s package manager installed as well by typing <code class="highlighter-rouge">npm -v</code> and hit enter you should see 2.10.1.</p>
 
 <p>Before we an run our Environment Setup project we need to get a couple of frontend tools installed, <a href="http://gulpjs.com/" target="_blank">gulp</a> and <a href="http://bower.io/" target="_blank">bower</a>.</p>
 
-<p>Type <code>npm install -g gulp bower</code> in the Terminal and hit enter.</p>
+<p>Type <code class="highlighter-rouge">npm install -g gulp bower</code> in the Terminal and hit enter.</p>
 
 <p>Almost ready to run our project, we still have a few more things to install.</p>
 
-<p>Type <code>cd "${HOME}/Environment-Setup"</code> and hit enter</p>
+<p>Type <code class="highlighter-rouge">cd "${HOME}/Environment-Setup"</code> and hit enter</p>
 
 <p>Now we can install all the required modules we’ll need from NPM and Git:</p>
 
-<p>Type <code>npm install</code> and hit enter</p>
+<p>Type <code class="highlighter-rouge">npm install</code> and hit enter</p>
 
-<p>Type <code>bower install</code> and hit enter.</p>
+<p>Type <code class="highlighter-rouge">bower install</code> and hit enter.</p>
 
-<p>Lastly type <code>gulp</code> and hit enter, you should see output which is similar to a help menu for command line which lists the config file for the project followed by Main Tasks and Sub Tasks.</p>
+<p>Lastly type <code class="highlighter-rouge">gulp</code> and hit enter, you should see output which is similar to a help menu for command line which lists the config file for the project followed by Main Tasks and Sub Tasks.</p>
 
 <p>##Conclusion</p>
 

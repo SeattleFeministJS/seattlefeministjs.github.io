@@ -100,15 +100,16 @@
 <p>The topic for discussion is scope in JavaScript, what it is, why it is needed and how it is defined and used to create “closures” in our functions. Much of the source material for this discussion has been gleaned from Kyle Simpson’s book <a href="https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&amp;%20closures/README.md#you-dont-know-js-scope--closures">“You Don’t Know Scopes &amp; Closures”</a> and is free to read online at github.</p>
 
 <p>#What is Scope?
-Scope centers around the fundamental ability to define and store values in a variable, and how we access those values afterwards. Essentially scope is a set of rules defining where a variable lives in the code. An over simplified way to describe scope would be to say that it describes the execution context of the inside of a function and thus “Global Scope” is the execution context of the JavaScript engine. In the following statement the global scope holds the variable <code>a</code> and the scope of the function HelloWorld holds the variable <code>b</code>.</p>
+Scope centers around the fundamental ability to define and store values in a variable, and how we access those values afterwards. Essentially scope is a set of rules defining where a variable lives in the code. An over simplified way to describe scope would be to say that it describes the execution context of the inside of a function and thus “Global Scope” is the execution context of the JavaScript engine. In the following statement the global scope holds the variable <code class="highlighter-rouge">a</code> and the scope of the function HelloWorld holds the variable <code class="highlighter-rouge">b</code>.</p>
 
-<pre><code>var a = "Hello";
+<div class="highlighter-rouge"><pre class="highlight"><code>var a = "Hello";
 
 function HelloWorld(){
   var b = "World";
   return a + b;
 }
 </code></pre>
+</div>
 
 <p>While that seems straight forward there is more to understanding scope that this and in order to really get scope we need to look at how JavaScript code actually gets executed.</p>
 
@@ -127,10 +128,10 @@ It is often mis-stated that JavaScript is not a compiled language, it is most de
   Somewhere between parsing and creating bytecode is where the compiler magic happens, this is where the compiler optimizes code for the best performance on the engine. This is also where JavaScript engines differ greatly from other compilers in that they don’t have alot of time to make these optimizations. This is why the use of best practices in code like “use strict” and not using eval statements really does improve performance at runtime. <em><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode">Strict Mode</a> restricts the usage of any code that cannot be optimized for by the engine making the code run faster than code that has not been optimized in this way.</em></p>
 
 <p>##Lookups
-So back to scope, earlier it was stated that scope is a set of rules defining where a variable lives. When you think about the statement <code>var a = 2;</code> what comes to mind about how variable <code>a</code> is created and how can the value of <code>2</code> be stored and later accessed. Try in plain English to come up with the pseudocode to make this happen, something like assign memory to an address that is named <code>a</code> and assign the value of <code>2</code> to it. That sounds good but what happens when another memory location is also called <code>a</code>? This is where scope comes in with it’s rules of looking up memory for identifiers and looking up identifiers for values. There are two types of lookups, LHS and RHS. LHS stands for “Left Hand Side” and RHS “Right Hand Side”. The left/right hand sides refer to what we are looking up in the assignment operation, but it doesn’t always refer to a literal left and right. The left hand side lookup is trying to find an identifier so that a value can be assigned to that memory address, a right hand side lookup is trying to find the value stored in an existing identifier. The terms Left hand side and Right hand side can be confusing because they don’t technically map to the left and right of an assignment operator, RHS lookups refer to anytime a value is being retrieved, such as in the statement <code>console.log(a)</code>, here <code>a</code> is a RHS lookup and there is no assignment operator to be on the right of, to simplify this think of Left as the target and Right as the source.</p>
+So back to scope, earlier it was stated that scope is a set of rules defining where a variable lives. When you think about the statement <code class="highlighter-rouge">var a = 2;</code> what comes to mind about how variable <code class="highlighter-rouge">a</code> is created and how can the value of <code class="highlighter-rouge">2</code> be stored and later accessed. Try in plain English to come up with the pseudocode to make this happen, something like assign memory to an address that is named <code class="highlighter-rouge">a</code> and assign the value of <code class="highlighter-rouge">2</code> to it. That sounds good but what happens when another memory location is also called <code class="highlighter-rouge">a</code>? This is where scope comes in with it’s rules of looking up memory for identifiers and looking up identifiers for values. There are two types of lookups, LHS and RHS. LHS stands for “Left Hand Side” and RHS “Right Hand Side”. The left/right hand sides refer to what we are looking up in the assignment operation, but it doesn’t always refer to a literal left and right. The left hand side lookup is trying to find an identifier so that a value can be assigned to that memory address, a right hand side lookup is trying to find the value stored in an existing identifier. The terms Left hand side and Right hand side can be confusing because they don’t technically map to the left and right of an assignment operator, RHS lookups refer to anytime a value is being retrieved, such as in the statement <code class="highlighter-rouge">console.log(a)</code>, here <code class="highlighter-rouge">a</code> is a RHS lookup and there is no assignment operator to be on the right of, to simplify this think of Left as the target and Right as the source.</p>
 
 <p>##Nested Scope
-Scope lookups always start at the innermost block of code being executed at the time, if it can’t find what it is looking for in the current block it will move upwards and into the parent block until it reaches the top level or global scope. If the same identifier is present at different levels this is called “shadowing”. If the look up reaches the top level and cannot find what is looking for it will react differently depending on what type of lookup it is performing. If a LHS reaches the top level and cannot find a match, it will create the variable as if it were a new declaration, if a RHS lookup reaches the top level without finding a match it will throw a <code>ReferenceError</code> which means that the variable you are looking for is <code>undefined</code> and does not exist.</p>
+Scope lookups always start at the innermost block of code being executed at the time, if it can’t find what it is looking for in the current block it will move upwards and into the parent block until it reaches the top level or global scope. If the same identifier is present at different levels this is called “shadowing”. If the look up reaches the top level and cannot find what is looking for it will react differently depending on what type of lookup it is performing. If a LHS reaches the top level and cannot find a match, it will create the variable as if it were a new declaration, if a RHS lookup reaches the top level without finding a match it will throw a <code class="highlighter-rouge">ReferenceError</code> which means that the variable you are looking for is <code class="highlighter-rouge">undefined</code> and does not exist.</p>
 
 <p>##Exercise
   The following material is taken directly from Kyle Simpson’s <a href="https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&amp;%20closures/ch1.md#enginescope-conversation">“Engine/Scope Converstaion”</a> in the book “You Don’t Know Scopes &amp; Closures”.</p>
@@ -145,22 +146,24 @@ Scope lookups always start at the innermost block of code being executed at the 
 
 <p>Let’s talk through the following code</p>
 
-<pre><code>function foo(a) {
+<div class="highlighter-rouge"><pre class="highlight"><code>function foo(a) {
     console.log( a ); // 2
 }
 
 foo( 2 );
 </code></pre>
+</div>
 
 <p>and for good measure let’s test ourselves with the Quiz! <em>(if you’re reading this alone you can follow the conversation at the link above)</em></p>
 
-<pre><code>function foo(a) {
+<div class="highlighter-rouge"><pre class="highlight"><code>function foo(a) {
     var b = a;
     return a + b;
 }
 
 var c = foo( 2 );
 </code></pre>
+</div>
 
 <p>#What is Closure
 “What is a closure in JavaScript?” This question seems to come up alot in interviews, most likely because the answer can give insight into a candidates understanding of how JavaScript works and how code can be patterned to create modular components of code inside a large application. The most basic answer would be that it is a function which encloses another function that has access to variables inside it’s own scope as well as it’s container’s scope and the global scope but that isn’t the whole answer and you should expect a follow up question of “can you explain why this is important or give an example of how this can be used in an application?”</p>
@@ -173,23 +176,25 @@ In the example of an application that is made up smaller script files, let’s c
 
 <p>An anonymous function is a function that is not bound to an identifier, which dictates that anonymous functions can only be implemented using closure, in other words they can only be executed if they are inside the scope of another function that is bound to an identifier. The most common usage of anonymous functions are when functions are passed as parameters to other function as “callbacks”.</p>
 
-<pre><code>setTimeout(function(){
+<div class="highlighter-rouge"><pre class="highlight"><code>setTimeout(function(){
   console.log("I'm executing inside an anonymous function!")
 }, 1000);
 </code></pre>
+</div>
 
 <p>An anonymous function isn’t required to create an IIFE, or even a callback, but it is the most commonly used pattern. The following is also a valid callback and probably better code style because you have an identifier bound to the results, which can be very helpful when debugging or reading a stack trace.</p>
 
-<pre><code>setTimeout(function timeoutCallback(){
+<div class="highlighter-rouge"><pre class="highlight"><code>setTimeout(function timeoutCallback(){
   console.log("I'm executing inside a function expression!")
 }, 1000);
 </code></pre>
+</div>
 
-<p>A function expression is any function that does not begin with the keyword “function”. Most common use is something like  <code>var myFunction = function(){};</code> but even adding a semi-colon before a function definition <code>;function myFunction(){}</code> qualifies as a function expression.</p>
+<p>A function expression is any function that does not begin with the keyword “function”. Most common use is something like  <code class="highlighter-rouge">var myFunction = function(){};</code> but even adding a semi-colon before a function definition <code class="highlighter-rouge">;function myFunction(){}</code> qualifies as a function expression.</p>
 
-<p>And lastly a function expression that executes immediately is a function that is wrapped in <code>()</code> and is followed by <code>()</code>, the trailing pair of <code>()</code> is what does the immediate execution. There are a couple of ways to write this, both are valid and the difference is purely stylistic. <code>(function(){})()</code> and  <code>(function(){}())</code> are the same thing technically. If you put something inside the trailing <code>()</code> it will be passed into the function expression as arguments. So in our example of creating a module that returns an API we could practice using closure something like this.</p>
+<p>And lastly a function expression that executes immediately is a function that is wrapped in <code class="highlighter-rouge">()</code> and is followed by <code class="highlighter-rouge">()</code>, the trailing pair of <code class="highlighter-rouge">()</code> is what does the immediate execution. There are a couple of ways to write this, both are valid and the difference is purely stylistic. <code class="highlighter-rouge">(function(){})()</code> and  <code class="highlighter-rouge">(function(){}())</code> are the same thing technically. If you put something inside the trailing <code class="highlighter-rouge">()</code> it will be passed into the function expression as arguments. So in our example of creating a module that returns an API we could practice using closure something like this.</p>
 
-<pre><code>(function myModule(window){
+<div class="highlighter-rouge"><pre class="highlight"><code>(function myModule(window){
   
   var myApi = {
     doSomething: function (){ return something;},
@@ -200,6 +205,7 @@ In the example of an application that is made up smaller script files, let’s c
 
 })(window);
 </code></pre>
+</div>
 
 <!-- ##A Much More Technical Answer
 Now we know why the closure pattern is important to create modules, and we know the syntax for doing so, but we still haven't fully explained what a closure is technically. The Nitty Grtitty, as explained in Kyle's book, is "Closure is when a function is able to remember and access it's lexical scope even when that function is executing outside its lexical scope." So here comes some of the compiler logic that we practiced earlier, and the term "lexical scope", if we look back at the first step, the Tokenizing  -->
@@ -209,7 +215,7 @@ Now that we are able to answer the questions what is a closure, why closure is i
 
 <p>What would the following output be?</p>
 
-<pre><code>for(var i =1; i &lt;=5; i++) {
+<div class="highlighter-rouge"><pre class="highlight"><code>for(var i =1; i &lt;=5; i++) {
   (function(){
     setTimeout(function timer(){
       console.log(i);  
@@ -217,6 +223,7 @@ Now that we are able to answer the questions what is a closure, why closure is i
   })();
 }
 </code></pre>
+</div>
 
 <p>How can we use closure to output something different?</p>
 
