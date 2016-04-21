@@ -7,10 +7,14 @@ authors             :
     web: http://simplesthing.com
     twitter: simplesthing
     github: simplesthing
+  pattyok:
+    display_name: Patty O'Hara
+    email: patty.ohara@gmail.com
+    twitter: pattyok
 source              : .
 destination         : ./_site
-plugins             : ./_plugins
-layouts             : ./_layouts
+plugins_dir         : ./_plugins
+layouts_dir         : ./_layouts
 sass_dir      : ./_sass
 include             : ['.htaccess']
 exclude             : []

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Seattle Ladies JS</title>
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="apple-touch-icon" href="icon.png"/>
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+  <!-- bower:css -->
+  <!-- endbower -->
+
+  <!-- bower:js -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+  <!-- endbower -->
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">SLJS</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!-- <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li> -->
+        <!-- <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li> -->
+      </ul>
+    <!--   <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul> -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+  <main class="one-col-container">
+    <div class="row">
+      <div class="col">
+        <h1>PostCSS</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        
+<p class="meta">27 Feb 2016 by
+<!-- <img src="http://www.gravatar.com/avatar/74100339cab4aedcf3c66e5b6724a096?s=40"> -->
+<span class="author">Ava Collins</span>
+</p>
+
+<div class="post">
+<h2 id="what-it-is">What it is</h2>
+<p>PostCSS is a newer term that has surfaced in the past year in web development, however the concept is not new. The idea got it’s start years ago with a node task runner plugin called <a href="https://github.com/postcss/autoprefixer">autoprefixer</a>, which you may already be using, if so you have been using postCSS. Plainly the definition of PostCSS is the act of transforming CSS with JavaScript plugins. PostCSS on it’s own is a tool that you get when you <code>npm install postcss</code>. It provides an <a href="https://github.com/postcss/postcss/blob/master/docs/api.md">API</a> to access CSS in the form of a parsed <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">Abstract Syntax Tree (AST)</a>. This allows developers to create plugins to transform CSS and <em>“compile”</em> it’s output. <em>There is even a <a href="https://github.com/postcss/postcss-plugin-boilerplate">boilerplate</a> to help you get started writing your own plugin.</em></p>
+
+<p>The name PostCSS sounds as if it applies only to <em>post processing</em> CSS, meaning applying transforms to a CSS file after compilation, but it is not limited to that. CSS <em>preprocessors</em>  like SASS, LESS, Stylus, etc, that compile languages with features like variables, functions, mixins etc, to plain CSS can be used with PostCSS, or you can drop them altogether in favor of a pure JavaScript implementation of similar features that will more closely resemble the future of standard compliant CSS syntax, more on that in a bit.</p>
+
+<h2 id="why-you-should-use-it">Why you should use it</h2>
+<p>PostCSS plugins can do pretty much anything imaginable with CSS (preprocessing, sourcemaps, linting, etc) and that’s great but that isn’t the best reason to jump on board, the best reason is that it provides modularity to CSS development. Modularity can be the way that you build up your collection of postCSS plugins to transform your CSS (or SASS or LESS) exactly how you want it but it can also mean how you apply CSS in the browser.</p>
+
+<p>Modularity is about breaking down a larger more complex system by solving problems and providing solutions to one problem at a time. This has been the latest fashion in JavaScript libraries like React but CSS isn’t really devised to be a modular system. Traditionally you would pick a framework, in the form of some language and preprocessor, and you are bound to it’s conventions and made to work inside it’s ecosystem. A lot of time you end up adding bloat to your project with code that you don’t even use, or worse yet you are overriding somewhere in a custom file. By letting go of the framework mentality and cherry picking only the plugins that you need to support your goals you can start focusing on solving your immediate needs and leaving the rest out. If you find that you have a specific use case, or one that you need to repeat on multiple applications, such as supporting older IE browsers, you can use a <em>“pack”</em> of plugins that are grouped together to provide that support, that is what the <a href="https://github.com/jonathantneal/oldie">Oldie</a> pack does.</p>
+
+<h2 id="css-modules">CSS Modules</h2>
+<p>Another form of modularity that PostCSS provides, which takes writing CSS to a whole new level, is the ability to create <a href="https://github.com/css-modules/css-modules">CSS Modules</a>. A module refers to a CSS file that is scoped to a local JavaScript module. This is done by using an intermediate file format called <a href="https://github.com/css-modules/icss">Interoperable CSS (ICSS)</a> which compiles normally written CSS to locally scoped output.</p>
+
+<p>Think about how you would add a module to an application, either by including a plugin or writing your own using JavaScript HTML and CSS. When you add this module to your application the JavaScript is added to the global scope of the application and the CSS is also added to the global browser context. JavaScript plugins avoid variable naming collisions and other negative effects of global scope by using self enclosed functions to wrap a module into it’s own execution context (<a href="http://localhost:4000/scopes-and-closures/">more about scope</a>) and providing a single namespaced variable to access it’s functionality. The same isn’t possible for CSS, everything is in global context and relies on specificity to retain tighter control on certain elements. To compensate for the nature of global CSS we have gotten used to crafting naming conventions, such as <a href="http://getbem.com/naming/">BEM</a>, to define <em>“namespaced”</em> CSS that cascades with a rigid pedantic order. Unfortunately we have also gotten used to using some form of overrides to negate any top level styles that don’t work for a custom implementation. When we do this we are often adding more bloat, deeper specificity to the selector chain and causing our browser to do more work.</p>
+
+<p>CSS Modules overcome this issue by defining everything in global scope with a unique selector that has been scoped to a DOM element generated with JavaScript. Class names are generated and compiled using PostCSS loaders with bundling tools that map and process the final CSS and JavaScript code with updated matching class names. This frees the developer from agonizing over naming conventions or worrying about performance hits.</p>
+
+<!-- TODO: ADD CODE EXAMPLES -->
+
+<h2 id="plugins">Plugins</h2>
+<p>There are many useful plugins to use with postcss, but there are two that I feel are a must have, preCSS and cssnext (below). To explore other options there are resources like <a href="http://postcss.parts/">PostCSS.parts</a>, a searchable catalog of plugins, and a section on <a href="http://heydesigner.com/postcss/">HeyDesigner</a> devoted to postcss articles, you should definitely check both of them out.</p>
+
+<h3 id="precss">PreCSS</h3>
+<p>PreCSS is a tool that allows you to use Sass-like markup in your CSS files. You can see a full example fo all the things preCSS can do for you <a href="https://jonathantneal.github.io/precss/">here</a>. I have recently stopped using SASS all together in favor of pure CSS implementation using postcss plugins to process the output.</p>
+
+<h3 id="cssnext">cssnext</h3>
+<p><a href="http://cssnext.io/">cssnext</a> (all lowercase) is a plugin similar to Babel for JavaScript, which transpiles future proposed ES6/7 syntax to ES2015 JavaScript, but for future CSS syntax such as custom media queries, calculated properties, pseudo syntax and more.</p>
+
+<h2 id="how-to-use-it-with-gulp">How to use it with Gulp</h2>
+<p>Now for the fun part, let’s start working with some code. For use with Grunt or Gulp we will be looking at a <a href="https://github.com/SeattleLadiesJS/postcss-gulp-demo">forked repository</a> from <a href="https://www.smashingmagazine.com/2015/12/introduction-to-postcss/">Smashing Magazine</a> they have written a great primer for those new to postcss with detailed examples of how to use plugins and future syntax.</p>
+
+<h2 id="how-to-use-it-with-webpack">How to use it with Webpack</h2>
+<p>For use with CSS modules a bundler like Webpack is required. Webpack is a bit more complex and it requires that you write your DOM in JavaScript to bundle the styles together with the CSS modules. We have a very simple demo setup on our <a href="https://github.com/SeattleLadiesJS/postcss-webpack-demo">SeattleLadiesJS github</a> to refer to. If you are experienced with React and would like to look at a more robust example you can find a great demo on the <a href="https://github.com/css-modules/webpack-demo">css-modules github</a> which uses React.</p>
+
+<h2 id="resources">Resources</h2>
+<ul>
+  <li>Tuts+ <a href="http://webdesign.tutsplus.com/tutorials/postcss-deep-dive-what-you-need-to-know--cms-24535">PostCSS Deep Dive: What you need to know</a></li>
+  <li>css-tricks <a href="https://css-tricks.com/bem-101/">BEM 101</a></li>
+  <li>Glen Maddern <a href="http://glenmaddern.com/articles/css-modules">CSS Modules. <em>Welcome to the Future</em></a></li>
+  <li>Glenn Maddern <a href="http://glenmaddern.com/articles/interoperable-css">Interoperable CSS. <em>A CSS Standard for the Loader Age</em></a></li>
+  <li>Jonathan T Neal <a href="https://github.com/jonathantneal/precss">PreCSS</a></li>
+</ul>
+
+</div>
+
+      </div>
+    </div>
+  </main>
+
+
+
+</body>
+
+</html>
