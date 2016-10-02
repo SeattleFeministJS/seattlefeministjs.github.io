@@ -8,7 +8,7 @@
 	.col {
 		@extend .col-lg-12;
 		@extend .col-sm-12;
-		@extend col-xs-12;
+		@extend .col-xs-12;
 	}
 }
 
@@ -17,5 +17,5 @@
 }
 
 .one-col-container {
-	@include one_col(false);	
+	@include one_col(false);
 }
