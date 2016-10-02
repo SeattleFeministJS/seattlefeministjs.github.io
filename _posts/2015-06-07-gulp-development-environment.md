@@ -8,7 +8,7 @@ author: ava
 
 Developing a website or web application can include any number of plugins and pre-processors that are tedious to manage. Enter [Gulp.js](http://gulpjs.com/), a build system that can automate repetitive tasks like compiling SASS into CSS, adding plugins, frameworks and libraries, checking your code for syntax errors and reloading the browser while you are editing content. This post should help you get started using Gulp to build your next project but it is not the only way or even the best way to use gulp, it's just a starter, you may choose to organize your project very differently from the examples given here. If you haven't already installed git and node.js please refer to previous posts [Environment Setup for PC](http://seattleladiesjs.github.io/environment-setup-pc/) or [Environment Setup for Mac](http://seattleladiesjs.github.io/environment-setup-mac/) depending on your operating system.
 
-##Overview
+## Overview
 The [example repository](https://github.com/SeattleLadiesJS/Environment-Setup){:target="_blank"} that we will be working from provides the following common things: 
 
 - An entry point into your website or application, usually `index.html`.
@@ -29,7 +29,7 @@ Let's start by cloning the example, open your console and navigate to your home 
 
 Using this repository as a guide let's start a brand new repository on your own account and we will add each one of those things step by step.
 
-##Fork example repository
+## Fork example repository
 Sign into your Github account and go to our sample repository [Gulp Development Environment](https://github.com/SeattleLadiesJS/Gulp-Development-Environment). In the top right under your name you will see a button that says "Fork", click that to copy the example repository to your github account.
 
 <img src="../images/git-repo-fork.png" alt="Fork button">
@@ -51,7 +51,7 @@ Install dependencies.
   - `npm install`
   - `bower install`
 
-##Create a new Github repository
+## Create a new Github repository
 Sign into your Github account and go to [/new](https://github.com/new){:target="_blank"}, or click the + symbol next to your git username. Give your repository a name, add a small description and check the option to add a README. Now copy the URL that is shown in the quick setup area.
 
 <img src="../images/git-repo-setup.png" alt="URL to clone git repo">
@@ -78,7 +78,7 @@ Copy the `.gitignore`, `.editorconfig` and `.jshintrc` files from example reposi
 <!-- adding in best practices for mobile and SEO -->
 
 
-## Automate all the things
+##  Automate all the things
 Now we're ready to start using Gulp to automate some development tasks. On the command line navigate into your new repository and if you have followed the setup instructions from previous post you should already have Bower and NPM installed globally and ready to use. We're going to initialize an NPM `package.json` file by typing `npm init`. It will ask a few questions about the project, you can enter answers or hit enter to accept defaults, and save a `package.json` file to the root of your project. Now that we have a `package.json` we can start adding our development tools, the first thing we're going to need is get Gulp, in your command line enter:
  
   `npm install --save-dev gulp`
@@ -98,7 +98,7 @@ Now in our gulpfile add
 Now whenever we want to use a `gulp-` module we can refer to using the `$.` to prefix followed by the name of the module, for example if we were to add a module called 'gulp-example' we could call that module from within our gulpfile by using `$.example`.
 
 
-## Adding third party libraries using Bower
+##  Adding third party libraries using Bower
 Almost every web application uses some third party libraries to enhance functionality, so let's add some to ours we'll start off with three very common ones jQuery, Bootstrap SASS, and Fontawesome. Back on the command line enter `bower init` this will initialize bower and create a `bower.json` by asking you a few questions about your project. Now we have a `bower.json` file we can use the command line to add packages and save them to `bower.json` which can be used to install your project anywhere. 
 
 Adding these libraries enter the following commands
@@ -155,7 +155,7 @@ Lastly we'll need to add placeholders in our `index.html` to tell wiredep where 
 Go ahead and run `gulp wiredep` and you should now see that the `index.html` file has added `fontawesome.css` in between the css placeholders and added `jquery.js` and `bootstrap.js` between the js placeholders. 
 
 
-## Get Sassy 
+##  Get Sassy 
 Now let's add some style to our site by creating a `/styles` directory to our `/src` and inside that add a `styles.scss`  and a `_main.scss` file to that same directory. 
 
 Inside `_main.scss` and add a body style with a background color and a text color, for example.
@@ -284,7 +284,7 @@ Finally we want to write our CSS to a file in our `build/styles` directory. Note
 
 Give it a try by running `gulp styles` in your command line you will see the output is executing styles then creating a new directory structure `/build/styles` and writing you CSS in there along with sourcemap comments pointing back to original SASS code files.
 
-## Checking your JavaScript for Errors
+##  Checking your JavaScript for Errors
 Add a new directory inside your `/src` directory called `scripts` and inside there add a new JavaScript file called `main.js`. Inside that file let's add a a simple script to append a message to index on page load using jQuery.
 
     $(document).ready(function(){
@@ -360,7 +360,7 @@ This instruct jshint that `$` is a global variable added to `window` by jQuery. 
 
 
 
-## Injecting CSS and JavaScript
+##  Injecting CSS and JavaScript
 Now we're can use [gulp-inject](https://github.com/klei/gulp-inject){:target="_blank"} to add our CSS and JS to our `index.html`, in the command line let's install the package.
 
   `npm install --save-dev gulp-inject`
@@ -427,7 +427,7 @@ Lastly we need to tell gulp-inject where in our `index.html` we want to inject o
 Before we can try out our new inject task , we first have to run our wiredep task which will copy over our `index.html` with the new inject placeholders, in the command line first run `gulp wiredep` then `gulp inject`. Now open up your `src/index.html` you will see that your `styles.css` and `main.js` has been added.
 
 
-## Copy images and other assets
+##  Copy images and other assets
 Last thing that we need to do before starting up server is to copy any images, or other assets, that aren't getting moved into the build folder. Go ahead and add an `images` directory to your `/src` directory and copy over any image into that directory. Let's also add the image to our `src/index.html` after our message.
 
 `<img src="images/adaTheFirst.jpg" alt="Ada Lovelace, The first Programmer">`
@@ -456,7 +456,7 @@ And piping that into it's destination `/build`.
 
 Now you can run `gulp copy` and you shoudl see that your `images` directory has been moved over to the `build` directory.
 
-## Build
+##  Build
 Now that we have individual tasks to process all our code let's put it all together to create a build of our files in one step. Here is where JavaScript gets tricky, `node.js` and `gulp.js` are asynchronous, which means that tasks will execute in which ever order your computer processes the fastest, they most likely will not execute in the order in which you called them. This issue can break our injects and copies and wreak havoc on our development environment. To fix this we'll use [run-sequence](https://github.com/OverZealous/run-sequence){:target="_blank"}. 
 
 `npm install --save-dev run-sequence`
@@ -481,7 +481,7 @@ And inside our build task callback let's make a call to `runSequence` and pass i
 
 Go ahead and run `gulp build` and you should see your tasks executing in console output.
 
-## Adding a local web server
+##  Adding a local web server
 Now we ready for a server to run our code, instead of setting up Apache, or use node's connect middleware we'll be using [Browsersync](https://github.com/BrowserSync/browser-sync){:target="_blank"} a tool which will run a local server while you develop and will reload files that change as you change them. There are a ton of great features and examples that can be found through the [browsersync.io](http://www.browsersync.io/){:target="_blank"} website. First add the Browsersync module to our project through command line and npm.
 
 `npm install --save-dev browser-sync`
@@ -520,7 +520,7 @@ And very simply we add a runSequence with the same tasks as the build task, and 
 Let's give it try, on the command line type `gulp serve` you should see output as gulp processes the command and Browsersync launches a new web server, it should also open your `index.html` for you. After we verify that it is working we can tell BroswerSync to quit by typing `ctrl c` (on Mac). 
 
 
-## Watch it!
+##  Watch it!
 Now let's add some functions to listen for changes in our source code and re-run our tasks and reload the browser for us so that we don't have to stop and manually do those things. First let's install the [gulp-watch](https://github.com/floatdrop/gulp-watch){:target="_blank"} module from npm.
 
 `npm install --save-dev gulp-watch`
@@ -558,13 +558,13 @@ Finally add a watch for our JavaScript files to be linted and copied when we mak
 
 Restart your `serve` task and change your background color in `main.scss`, change your message in your `main.js`, add some new text to your `index.html`, all of these changes should trigger the tasks to be re-run and you should see the changes immediately reflected in the browser. Prett nifty huh?
 
-## Distribute
+##  Distribute
 
 Well now it feels like we have a pretty good development environment setup, but what about when we are ready to publish our code to a live server? We're going to need to add a few more tasks that will create a web ready distribution of our code. Let's add some new tasks similar to our build tasks but add the suffix `:dist` to tell us that this is the distribution version of building.
 
 Starting with `wiredep`, we are gong to need to do some extra steps for our `bower_components` because we do not want to publish the entire bower repository to our web server, just the code that we need. We'll also need to copy over component assets like fonts. Let's start by adding a new fonts task.
 
-### Fonts
+###  Fonts
 
     gulp.task('fonts', function(){
 
@@ -592,7 +592,7 @@ Go ahead and run `gulp fonts` to test it out, also we can add an icon to our `in
 
 `<i class="fa fa-diamond"></i>`
 
-### Minify
+###  Minify
 
 Next we are going to want to concatenate all our bower components into a single file and then run a minifier to remove comments and whitespace to optimize download speeds. 
 
@@ -791,7 +791,7 @@ Pipe to `/dist` destination.
 
 Test it out `gulp copy:dist`
 
-### Injecting
+###  Injecting
 Injecting our assets is exactly the same as before with the exception of our source values which need to be injected in a specific order, meaning third party assets first. To do that we need to install [stream-series](https://github.com/rschmukler/stream-series){:target="_blank"} to manage the order for us.
 
 `npm install --save-dev stream-series`

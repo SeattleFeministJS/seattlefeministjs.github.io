@@ -6,14 +6,14 @@ categories: meetup
 author: ava
 ---
 
-##Introduction
+## Introduction
 Welcome to the first meetup topic Environment Setup. The following post will outline the steps for installation of the tools needed to run our [Environment Code](https://github.com/SeattleLadiesJS/Environment-Setup){:target="_blank"}. Ideally you will have ran through all the steps and have all the tools installed before the meetup. If you run into problems getting these items installed I encourage joining our [slack](https://seattleladiesjs.slack.com/){:target="_blank"} group and posting your questions to the "#environment-setup" channel. If you need an invite to our slack group please send your name and email address to [seattleladiesjs@gmail.com](mailto:seattleladiesjs@gmail.com). 
 
-##Operating System
+## Operating System
 
 First best thing to have is an up to date version of your OS, this post is using Windows 7, go to Start menu and run Windows Update. Another good thing to know before getting started is if you are running a 64-bit version of Windows so that you can choose the correct `.exe` installers to use, you can read more about what that means and how to find out which version you have [here](http://windows.microsoft.com/en-us/windows/32-bit-and-64-bit-windows#1TC=windows-7){:target="_blank"}. 
 
-##Code Editor
+## Code Editor
 
 Next thing we need is a code editor, it can be any code editor that you prefer but I will be using SublimeText3 and would recommend it as a nice simple to use code editor, [download here](http://www.sublimetext.com/3){:target="_blank"}.
 
@@ -37,7 +37,7 @@ There are lots of great packages for SublimeText that you can install to customi
 - [DocBlockr](https://github.com/Warin/Sublime/tree/master/DocBlockr){:target="_blank"} - Assists in writing comment blocks.
 - [AlignTab](https://github.com/randy3k/AlignTab){:target="_blank"} - Assists in code alignment.
 
-##Git
+## Git
 
 Before we are ready to start working with code we need to have a system in place to manage that code, we'll be using Git. If you have never heard of Git before I would suggest reading [GitHub For Beginners: Don't Get Scared, Get Started](http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1){:target="_blank"}. Another great read for all levels of experience is [Getting Started Git Basics](https://git-scm.com/book/en/v2/Getting-Started-Git-Basics){:target="_blank"}.  
 
@@ -53,7 +53,7 @@ Type `git clone https://github.com/SeattleLadiesJS/Environment-Setup.git` and hi
 *Note For meetup we will be forking this repository into your own git repository which means that you'll need to have a github account, be sure to have signed up for your own account at [github.com](https://github.com/){:target="_blank"} before the meetup if you don't already have an one.
 
 
-##Node.js
+## Node.js
 
 Last step to getting our Environment running is to install Node.js, which is a runtime environment for JavaScript. If you're not familiar with Node.js I would suggest watching [What is Node.js Exactly? - a beginners introduction to Nodejs](https://www.youtube.com/watch?v=pU9Q6oiQNd0){:target="_blank"}.
 
@@ -79,7 +79,7 @@ Lastly type `gulp` and hit enter, you should see output which is similar to a he
 
 
 
-##Conclusion
+## Conclusion
 
 I know we just blew through a lot of important stuff without much explanation but hopefully everything installed smoothly and we can spend our time in the meetup answering questions and learning about the code that is included with the sample repository. 
  

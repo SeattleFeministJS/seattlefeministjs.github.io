@@ -7,7 +7,7 @@ author: ava
 ---
 
 
-##What is Git?
+## What is Git?
  Git is Source Control Managment, also called Version Control Software, for storing source files in locations called Repositories. These systems back up files in a way that makes it easy to view files and track changes made over time. Git allows teams of developers, designers and project managers the ability to work on the same group of files without overwriting each other's work. Git also provides a way to "roll-back" code files to a specific point in history for debugging or simply tracking specific changes. 
 
  Git is different from other types of source control management in a few ways but the most significant is the way it thinks about data. Most systems think about their data as list of files, each having their own list of changes to a base version of an individual file.
@@ -30,9 +30,9 @@ Another important difference is that Git is distributed which means that everyon
 
 Git also has the advantage of Github which provides a central place to store code for free and to manage issues, they even provide GUI tools to work with repositories, however we will be using the command line. The command line has advantages of being scripted into build systems to trigger tasks to be run upon each commit, for instance run tests or deploy new code to a live web server.
 
-##Git Concepts  
+## Git Concepts  
 
-###Repository
+### Repository
 To understand what a repository is let's first define a term called "Working Directory". Working Directory is the directory which contains all uncompressed project files and assets along with a hidden directory named `.git`. That hidden directory *is* the repository.
 
 <figure>
@@ -325,13 +325,13 @@ More than likely you will be working with a remote repository such as one hosted
 ####Pushing
 When you want to share a branch with a remote repository you need to "push" it up to a remote using `git push [name_of_remote] [name_of_branch]` 
 
-##Tags
+## Tags
 Tags are used to mark a point in the repository history, hence pointing to a specific commit. Tags cannot be committed to or changed, they will always point to the same commit in history. There are two types of tags, **lightweight** and **annotated**.
 
 A lightweight tag is just a pointer to a specific commit. Annotated tags are stored as objects and contain the tagger name, email, the date and a tagging message and can be signed and verified. It's recommended to use annotated tags so you have all of that information included. Creating an annotated tag is simple `git tag -a v0.1 -m "Initial Version"`. If you want to see a list of tags, and verify that you have made your tag, use `git tag` and if you want to inspect what is included in the tag use `git show [tag_name]`.
 
 
-##GitHub Pages
+## GitHub Pages
 GitHub pages are free public web pages hosted by GitHub. These pages are hosted over HTTP so do not host anything with sensitive data there. There two main types of pages, *User or company pages* and *project or repository pages*. Since GitHub has done such a great job at documenting how-to create these pages there's no use in trying to do better and I'll link to their instruction page [here](https://pages.github.com/).
 
 
