@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Seattle Feminist JS</title>
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="apple-touch-icon" href="icon.png"/>
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+  <!-- bower:css -->
+  <!-- endbower -->
+
+  <!-- bower:js -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+  <!-- endbower -->
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">SFJS</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!-- <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li> -->
+        <!-- <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li> -->
+      </ul>
+    <!--   <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul> -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+  <main class="one-col-container">
+    <div class="row">
+      <div class="col">
+        <h1>React Workshop One</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        
+<p class="meta">09 Oct 2016 by
+<!-- <img src="http://www.gravatar.com/avatar/74100339cab4aedcf3c66e5b6724a096?s=40"> -->
+<span class="author">Ava Collins</span>
+</p>
+
+<div class="post">
+<h2 id="ecosystem">Ecosystem</h2>
+
+<p>Why do you need to have an ecosystem to use React? React is a modular system, and as such it requires that a user of React is not using React all by itself, React is a module that can be used with other modules of your choice to build up a front end application. React is the “view” in your application, other arguably essential modules in your application would include a server (node/express), bundler (Webpack), a router (React Router) and a Store for keeping track of state (Redux). You can choose which modules make the most sense for the application you are trying to build. For the purpose of this workshop you will need to have git, node.js and npm installed and ready to use.</p>
+
+<h2 id="using-react">Using React</h2>
+<p>Let’s jump right into creating a simple component to get a better understanding of what React is. Using our <a href="https://github.com/SeattleFeministJS/React-Workshop">workshop repository</a> switch to the “simple” branch. We’ll start by creating a basic html page that will display a Hello World message. The first thing we need to add is our React library and a library called React DOM. <a href="http://stackoverflow.com/questions/34114350/react-vs-reactdom">Why do we need two libraries?</a> React, also known as React core, is what gives us the ability to write components and React DOM is the library that renders the components to a specific target, in this case it is the web browser. Originally React was only used for browser implementation and React DOM library was packaged together with core React but since then other rendering targets have been made available, such as <a href="https://facebook.github.io/react-native/">React Native</a>, <a href="https://github.com/ProjectSeptemberInc/gl-react/">React WebGL</a>, recently <a href="http://www.tomshardware.com/news/web-vr-oculus-facebook-carmel-react-vr,32822.html">React VR</a>. Essentially React core is the way we create components and React DOM is the way we put those components into a render target for display. </p>
+
+<p>We need to have a DOM element which we will mount our React component to in the browser, we’ve added a <code>div</code> with an id of ‘app’, this should be familiar if you’ve worked with any other framework or even jQuery. Now we can come to our script block with React code. </p>
+
+<pre><code>  var div = React.DOM.div
+  var h1 = React.DOM.h1
+
+  var HelloWorld = (
+    div({style:{color:'purple'}},
+      h1(null, 'Hello World')
+    )
+  )
+
+  ReactDOM.render(HelloWorld, document.getElementById('app'))
+</code></pre>
+
+<p>First thing to note is that everything is function. You can see we create browser DOM nodes with <code>React.DOM</code> API and they map to html elements with the same name. Since our variables <code>div</code> and <code>h1</code> are actually function expressions for React Dom to execute and render as html tags in the browser, we can pass parameters to them as well. The first parameter is used for passing in attributes to be applied to the DOM element when it renders in a page, as you can see we have a style applied to the <code>div</code>, the second parameter is the child of the element, we pass in the <code>h1</code> as the child of the div and to the <code>h1</code> we pass in a text node.</p>
+
+<p>You have probably noticed that there are parentheses wrapping these function expressions, in React parentheses allows us to write multi line expressions, another thing to note is that our div function expression is the root inside the parentheses, you can only have one single root element in any React component. If you try to add a second element you will get an error.</p>
+
+<pre><code>  var HelloWorld = (
+    div({style:{color:'purple'}},
+      h1(null, 'Hello World')
+    )
+    div({style:{color:'purple'}},
+      h1(null, 'Hello World')
+    )
+  )
+</code></pre>
+
+<p>Finally we call another function from the React DOM library to render the node into the html page at a mount point which have defined as the div with the ‘app’ id.</p>
+
+<pre><code>ReactDOM.render(HelloWorld, document.getElementById('app'))
+</code></pre>
+
+<h2 id="components">Components</h2>
+
+<p>So now that we have a super basic implementation working we realize this is not how anyone would actually use React, so let’s start building up our app up into modular components that we can reuse, go ahead and switch to the ‘class’ branch in our demo repository. We start by pulling out our JS code into a a separate file, let’s start organize our code into a directory structure that we’ll continue to use as it grows. Here we created a <code>src</code> directory where our components will go, and defined the entry point of our application as <code>index.js</code>.</p>
+
+<p>Let’s update or code to add a component called “Title” which can be reused, we do this by creating a <a href="https://en.wikipedia.org/wiki/Class_(computer_programming)">“class”</a>. I don’t want to get to deep into the semantics of object oriented languages and how JavaScript is a prototypal language that doesn’t have true classes, only to say that the intention of the React library method <code>createClass</code> is to create encapsulations with embedded state. A <a href="https://facebook.github.io/react/docs/glossary.html#react-components"><code>ReactComponent</code> Class</a> is simply a JavaScript class (or “constructor function”). When this constructor is called it will return an object with it’s own internal methods, which we will use to render and hook into lifecycle events, this return object is what is referred to as a <code>ReactComponent</code></p>
+
+<pre><code>var Title = React.createClass({
+  render() {
+    return (
+      div(null,
+        h1(null, 'Hello World Class')
+      )
+    )
+  }
+})
+</code></pre>
+
+<h2 id="elements">Elements</h2>
+
+<p>So now we have moved our HelloWorld function into a reusable class, we need to now tell React how to instantiate that class and render it into the DOM,  we do this by using <code>createElement</code>. ReactElement is a virtual ReactComponent before it gets constructed. An old and new ReactElement can be compared to see if a new ReactComponent instance should be created or if the existing one should be reused. This is how the React DOM “diffing” features work.</p>
+
+<p>The render method of a ReactComponent is expected to return another ReactElement. This allows these components to be composed. Ultimately the render resolves into ReactElement with a string tag which instantiates a DOM Element instance and inserts it into the document.</p>
+
+<pre><code>var HelloWorld = (
+  div( null,
+    React.createElement(Title, null)
+  )
+)
+
+ReactDOM.render(HelloWorld, document.getElementById('app'))
+</code></pre>
+
+<h2 id="props">Props</h2>
+
+<p>Props allow us to pass things into our components making them much more reusable. In this case we are passing a string to display inside the <code>h1</code> tag but props can pass more than strings, it can pass objects and since functions are objects in JavaScript we can pass functions as well, and now you can begin to see how flexible components can be when using props. We will dig into props in more detail later on, for now it’s good enough to understand that they exist and they are used to customize components.</p>
+
+<h2 id="jsx">JSX</h2>
+<p>Now that we have seen how React is rendering classes to a page and how to create reusable components we can look at what the React documentation, and alot of other learning resources start with from the beginning and that is called <code>JSX</code>. Facebook recommends using <code>JSX</code> because it is concise and has a more familiar syntax which is friendlier to use. For example if we were to use <code>JSX</code> in our example above we could simply write something like</p>
+
+<pre><code>var HelloWorld = (&lt;div&gt;&lt;Title title="Hello World"/&gt;&lt;/div&gt;)
+</code></pre>
+
+<p>The catch is that you have to use some tooling to transform <code>JSX</code> code into plain old JavaScript objects, as we have written above. This is where alot of beginners begin to struggle, as most examples are incomplete or point you to a bloated boilerplate with everything possible crammed in there and no explanation of how it all comes together and why you need to use these tools in the first place. This is the “ecosystem” and it involves using a transpiler called Babel, and the most common way to use Babel and React is with a module bundler, which is where Webpack comes in (Webpack isn’t the only option but it is the one most commonly used today.)</p>
+
+<h2 id="babel">Babel</h2>
+
+<p>Babel is library that originally was called “6 to 5” because it’s main purpose was to “transpile” modern JavaScript, at the time there was only ES6, to JavaScript that a browser could understand, which is called ES5. Now we have ES7 and JSX that we would like to use in our source code, and so the name change seemed to better suite the growth of the library which is to interpret different types of syntax to ES5. Babel, much like React is a modular system, meaning that you have to hand roll you tools to fit your specific use cases using plugins. Switch to the “babel” branch in our repository now, and then run <code>npm install</code>. You can see in the <code>package.json</code> that we have installed <code>babel-core</code>, <code>babel-preset-es2015</code> and <code>babel-react</code> as development dependencies. There is a way to run babel from command line but we are going to be using with it Webpack so we won’t be going into detail about <code>babel-cli</code>, but if you are using with node or for command line you will need to add a configuration file where you define the required plugins, called presets, named <code>.babelrc</code>.   </p>
+
+<h2 id="webpack">Webpack</h2>
+
+<p>Webpack is what brings together all the fun new JavaScript code into a single bundle to be loaded and run in a browser and also provides a nice <a href="https://webpack.github.io/docs/webpack-dev-server.html">development server</a> which will watch and reload files for you as you edit. Switch to the “webpack” branch now, and run <code>npm install</code>. Webpack, being a module bundler, is also a modular system of plugins, called <a href="https://webpack.github.io/docs/using-loaders.html">loaders</a>, which you add to your project to support your needs. Webpack works very similarly to Gulp in that it processes files that are defined in a regular expression and applies transformations to the code in a stream and will output the result of those transformations to a destination defined in a configuration file. The configuration file should be named <code>webpack.config.js</code> because that is what webpack will look for in the project root directory by default. You can name it a different name, or keep it in a different location if you want but you have to specify where it is what is named if you do.</p>
+
+<p>Looking inside the Webpack configuration file we can see that we set some variables defining the project root and the asset path, this is the in and out points which Webpack will be working with, we also <code>require</code> the Webpack library using node module require statement. We then create a module to export, which is the configuration object. Our configuration is pretty simple at this point and this is what most boilerplate projects lack, simplicity. Webpack can do many kinds of complex transformations to our source files, and will be building on this as we go, but if you are trying to learn you don’t want a full configuration file to reference because as mentioned, it can get pretty complex and it’s very easy to configure one thing incorrectly and the whole setup becomes unusable. Another source of frustration, in my opinion, is the Webpack documentation, it is sparse and to me it assumes the reader has all this background knowledge of all the possible scenarios and knows which things are required to get started and which things can be left out for their project. So even though the configuration has documentation for each entry in this file we’ll go over each one here.</p>
+
+<p><code>context</code> - This tells Webpack where to start looking for it’s source files, it the root of the project.</p>
+
+<p><code>entry</code> - This is the entry point to your application, and can be different from the root of your project, in our case our source files all live in <code>/src</code>, and the entry point into our application is the <code>index.js</code> file. It is possible to have multiple entry points, but that goes into more advanced usage of Webpack and we will not be going into how that works in these workshops.</p>
+
+<p><code>output</code> - This is a configuration object for how and where Webpack will be writing it’s output files, “the bundle”. The <code>path</code> is self explanatory, the path to output files, the <code>filename</code> also self explanatory, the name of the file to be output, and the <code>publicPath</code> is the path which the development server will be outputting a bundle ‘in memory’ while we are developing. If you look into the <code>index.html</code> inside the <code>src</code> directory you will see that we have added a script tag with source set the same location as out output config <code>dist/bundle.js</code> and another script tag with the source set to <code>http://localhost:8080/webpack-dev-server.js</code>, this is what allows the development server to do what is called “Hot Module Replacement”, which is what updates the browser whenever you make a change to the source code.</p>
+
+<p><code>resolve</code> - This tells Webpack about the code it should be processing. <code>modules</code> tells Webpack which directories to look for modules that are going to used in the application and <code>extensions</code> tells it which files to look include from the the modules.</p>
+
+<p><code>stats</code> - Is logging, <code>colors</code> is for formatting output using colors <code>reasons</code> will print out the exceptions and files that caused them. <code>chunks</code> will report when code chinks have been processed and what the output is from that processing.</p>
+
+<p><code>module</code> - Options applied to the modules being processed, <code>loaders</code> is an array of loaders that will be applied to files within modules, files are tested against a regular expression for extension and if they pass the loader will process those files.</p>
+
+<h2 id="npm-scripts">NPM Scripts</h2>
+
+<p>Take look inside the <code>package.json</code> and at the top you will see a block called “scripts”. This area allows you to define commands that you would run frequently, or in use in an automated build environment. There should be two commands there for executing webpack, the first is for running a live reload development server and the second is for creating a static bundle. To use the scripts you only need to type <code>npm run &lt;command name&gt;</code>, so for development go ahead and run <code>npm run dev</code> you should see the console output the stats that we defined and you should be able to open your browser to <a href="http://localhost:8080/">http://localhost:8080</a> to see the app running. To kill that process in the command line you would hit <code>ctrl-c</code>. Go ahead and run the bundle command, <code>npm run bundle</code>, this should output the static compiled bundle file to the <code>/dist</code> directory that we defined in the webpack config. Go ahead an open up the bundle file that was generated in <code>/dist/bundle.js</code>, you can see at the top some inserted code required for bootstrapping webpack in the browser and below that is the component code. It’s nice to look at this with an incredibly simple example such as the one we have because it isn’t confusing, you can clearly see webpack code followed by your code, as you app grows so will the bundle, which we see when add in modules.</p>
+
+<h2 id="modules">Modules</h2>
+
+<p>We’ve been saying all this stuff is modular, and it isn’t until now that we can actually start writing and requiring modules with ease. Switch to the “modules” branch now and run <code>npm install</code>. Since we have Webpack setup to bundle our modules for the browser we no longer need to use a global script include for React and React Dom in our <code>index.html</code>, in general globals are bad, they can cause problems if there are two libraries with the same name, or using the same global variables names. Without React being globally available we have to now include them wherever they are used. If you look into the <code>index.js</code> you can see now that we have added vars for both <code>React</code> and <code>ReactDOM</code>, we have also moved the Title component into it’s own file and required that using a dot slash syntax, indicating to Webpack that this is a local file and not an NPM module, so it knows to look for modules without any special pathing inside the <code>node_modules</code> directory at the root of your project. Go ahead and run that bundle command again and inspect the generated <code>bundle.js</code>, look how much it has grown since the last time we looked, this is way more confusing to me now because it has bundled together React, React DOM and all their dependencies along with our simple little component. </p>
+
+<h2 id="es6">ES6</h2>
+
+<p>Now that we have Babel processing all of our files through Webpack we can use some newer ES6 syntax. Switch the “es6” branch now.  If you look into the <code>index.js</code> file now you can see that we have replace the <code>require</code> syntax with ES6 module syntax. </p>
+
+<p><code>var React = require('react')</code></p>
+
+<p>becomes </p>
+
+<p><code>import React from 'react'</code></p>
+
+<p>And if you look into the <code>title.js</code> file you will see a more interesting way to import modules called <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">destructuring</a>, this is how to import named exports from a larger scope into their own variables in a single line. You may also notice that we have used ES6 module export syntax to export our Title module and we have forgone manually creating a React class to create our composite component and use their <a href="https://facebook.github.io/react/docs/top-level-api.html">Top Level API</a> for <code>Component</code>.</p>
+
+<pre><code>  import React, { Component } from 'react'
+
+  export default class Title extends Component {
+    render() {
+      return (
+        &lt;div&gt;&lt;h1&gt;{this.props.title}&lt;/h1&gt;&lt;/div&gt;
+       )
+    }
+  }
+</code></pre>
+
+<p>Next time we will get more into the React API’s and start creating modules that manage state, which is where most people want to start from day one and then they quickly become frustrated because there are many disparate moving parts that need to be in place before you can really start coding some interesting stuff. Now we have the foundation set and a clean simple boilerplate with which we can continue to build upon and experiment until we meet again!</p>
+
+<h3 id="references">References</h3>
+<ul>
+  <li><a href="https://github.com/SeattleFeministJS/React-Workshop">Github repository for this workshop</a></li>
+  <li><a href="https://facebook.github.io/react/">React Documentation </a></li>
+  <li><a href="https://www.reactenlightenment.com/what-is-react.html">React Enlightenment</a></li>
+  <li><a href="https://facebook.github.io/react/docs/jsx-in-depth.html">JSX In Depth</a></li>
+  <li><a href="https://babeljs.io/">Babel</a></li>
+  <li><a href="https://webpack.github.io/docs/">Webpack</a></li>
+</ul>
+
+</div>
+
+      </div>
+    </div>
+  </main>
+
+
+
+</body>
+
+</html>
