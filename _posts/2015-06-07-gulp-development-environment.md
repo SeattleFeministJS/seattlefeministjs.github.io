@@ -6,10 +6,10 @@ categories: meetup
 author: ava
 ---
 
-Developing a website or web application can include any number of plugins and pre-processors that are tedious to manage. Enter [Gulp.js](http://gulpjs.com/), a build system that can automate repetitive tasks like compiling SASS into CSS, adding plugins, frameworks and libraries, checking your code for syntax errors and reloading the browser while you are editing content. This post should help you get started using Gulp to build your next project but it is not the only way or even the best way to use gulp, it's just a starter, you may choose to organize your project very differently from the examples given here. If you haven't already installed git and node.js please refer to previous posts [Environment Setup for PC](http://seattleladiesjs.github.io/environment-setup-pc/) or [Environment Setup for Mac](http://seattleladiesjs.github.io/environment-setup-mac/) depending on your operating system.
+Developing a website or web application can include any number of plugins and pre-processors that are tedious to manage. Enter [Gulp.js](http://gulpjs.com/), a build system that can automate repetitive tasks like compiling SASS into CSS, adding plugins, frameworks and libraries, checking your code for syntax errors and reloading the browser while you are editing content. This post should help you get started using Gulp to build your next project but it is not the only way or even the best way to use gulp, it's just a starter, you may choose to organize your project very differently from the examples given here. If you haven't already installed git and node.js please refer to previous posts [Environment Setup for PC](http://seattlefeministjs.github.io/environment-setup-pc/) or [Environment Setup for Mac](http://seattlefeministjs.github.io/environment-setup-mac/) depending on your operating system.
 
 ## Overview
-The [example repository](https://github.com/SeattleLadiesJS/Environment-Setup){:target="_blank"} that we will be working from provides the following common things: 
+The [example repository](https://github.com/SeattleFeministJS/Environment-Setup){:target="_blank"} that we will be working from provides the following common things:
 
 - An entry point into your website or application, usually `index.html`.
 - A source folder for scripts, stylesheets and other html files, usually organized in a fashion that reflects your site structure.
@@ -20,8 +20,8 @@ The [example repository](https://github.com/SeattleLadiesJS/Environment-Setup){:
 
 Let's start by cloning the example, open your console and navigate to your home directory.
 
-- `cd "${HOME}"` 
-- ` git clone https://github.com/SeattleLadiesJS/Gulp-Development-Environment.git`
+- `cd "${HOME}"`
+- ` git clone https://github.com/SeattleFeministJS/Gulp-Development-Environment.git`
 - `npm install`
 - `bower install`
 - `gulp serve`
@@ -30,7 +30,7 @@ Let's start by cloning the example, open your console and navigate to your home 
 Using this repository as a guide let's start a brand new repository on your own account and we will add each one of those things step by step.
 
 ## Fork example repository
-Sign into your Github account and go to our sample repository [Gulp Development Environment](https://github.com/SeattleLadiesJS/Gulp-Development-Environment). In the top right under your name you will see a button that says "Fork", click that to copy the example repository to your github account.
+Sign into your Github account and go to our sample repository [Gulp Development Environment](https://github.com/SeattleFeministJS/Gulp-Development-Environment). In the top right under your name you will see a button that says "Fork", click that to copy the example repository to your github account.
 
 <img src="../images/git-repo-fork.png" alt="Fork button">
 
@@ -40,7 +40,7 @@ Sign into your Github account and go to our sample repository [Gulp Development 
 
 In your home directory open a command line and enter `git clone ` followed by the URL that you copied from github GUI.
 
-`git clone https://github.com/simplesthing/Gulp-Development-Environment.git` 
+`git clone https://github.com/simplesthing/Gulp-Development-Environment.git`
 
 Change directories to be inside your "Gulp-Development-Environment" directory.
 
@@ -80,14 +80,14 @@ Copy the `.gitignore`, `.editorconfig` and `.jshintrc` files from example reposi
 
 ##  Automate all the things
 Now we're ready to start using Gulp to automate some development tasks. On the command line navigate into your new repository and if you have followed the setup instructions from previous post you should already have Bower and NPM installed globally and ready to use. We're going to initialize an NPM `package.json` file by typing `npm init`. It will ask a few questions about the project, you can enter answers or hit enter to accept defaults, and save a `package.json` file to the root of your project. Now that we have a `package.json` we can start adding our development tools, the first thing we're going to need is get Gulp, in your command line enter:
- 
+
   `npm install --save-dev gulp`
 
 We'll need to create `gulpfile.js` in our project root. Start that file by declaring a variable for gulp
 
 `var gulp = require('gulp');`
 
-This is a pattern which we would have to use for every node module that we add to the project and want to use in our gulpfile except we're going to use a utility called [gulp-load-plugins](https://github.com/jackfranklin/gulp-load-plugins){:target="_blank"} which will automate that repetitive task and require any module that begins with `gulp-` so that we don't have to. In command line type 
+This is a pattern which we would have to use for every node module that we add to the project and want to use in our gulpfile except we're going to use a utility called [gulp-load-plugins](https://github.com/jackfranklin/gulp-load-plugins){:target="_blank"} which will automate that repetitive task and require any module that begins with `gulp-` so that we don't have to. In command line type
 
  `npm install --save-dev gulp-load-plugins`
 
@@ -99,7 +99,7 @@ Now whenever we want to use a `gulp-` module we can refer to using the `$.` to p
 
 
 ##  Adding third party libraries using Bower
-Almost every web application uses some third party libraries to enhance functionality, so let's add some to ours we'll start off with three very common ones jQuery, Bootstrap SASS, and Fontawesome. Back on the command line enter `bower init` this will initialize bower and create a `bower.json` by asking you a few questions about your project. Now we have a `bower.json` file we can use the command line to add packages and save them to `bower.json` which can be used to install your project anywhere. 
+Almost every web application uses some third party libraries to enhance functionality, so let's add some to ours we'll start off with three very common ones jQuery, Bootstrap SASS, and Fontawesome. Back on the command line enter `bower init` this will initialize bower and create a `bower.json` by asking you a few questions about your project. Now we have a `bower.json` file we can use the command line to add packages and save them to `bower.json` which can be used to install your project anywhere.
 
 Adding these libraries enter the following commands
 
@@ -107,7 +107,7 @@ Adding these libraries enter the following commands
 - `bower install fontawesome --save`
 - `bower install bootstrap-sass --save`
 
-You should see that a directory named `/bower_coponents` has been added to your project and plugins have been installed. but we need to have them added to our `index.html` for us whenever we add new ones. So let's install [wiredep](https://github.com/taptapship/wiredep){:target="_blank"} to do this for us. 
+You should see that a directory named `/bower_coponents` has been added to your project and plugins have been installed. but we need to have them added to our `index.html` for us whenever we add new ones. So let's install [wiredep](https://github.com/taptapship/wiredep){:target="_blank"} to do this for us.
 
 "How it works
 Installing a Bower package with --save will add the package as a dependency in your project's bower.json file. This library reads that file, then reads the bower.json files for each of those dependencies. Based on these connections, it determines the order your scripts must be included before injecting them between placeholders in your source code."
@@ -143,7 +143,7 @@ Inside the wiredep callback we are going to return our source which is our `inde
         .pipe(gulp.dest('build'));
     });
 
-Lastly we'll need to add placeholders in our `index.html` to tell wiredep where to add our plugin files, add the following to the head section of your `index.html`. 
+Lastly we'll need to add placeholders in our `index.html` to tell wiredep where to add our plugin files, add the following to the head section of your `index.html`.
 
   `<!-- bower:css -->` <br>
   `<!-- endbower -->`
@@ -152,11 +152,11 @@ Lastly we'll need to add placeholders in our `index.html` to tell wiredep where 
   `<!-- bower:js -->` <br>
   `<!-- endbower -->`
 
-Go ahead and run `gulp wiredep` and you should now see that the `index.html` file has added `fontawesome.css` in between the css placeholders and added `jquery.js` and `bootstrap.js` between the js placeholders. 
+Go ahead and run `gulp wiredep` and you should now see that the `index.html` file has added `fontawesome.css` in between the css placeholders and added `jquery.js` and `bootstrap.js` between the js placeholders.
 
 
-##  Get Sassy 
-Now let's add some style to our site by creating a `/styles` directory to our `/src` and inside that add a `styles.scss`  and a `_main.scss` file to that same directory. 
+##  Get Sassy
+Now let's add some style to our site by creating a `/styles` directory to our `/src` and inside that add a `styles.scss`  and a `_main.scss` file to that same directory.
 
 Inside `_main.scss` and add a body style with a background color and a text color, for example.
 
@@ -169,11 +169,11 @@ In our `styles.scss` we can import our main file by adding following.
 
 `@import "main";`
 
-Let's add some bootstrap by copying the file at 
+Let's add some bootstrap by copying the file at
 
-`/bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss` 
+`/bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss`
 
-into a file in your `/src/styles` directory named `_bootstrap.scss`. Then update all the `@import` paths to add `../../bower_components/bootstrap-sass/assets/stylesheets/` to the beginning of the file paths so they look like this 
+into a file in your `/src/styles` directory named `_bootstrap.scss`. Then update all the `@import` paths to add `../../bower_components/bootstrap-sass/assets/stylesheets/` to the beginning of the file paths so they look like this
 
 `@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";`
 
@@ -188,16 +188,16 @@ We'll be using a few different packages to compile, minify, create sourcemaps an
 In our gulpfile let's start adding a task to compile our sass into css called 'styles', add the following above the 'serve' task.
 
   `gulp.task('styles', function(){`
-    
+
   `});`
 
-Inside the callback we need to acquire our source sass files in order to return them back to the gulp stream by calling the gulp src function `gulp.src(globs[, options])` and passing in an array of [globs](http://en.wikipedia.org/wiki/Glob_%28programming%29){:target="_blank"}, filepaths that can use 'wildcards' characters, followed by an optional options object, which we won't be using this time. Since we are using the `style.scss` to import all of our sass files we don't need to pass in anything other than this file. 
+Inside the callback we need to acquire our source sass files in order to return them back to the gulp stream by calling the gulp src function `gulp.src(globs[, options])` and passing in an array of [globs](http://en.wikipedia.org/wiki/Glob_%28programming%29){:target="_blank"}, filepaths that can use 'wildcards' characters, followed by an optional options object, which we won't be using this time. Since we are using the `style.scss` to import all of our sass files we don't need to pass in anything other than this file.
 
     gulp.task('styles', function(){
       return gulp.src(['src/styles/styles.scss'])
     });
 
-Now we want to pipe those files to the next process ['gulp-sourcemaps'](https://www.npmjs.com/package/gulp-sourcemaps){:target="_blank"}, which will add inline references to the sass source code that was used to create the final CSS output which is used when debugging in the browser to find the location in you source SASS files of compiled CSS. We will pass our source files stream into the next step by calling 
+Now we want to pipe those files to the next process ['gulp-sourcemaps'](https://www.npmjs.com/package/gulp-sourcemaps){:target="_blank"}, which will add inline references to the sass source code that was used to create the final CSS output which is used when debugging in the browser to find the location in you source SASS files of compiled CSS. We will pass our source files stream into the next step by calling
 
 `$.sourcemaps.init()`.
 
@@ -207,7 +207,7 @@ Now we want to pipe those files to the next process ['gulp-sourcemaps'](https://
     });
 
 
-To compile our SASS we want to call `gulp-sass` and pass in a [options](https://github.com/sass/node-sass#options){:target="_blank"} object by adding 
+To compile our SASS we want to call `gulp-sass` and pass in a [options](https://github.com/sass/node-sass#options){:target="_blank"} object by adding
 
 `.pipe($.sass({precision: 10,errLogToConsole: true}))`.
 
@@ -236,7 +236,7 @@ Now that we have our SASS converted to CSS we'd like gulp to add our browser pre
       'bb >= 10'
     ];
 
-Back in our 'styles' task callback add the following line to add our browser prefixes. 
+Back in our 'styles' task callback add the following line to add our browser prefixes.
 
 `.pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))`
 
@@ -342,17 +342,17 @@ And finally to write the files to the build directory.
     });
 
 If you try running your new task, `gulp scripts` you should see that jshint has found some issues that we need to fix, the first line tells you which file the issues are in and then each issue with line numbers.
-    
+
     /Users/avacollins/test/src/scripts/main.js
     line 2  col 3  Missing "use strict" statement.
     line 1  col 1  '$' is not defined.
     line 2  col 3  '$' is not defined.
 
-We did not add the `use strict` directive at the top of the file and we did not declare the global varaible `$` which is added to the global object by jQuery. Inside `main.js` let's add 
+We did not add the `use strict` directive at the top of the file and we did not declare the global varaible `$` which is added to the global object by jQuery. Inside `main.js` let's add
 
 `"use strict;"`
 
-to the very top of the file and below add 
+to the very top of the file and below add
 
 `/* global $ */`
 
@@ -457,7 +457,7 @@ And piping that into it's destination `/build`.
 Now you can run `gulp copy` and you shoudl see that your `images` directory has been moved over to the `build` directory.
 
 ##  Build
-Now that we have individual tasks to process all our code let's put it all together to create a build of our files in one step. Here is where JavaScript gets tricky, `node.js` and `gulp.js` are asynchronous, which means that tasks will execute in which ever order your computer processes the fastest, they most likely will not execute in the order in which you called them. This issue can break our injects and copies and wreak havoc on our development environment. To fix this we'll use [run-sequence](https://github.com/OverZealous/run-sequence){:target="_blank"}. 
+Now that we have individual tasks to process all our code let's put it all together to create a build of our files in one step. Here is where JavaScript gets tricky, `node.js` and `gulp.js` are asynchronous, which means that tasks will execute in which ever order your computer processes the fastest, they most likely will not execute in the order in which you called them. This issue can break our injects and copies and wreak havoc on our development environment. To fix this we'll use [run-sequence](https://github.com/OverZealous/run-sequence){:target="_blank"}.
 
 `npm install --save-dev run-sequence`
 
@@ -517,7 +517,7 @@ And very simply we add a runSequence with the same tasks as the build task, and 
 
 
 
-Let's give it try, on the command line type `gulp serve` you should see output as gulp processes the command and Browsersync launches a new web server, it should also open your `index.html` for you. After we verify that it is working we can tell BroswerSync to quit by typing `ctrl c` (on Mac). 
+Let's give it try, on the command line type `gulp serve` you should see output as gulp processes the command and Browsersync launches a new web server, it should also open your `index.html` for you. After we verify that it is working we can tell BroswerSync to quit by typing `ctrl c` (on Mac).
 
 
 ##  Watch it!
@@ -594,7 +594,7 @@ Go ahead and run `gulp fonts` to test it out, also we can add an icon to our `in
 
 ###  Minify
 
-Next we are going to want to concatenate all our bower components into a single file and then run a minifier to remove comments and whitespace to optimize download speeds. 
+Next we are going to want to concatenate all our bower components into a single file and then run a minifier to remove comments and whitespace to optimize download speeds.
 
   - `npm install --save-dev gulp-concat`
   - `npm install --save-dev gulp-uglify`
@@ -743,7 +743,7 @@ Concatenate into a single file `app.js`.
         .pipe($.concat('app.js'))
     });
 
-Minify code. 
+Minify code.
 
 `.pipe($.uglify())`
 
@@ -812,7 +812,7 @@ Let's add our task.
 
 We need to add a couple variables one for each source.
 
-` var vendor = gulp.src(['dist/scripts/vendor.js', 'dist/styles/vendor.css']);` <br>  
+` var vendor = gulp.src(['dist/scripts/vendor.js', 'dist/styles/vendor.css']);` <br>
 `var app = gulp.src(['dist/scripts/app.js', 'dist/styles/styles.css']);`
 
     gulp.task('inject:dist', function(){

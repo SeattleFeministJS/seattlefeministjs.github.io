@@ -8,13 +8,13 @@ author: ava
 
 
 ## What is Git?
- Git is Source Control Managment, also called Version Control Software, for storing source files in locations called Repositories. These systems back up files in a way that makes it easy to view files and track changes made over time. Git allows teams of developers, designers and project managers the ability to work on the same group of files without overwriting each other's work. Git also provides a way to "roll-back" code files to a specific point in history for debugging or simply tracking specific changes. 
+ Git is Source Control Managment, also called Version Control Software, for storing source files in locations called Repositories. These systems back up files in a way that makes it easy to view files and track changes made over time. Git allows teams of developers, designers and project managers the ability to work on the same group of files without overwriting each other's work. Git also provides a way to "roll-back" code files to a specific point in history for debugging or simply tracking specific changes.
 
  Git is different from other types of source control management in a few ways but the most significant is the way it thinks about data. Most systems think about their data as list of files, each having their own list of changes to a base version of an individual file.
 
  <figure>
   <img src="../images/getting-to-know-git/deltas.png" alt="Storing data as changes to a base version of each file.">
-  <figcaption>Source <a href="https://git-scm.com/book/en/v2/Getting-Started-Git-Basics">https://git-scm.com/book/en/v2/Getting-Started-Git-Basics</a></figcaption>  
+  <figcaption>Source <a href="https://git-scm.com/book/en/v2/Getting-Started-Git-Basics">https://git-scm.com/book/en/v2/Getting-Started-Git-Basics</a></figcaption>
  </figure>
  <br>
 
@@ -22,7 +22,7 @@ Git instead thinks about its data as a set of snapshots of a mini file system. E
 
 <figure>
    <img src="../images/getting-to-know-git/snapshots.png" alt="Storing data as snapshots of the project over time.">
-    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Getting-Started-Git-Basics">https://git-scm.com/book/en/v2/Getting-Started-Git-Basics</a></figcaption>  
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Getting-Started-Git-Basics">https://git-scm.com/book/en/v2/Getting-Started-Git-Basics</a></figcaption>
 </figure>
 <br>
 
@@ -30,7 +30,7 @@ Another important difference is that Git is distributed which means that everyon
 
 Git also has the advantage of Github which provides a central place to store code for free and to manage issues, they even provide GUI tools to work with repositories, however we will be using the command line. The command line has advantages of being scripted into build systems to trigger tasks to be run upon each commit, for instance run tests or deploy new code to a live web server.
 
-## Git Concepts  
+## Git Concepts
 
 ### Repository
 To understand what a repository is let's first define a term called "Working Directory". Working Directory is the directory which contains all uncompressed project files and assets along with a hidden directory named `.git`. That hidden directory *is* the repository.
@@ -43,7 +43,7 @@ To understand what a repository is let's first define a term called "Working Dir
 ###Objects
 Git is essentially a [key value store database](https://en.wikipedia.org/wiki/Key-value_database) that compresses and stores snapshots of the working directory in Git Objects. Objects are referenced by a 40 digit hash called [SHA1](https://en.wikipedia.org/wiki/SHA-1) (Secure Hash Algorithm 1) which is the key and the value of the object consists of a **type**, a **size** and **content**. There are four different types of objects which are used to store content.
 
-<img src="../images/getting-to-know-git/object-blob.png" alt="Screenshot of working directory and .git directory on a file system." alt="Git Blob Object"> **blob** - Used to store file data. 
+<img src="../images/getting-to-know-git/object-blob.png" alt="Screenshot of working directory and .git directory on a file system." alt="Git Blob Object"> **blob** - Used to store file data.
 
 <img src="../images/getting-to-know-git/object-tree.png" alt="Screenshot of working directory and .git directory on a file system." alt="Git Tree Object">  **tree** - A tree structure that references other trees or blobs.
 
@@ -55,7 +55,7 @@ Git is essentially a [key value store database](https://en.wikipedia.org/wiki/Ke
 Putting it all together a commit can be visualized as something like this.
 <figure>
    <img src="../images/getting-to-know-git/objects-example-flow.png" alt="Storing data as snapshots of the project over time.">
-    <figcaption>Source <a href="http://schacon.github.io/gitbook/1_the_git_object_model.html">http://schacon.github.io/gitbook/1_the_git_object_model.html</a></figcaption>  
+    <figcaption>Source <a href="http://schacon.github.io/gitbook/1_the_git_object_model.html">http://schacon.github.io/gitbook/1_the_git_object_model.html</a></figcaption>
 </figure>
 <br>
 
@@ -68,12 +68,12 @@ The HEAD file is symbolic reference or pointer to the SHA1 hash to that points t
 
 <figure>
    <img src="../images/getting-to-know-git/simple-git-lifecycle.png" alt="Storing data as snapshots of the project over time.">
-    <figcaption>Source <a href="http://rogerdudler.github.io/git-guide/">http://rogerdudler.github.io/git-guide/</a></figcaption>  
+    <figcaption>Source <a href="http://rogerdudler.github.io/git-guide/">http://rogerdudler.github.io/git-guide/</a></figcaption>
 </figure>
 <br>
 
 ##Installing
-Installing Git can be done in a few different ways depending on your platform. SLJS has covered a couple of ways to  install Git in a previous post called Environment Setup, Mac installation can be found [here](http://seattleladiesjs.github.io/environment-setup-mac/#git) and Windows installation can be found [here](http://seattleladiesjs.github.io/environment-setup-pc/#git). Of course these are not the only ways to install Git and with some Googling many other ways can be found that would be just as good while have some differences or advantages for certain users depending on your preferences.
+Installing Git can be done in a few different ways depending on your platform. SLJS has covered a couple of ways to  install Git in a previous post called Environment Setup, Mac installation can be found [here](http://seattlefeministjs.github.io/environment-setup-mac/#git) and Windows installation can be found [here](http://seattlefeministjs.github.io/environment-setup-pc/#git). Of course these are not the only ways to install Git and with some Googling many other ways can be found that would be just as good while have some differences or advantages for certain users depending on your preferences.
 
 There are a variety of GUI tools for using Git but we will only be using the command line. The command line is the only way that you can run all the Git commands, whereas most GUIs only implement a subset of functionality. If you know how to use the command line you will be able to figure out any GUI, but the opposite of that is not likely true.
 
@@ -99,7 +99,7 @@ There are two ways of getting a git repository.
 2. Export a project out of Git from an existing repository
 
 ###Initializing a new Repository
-You can initialize a new git repository inside an existing working directory of files, or empty directory for a new project, by navigating in your command line to the project directory root and issuing the command `git init`. You should see a confirmation message that starts off `Initialized empty Git repository in ...` telling you that it is done. 
+You can initialize a new git repository inside an existing working directory of files, or empty directory for a new project, by navigating in your command line to the project directory root and issuing the command `git init`. You should see a confirmation message that starts off `Initialized empty Git repository in ...` telling you that it is done.
 
 If you `ls -a` in that directory you should see that Git has added a new hidden subdirectory named `.git`. If you change directories by issuing `cd .git` and the another `ls` command you can see the files and directories that have been added.
 
@@ -136,7 +136,7 @@ Untracked files are files that have never been added to the index (staging area)
 
 <figure>
    <img src="../images/getting-to-know-git/file-lifecycle.png" alt="Storing data as snapshots of the project over time.">
-    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository">https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository</a></figcaption>  
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository">https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository</a></figcaption>
 </figure>
 <br>
 
@@ -185,13 +185,13 @@ Often you will find yourself working on some files and for whatever reason you n
 
 
 ##Logging
-There are many times during development that you will need to view a log of commits that have been made to a project over time. Git provides a powerful tool called `git log`. By default the logger will list the commits made in that repository in reverse chronological order with information about the commit. 
+There are many times during development that you will need to view a log of commits that have been made to a project over time. Git provides a powerful tool called `git log`. By default the logger will list the commits made in that repository in reverse chronological order with information about the commit.
 
 Looking at a simple `git log` we get the SHA1 hash pointing to the commit object which defines the snapshot of the code at the time of commit the author's name and email, the date the commit was made and a commit message.
 
 <img src="../images/getting-to-know-git/git-log.png" alt="output from git log command">
 
-This output will continue until the initial commit information is reached and you may need to paginate the results multiple times to view it all, which makes it difficult to get a broad overview of all the commits made in a repository history, when you have reached the end you will need to issue `ctrl+z` to exit the log viewer. To shorten this we can use the flag `git log --oneline` to show commits on a single line, allowing more history to be shown on a single page of results. 
+This output will continue until the initial commit information is reached and you may need to paginate the results multiple times to view it all, which makes it difficult to get a broad overview of all the commits made in a repository history, when you have reached the end you will need to issue `ctrl+z` to exit the log viewer. To shorten this we can use the flag `git log --oneline` to show commits on a single line, allowing more history to be shown on a single page of results.
 
 <img src="../images/getting-to-know-git/git-log-oneline.png" alt="output from git log command">
 
@@ -203,8 +203,8 @@ You will notice that you are no longer getting a 40 digit hash but a much shorte
 - `%ad` Author date (format respects the --date=option)
 - `%s` Subject
 
-In addition to formatting options you can limit the number of results shown by using limiting options such as `git log -5` to show only the previous five commits. You can use date objects, such as `2015-11-01`, to specify time ranges or use relative dates such as `10 days ago` along with the `--since`,`--after`, `--until`, and `--before` flags. 
-For example to *see all commits after August 1, 2015* you could issue `git log --after=2015-08-01`. 
+In addition to formatting options you can limit the number of results shown by using limiting options such as `git log -5` to show only the previous five commits. You can use date objects, such as `2015-11-01`, to specify time ranges or use relative dates such as `10 days ago` along with the `--since`,`--after`, `--until`, and `--before` flags.
+For example to *see all commits after August 1, 2015* you could issue `git log --after=2015-08-01`.
 
 If you are searching for commits that contain a specific string inside a commit message you would use the `git log --grep="[string_to_match]"`. Or if you are only looking for commits made by a certain user you can use `git log --author="[author]"`.
 
@@ -213,17 +213,17 @@ If you are searching for commits that contain a specific string inside a commit 
 There are a huge number of options available for `git log` that we didn't cover and if you'd like to learn more you can refer to the [official documentation](https://git-scm.com/docs/git-log).
 
 ##Branches
-A branch is a tree structure of commits with pointers, all pointing backward to their ancestor, until reaching the initial commit. The main line from initial commit to current HEAD is called the **master** branch. 
+A branch is a tree structure of commits with pointers, all pointing backward to their ancestor, until reaching the initial commit. The main line from initial commit to current HEAD is called the **master** branch.
 <figure>
    <img src="../images/getting-to-know-git/basic-branching-master.png" alt="A simple commit history">
-    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>  
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>
 </figure>
 <br>
 
-You can create branches at anytime from any point to start making changes to a snapshot of the 
+You can create branches at anytime from any point to start making changes to a snapshot of the
 <figure>
    <img src="../images/getting-to-know-git/basic-branching-branch.png" alt="A commit history with a branch">
-    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>  
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>
 </figure>
 <br>
 
@@ -246,7 +246,7 @@ After issuing any of the above commands you will see a summary.
 
 <figure>
    <img src="../images/getting-to-know-git/example-diff.jpg" alt="A simple commit history">
-    <figcaption>Source <a href="http://www.git-tower.com/learn/git/ebook/command-line/advanced-topics/diffs">http://www.git-tower.com/learn/git/ebook/command-line/advanced-topics/diffs</a></figcaption>  
+    <figcaption>Source <a href="http://www.git-tower.com/learn/git/ebook/command-line/advanced-topics/diffs">http://www.git-tower.com/learn/git/ebook/command-line/advanced-topics/diffs</a></figcaption>
 </figure>
 <br>
 
@@ -256,33 +256,33 @@ In the example below my shell has a color scheme to highlight the changes with c
 
 
 ##Branches
-A branch is a tree structure of commits with pointers, all pointing backward to their ancestor, until reaching the initial commit. The main line from initial commit to current HEAD is called the **master** branch. 
+A branch is a tree structure of commits with pointers, all pointing backward to their ancestor, until reaching the initial commit. The main line from initial commit to current HEAD is called the **master** branch.
 
 <figure>
    <img src="../images/getting-to-know-git/basic-branching-master.png" alt="A simple commit history">
-    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>  
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>
 </figure>
 <br>
 
 Branches take a snapshot of the current working directory and create a copy for you to make changes to without affecting the original branch snapshot. You can create branches at anytime from any point to start making changes to a snapshot of the starting point that you want to branch off of. You can create a new branch using `git branch [name_of_branch]`. Now you created the new branch but you are not yet pointing at it in your `HEAD`. When you want to switch branches you use `git checkout [name_of_branch]`.
 
-Before you can do that you should make sure that any files in your working directory are committed or stashed before trying to switch branches, best practice is to have a clean working directory when you switch branches. 
+Before you can do that you should make sure that any files in your working directory are committed or stashed before trying to switch branches, best practice is to have a clean working directory when you switch branches.
 
-Once you are in the new branch you can switch back and forth between the new branch and the master using the `git checkout master` alternately with `git checkout [name_of_branch]` . 
+Once you are in the new branch you can switch back and forth between the new branch and the master using the `git checkout master` alternately with `git checkout [name_of_branch]` .
 
 <figure>
    <img src="../images/getting-to-know-git/basic-branching-branch.png" alt="A commit history with a branch">
-    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>  
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>
 </figure>
 <br>
 
 
 ##Merging
-After you have made some changes to a branch and you want to move them back into the ancestor branch you should make sure the working directory is clean and checkout the ancestor branch folowed by `git merge [name_of_branch_to_merge]`. This will merge a snapshot of the branch back into the most the recent snapshot of your working directory, in this case its `master`. If your branch commit is not a direct ancestor of the latest commit on the branch you are merging into Git has to look backward to find the common ancestor commit.Git does the work of merging the snapshots to create a new snapshot of the two histories and makes a commit, this is referred to as a *merge commit*. 
+After you have made some changes to a branch and you want to move them back into the ancestor branch you should make sure the working directory is clean and checkout the ancestor branch folowed by `git merge [name_of_branch_to_merge]`. This will merge a snapshot of the branch back into the most the recent snapshot of your working directory, in this case its `master`. If your branch commit is not a direct ancestor of the latest commit on the branch you are merging into Git has to look backward to find the common ancestor commit.Git does the work of merging the snapshots to create a new snapshot of the two histories and makes a commit, this is referred to as a *merge commit*.
 
 <figure>
    <img src="../images/getting-to-know-git/basic-merging-2.png" alt="A commit history with a branch">
-    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>  
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></figcaption>
 </figure>
 <br>
 
@@ -292,7 +292,7 @@ There is another way of to apply a patch of code between two branches called *re
 
 <figure>
    <img src="../images/getting-to-know-git/basic-rebase-2.png" alt="A commit history with a branch">
-    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">https://git-scm.com/book/en/v2/Git-Branching-Rebasing</a></figcaption>  
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">https://git-scm.com/book/en/v2/Git-Branching-Rebasing</a></figcaption>
 </figure>
 <br>
 
@@ -300,14 +300,14 @@ It differs in that it saves the changes to temporary files that are used to rese
 
 <figure>
    <img src="../images/getting-to-know-git/basic-rebase-3.png" alt="A commit history with a branch">
-    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">https://git-scm.com/book/en/v2/Git-Branching-Rebasing</a></figcaption>  
+    <figcaption>Source <a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">https://git-scm.com/book/en/v2/Git-Branching-Rebasing</a></figcaption>
 </figure>
 <br>
 
 
 
 ##Conflicts
-Hopefully you have a smooth ride merging two snapshots, but its likely that you will run into some merge conflicts. If some part of a file was changed in both the ancestor and the branch then Git won't be able to merge them cleanly. When that happens Git will stop the merging process and point out the  location of the conflict. You will need to resolve the conflicts, and then `git add [files]` back to the staging area to mark them as resolved and re-run the merge command. 
+Hopefully you have a smooth ride merging two snapshots, but its likely that you will run into some merge conflicts. If some part of a file was changed in both the ancestor and the branch then Git won't be able to merge them cleanly. When that happens Git will stop the merging process and point out the  location of the conflict. You will need to resolve the conflicts, and then `git add [files]` back to the staging area to mark them as resolved and re-run the merge command.
 
 
 
@@ -316,14 +316,14 @@ Git provides tools and hooks for resolving merge conflicts which we are not cove
 ##Fetching and Pulling
 If you are working on a branch and you would like to merge the contents of another another branch into your branch, for example you would like to update your branch with the latest from `master`, you can do a `git pull . master`, the `.` means that we are pulling from the local repository followed by the branch we want to merge.
 
-Fetching downloads objects from one or more repositories. When you issue a `git pull` Git calls `git fetch` in the background immediately followed by a `git merge`. 
+Fetching downloads objects from one or more repositories. When you issue a `git pull` Git calls `git fetch` in the background immediately followed by a `git merge`.
 
 
 ###Remote Repositories
 More than likely you will be working with a remote repository such as one hosted on GitHub, In this situation there is a good chance that the code on the remote has been updated beyond the point at which your `HEAD` is pointed at. In order to get the latest changes you would use `git pull [name_of_remote] [name_of_branch]` if you don't know the name of the remote repository you can use `git remote show` to show a list of remote branches, `origin` is the default.
 
 ####Pushing
-When you want to share a branch with a remote repository you need to "push" it up to a remote using `git push [name_of_remote] [name_of_branch]` 
+When you want to share a branch with a remote repository you need to "push" it up to a remote using `git push [name_of_remote] [name_of_branch]`
 
 ## Tags
 Tags are used to mark a point in the repository history, hence pointing to a specific commit. Tags cannot be committed to or changed, they will always point to the same commit in history. There are two types of tags, **lightweight** and **annotated**.
