@@ -1,22 +1,22 @@
-# Posting to Seattle Ladies JS
+# Posting to Seattle Feminist JS
 
-This is a [Github Pages Site](https://pages.github.com/), built with Jekyll.  
+This is a [Github Pages Site](https://pages.github.com/), built with Jekyll.
 
 ## Working Locally
 Work on your post locally so you can preview your changes before you push them up.
 
 1. Requires [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
-2. Download the Repo  
-    `git clone https://github.com/SeattleLadiesJS/seattleladiesjs.github.io.git`
+2. Download the Repo
+    `git clone https://github.com/SeattleFeministJS/seattlefeministjs.github.io.git`
 
-3. Install bower and npm dependencies  
-    `npm install`  
-    `bower install`  
+3. Install bower and npm dependencies
+    `npm install`
+    `bower install`
 
-3. Install jekyll  
+3. Install jekyll
   `gem install jekyll`
 
-4. Preview in browser  
+4. Preview in browser
   `jekyll serve`
 
   Open your browser to [localhost:4000](http://localhost:4000)
@@ -31,10 +31,10 @@ Work on your post locally so you can preview your changes before you push them u
     - Include this at the top of your post (edited with appropriate data) - see existing posts for details
 
       ---
-      layout: post  
-      title:  "My Post Title"  
-      date:   2016-04-21 11:56:05 -0700  
-      categories: meetup  
+      layout: post
+      title:  "My Post Title"
+      date:   2016-04-21 11:56:05 -0700
+      categories: meetup
       author: pattyok
 
       ---

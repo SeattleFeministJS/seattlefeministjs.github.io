@@ -1,11 +1,11 @@
 {
-  "name": "seattleladiesjs.github.io",
+  "name": "seattlefeministjs.github.io",
   "version": "0.0.0",
-  "homepage": "https://github.com/SeattleLadiesJS/seattleladiesjs.github.io",
+  "homepage": "https://github.com/SeattleFeministJS/seattlefeministjs.github.io",
   "authors": [
     "simplesthing <i.am.simplesthing@gmail.com>"
   ],
-  "description": "Seattle Ladies JS io pages",
+  "description": "Seattle Feminist JS io pages",
   "license": "MIT",
   "ignore": [
     "**/.*",
