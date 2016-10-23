@@ -167,7 +167,7 @@ Each React component has a state property.  This state property reflects the UI 
 
 ### Create a Form
 
-Let's get started. First, checkout the `forms-1` branch.
+Let's get started. First, checkout the `form` branch.
 
 Then, checkout commit
 ```git checkout f3b32f9d2bf370af342856dbe863a828d779dcb5```
