@@ -3,7 +3,7 @@ layout: post
 title:  "React Workshop Two"
 date:   2016-10-09
 categories: meetup
-author: ava
+authors: ava and jessica
 ---
 
 
@@ -40,3 +40,53 @@ Quickly switch to the "html" branch in our repository, and run `npm install`. Th
 - [Animated Gradient on Codepen](http://codepen.io/13twelve/pen/xLoiH)
 - [ClassNames plugin](https://github.com/JedWatson/classnames)
 - [Component Lifecycle](https://facebook.github.io/react/docs/component-specs.html)
+
+## State and Forms
+
+React components, like the Form we're going to create this week, are essentially "state machines". This is like a pattern for making clothes.  You have a pattern, it can accept different sizes and fabrics.  The pattern doesn't care what size or what fabric it gets. It will behave the same in any size or any fabric.  If you make the dress with a flowered courdoroy, or a black satin, the dress, (or the rendered element), will be the same layout and design. In the case of a React component, state is like the dress fabric.  This means that everything flows in one direction - from the parent or wrapper component to the child componenet.  The child accepts props from the parent, and keeps its own internal state, and renders according to the values of the props and state.
+
+Each React component has a state property.  This state property reflects the UI state of the component.  When a user takes action on a form element, the component's state will update.  When the state is updated, using `this.setState()`, the component is re-rendered, this time applying its updated state.  So you can imagine a lot of rendering goes on - if you're updating state every time a text input changes, that's a re-render on every key stroke.
+
+### Create a Form
+
+Let's get started. First, checkout the `forms-1` branch.
+
+Then, checkout commit
+```git checkout f3b32f9d2bf370af342856dbe863a828d779dcb5```
+
+You can see that we've created a Form component, imported it in index.js, and created some css rules for it.  Within the form, there is one input, a checkbox.
+
+Try adding a text input or a select element to the form on your own.  If you're able to do that, great!
+
+Next, let's remove any changes and look at the next commit:
+```git checkout 418a631c75ff3fec8ea29ca10f844d379d6e1ec1```
+
+You can see that we've added a text input and a select element.  They don't have any event listeners yet, but they will!
+
+### Updating State and User Events
+
+```git checkout 00fcbc7```
+
+Note we are now handling user events on the text input.  What was added in order to update state when typing into the text input?
+If we want to similarly handle the event of the checkbox changing on user clicking it, how would we code that?  Give it a try! Add `console.log` statement to check your state before and after the user changes.
+
+`this`
+You'll notice that we are using `.bind()` and `this` in the `constructor` function.  Why do we need to do this?  What is the meaning of `this`?
+
+When using ES6 classes in React, it's necessary to bind `this`, meaning the component's context, to each function.  That way, each function can call `this.setState()`.  `this` is a very important part of JavaScript, and different libraries handle assigning `this` in different ways.
+
+Now that we're updating state based on user actions, let's see the almost-final product:
+
+```git checkout 3652e1c```
+
+What's the next step with the form?  Once the user has completed the form, we want to submit it to the backend service that will create a new user. For now, how would you update this form to have a `handleSubmit` function that can log the current state?  Try it out.  Once we're able to log the current state, we can later set up a service to submit the new user using that state.
+
+Try putting a `console.log` statement just before the `return` in the `render()` function.  Then, try filling out and submitting your form.  How often is the component re-rendering?  What values are updating when?
+
+To see the final component, including a `handleSubmit` function:
+```git checkout 83cfbac```
+This function is "stubbed out", meaning it doesn't really send the data anywhere to update.  This is fine for now, and we added a `TODO` comment, so we can remember to come back later and connect this with our API for creating new users.
+
+### References
+- [ES6 Class Syntax in React](https://facebook.github.io/react/docs/reusable-components.html)
+- [ES6 Classes in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
