@@ -206,9 +206,6 @@ To see the final component, including a `handleSubmit` function:
 This function is "stubbed out", meaning it doesn't really send the data anywhere to update.  This is fine for now, and we added a `TODO` comment, so we can remember to come back later and connect this with our API for creating new users.
 
 
-## Routing
-
-
 
 ### References
 <!-- - [Containers and Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.tvxsigg7y) -->
