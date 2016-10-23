@@ -99,19 +99,19 @@
 <div class="post">
 <h2 id="introduction">Introduction</h2>
 
-<p>Welcome to the first meetup topic Environment Setup. The following post will outline the steps for installation of the tools needed to run our <a href="https://github.com/SeattleLadiesJS/Environment-Setup" target="_blank">Environment Code</a>. Ideally you will have ran through all the steps and have all the tools installed before the meetup. If you run into problems getting these items installed I encourage joining our <a href="https://seattleladiesjs.slack.com/" target="_blank">slack</a> group and posting your questions to the “#environment-setup” channel. If you need an invite to our slack group please send your name and email address to <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#101;&#097;&#116;&#116;&#108;&#101;&#108;&#097;&#100;&#105;&#101;&#115;&#106;&#115;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#115;&#101;&#097;&#116;&#116;&#108;&#101;&#108;&#097;&#100;&#105;&#101;&#115;&#106;&#115;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a>. </p>
+<p>Welcome to the first meetup topic Environment Setup. The following post will outline the steps for installation of the tools needed to run our <a href="https://github.com/SeattleFeministJS/Environment-Setup" target="_blank">Environment Code</a>. Ideally you will have ran through all the steps and have all the tools installed before the meetup. If you run into problems getting these items installed I encourage joining our <a href="https://seattlefeministjs.slack.com/" target="_blank">slack</a> group and posting your questions to the “#environment-setup” channel. If you need an invite to our slack group please send your name and email address to <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#101;&#097;&#116;&#116;&#108;&#101;&#102;&#101;&#109;&#105;&#110;&#105;&#115;&#116;&#106;&#115;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">&#115;&#101;&#097;&#116;&#116;&#108;&#101;&#102;&#101;&#109;&#105;&#110;&#105;&#115;&#116;&#106;&#115;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a>.</p>
 
 <h2 id="operating-system">Operating System</h2>
 
-<p>First best thing to have is an up to date version of OSX on your Mac, today that is v10.10.3 Yosemite. If your Mac can run Mavericks it can run Yosemite, <a href="https://www.apple.com/support/osx/upgrade/" target="_blank">update instructions here</a>. </p>
+<p>First best thing to have is an up to date version of OSX on your Mac, today that is v10.10.3 Yosemite. If your Mac can run Mavericks it can run Yosemite, <a href="https://www.apple.com/support/osx/upgrade/" target="_blank">update instructions here</a>.</p>
 
 <h2 id="code-editor">Code Editor</h2>
 
 <p>Next thing we need is a code editor, it can be any code editor that you prefer but I will be using SublimeText3 and would recommend it as a nice simple to use code editor, <a href="http://www.sublimetext.com/3" target="_blank">download here</a>.</p>
 
-<p>Our environment setup is using an <a href="http://editorconfig.org/" target="_blank">EditorConfig</a> which helps maintain consistency of coding styles across different types of editors and IDEs, if you are using an editor other than SublimeText3 there should be a plugin available, you would have to research your editor to find plugin install instructions. </p>
+<p>Our environment setup is using an <a href="http://editorconfig.org/" target="_blank">EditorConfig</a> which helps maintain consistency of coding styles across different types of editors and IDEs, if you are using an editor other than SublimeText3 there should be a plugin available, you would have to research your editor to find plugin install instructions.</p>
 
-<p>For installing EditorConfig with SublimeText3 you have to use the Package Manager which is a plugin for SublimeText3 that needs to be installed separately, <a href="https://packagecontrol.io/installation" target="_blank">instructions on how to install here</a>. Once you have Package Manager installed you can add packages to customize SublimeText3 to suite your development style. </p>
+<p>For installing EditorConfig with SublimeText3 you have to use the Package Manager which is a plugin for SublimeText3 that needs to be installed separately, <a href="https://packagecontrol.io/installation" target="_blank">instructions on how to install here</a>. Once you have Package Manager installed you can add packages to customize SublimeText3 to suite your development style.</p>
 
 <p>Package Control is driven by the Command Palette, to open the palette, press <code>cmd+shift+p</code>.  A drop down should appear start typing “Package Control: Install Package” until the menu option appears, select it and hit enter. A new drop down will appear then type in the name of the package you would like to install, in this case type ‘EditorConfig’, select it and hit enter. You can see the package install progress in the bottom left corner of SublimeText. When it has finished you must restart SublimeText for it to be activated.</p>
 
@@ -135,18 +135,18 @@
 
 <h2 id="git">Git</h2>
 
-<p>Before we are ready to start working with code we need to have a system in place to manage that code, we’ll be using Git. If you have never heard of Git before I would suggest reading <a href="http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1" target="_blank">GitHub For Beginners: Don’t Get Scared, Get Started</a>. Another great read for all levels of experience is <a href="https://git-scm.com/book/en/v2/Getting-Started-Git-Basics" target="_blank">Getting Started Git Basics</a>.  </p>
+<p>Before we are ready to start working with code we need to have a system in place to manage that code, we’ll be using Git. If you have never heard of Git before I would suggest reading <a href="http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1" target="_blank">GitHub For Beginners: Don’t Get Scared, Get Started</a>. Another great read for all levels of experience is <a href="https://git-scm.com/book/en/v2/Getting-Started-Git-Basics" target="_blank">Getting Started Git Basics</a>.</p>
 
 <p>Git is the most popular code repository and version control system in open source and it can have some very technical aspects to it, but for now let’s focus on getting it installed. Git is available on Mac through Xcode Command Line Tools. XCode is “The complete toolkit for building great apps” but it is large and the entire toolkit isn’t needed, so we will be downloading only what we need from the <a href="https://idmsa.apple.com/IDMSWebAuth/login?&amp;appIdKey=891bd3417a7776362562d2197f89480a8547b108fd934911bcbea0110d07f757&amp;path=%2F%2Fdownloads%2Findex.action" target="_blank">Apple Developer Site</a>.</p>
 
 <p>After logging in choose to download the most recent version of Command Line Tools. Download and Install.
 <img src="../images/xcclt.png" alt="Command Line Tools (OSX 10.10) for XCode 6.3.2" /></p>
 
-<p>Now that you have Git installed let’s go git some code. </p>
+<p>Now that you have Git installed let’s go git some code.</p>
 
 <p>Open the Terminal Application and type <code>pwd</code> and hit enter to “print working directory” and tell you where your command line is operating from inside your system files. Hopefully you are in your User home directory, <code>/Users/&lt;username&gt;</code>, if not you can “change directory” by typing <code>cd "${HOME}"</code> and hit enter.</p>
 
-<p>Type <code>git clone https://github.com/SeattleLadiesJS/Environment-Setup.git</code> and hit enter. If everything is setup correctly you should now see a new folder created in your User home called “Environment-Setup” which includes the code files that we will be using for our Environment Setup</p>
+<p>Type <code>git clone https://github.com/SeattleFeministJS/Environment-Setup.git</code> and hit enter. If everything is setup correctly you should now see a new folder created in your User home called “Environment-Setup” which includes the code files that we will be using for our Environment Setup</p>
 
 <p>*Note For meetup we will be forking this repository into your own git repository which means that you’ll need to have a github account, be sure to have signed up for your own account at <a href="https://github.com/" target="_blank">github.com</a> before the meetup if you don’t already have an one.</p>
 
@@ -206,7 +206,7 @@
     <p><code>echo PATH=\"\$NPM_PACKAGES/bin\:\$PATH\" &gt;&gt; ${HOME}/.bashrc</code></p>
   </li>
   <li>
-    <p>Ensure that you source your <code>.bashrc</code> file by adding the following to your </p>
+    <p>Ensure that you source your <code>.bashrc</code> file by adding the following to your</p>
 
     <p><code>.bash_profile</code>.<code>echo source "~/.bashrc" &gt;&gt; ${HOME}/.bash_profile</code></p>
   </li>
@@ -219,9 +219,9 @@
 
 <p>Let’s test to make sure we have everything installed correctly. In Terminal type <code>node -v</code> hit enter, you should see v0.12.4 the current version of Node.js. Now let’s test that you have Node’s package manager installed as well by typing <code>npm -v</code> and hit enter you should see 2.10.1.</p>
 
-<p>Before we an run our Environment Setup project we need to get a couple of frontend tools installed, <a href="http://gulpjs.com/" target="_blank">gulp</a> and <a href="http://bower.io/" target="_blank">bower</a>. </p>
+<p>Before we an run our Environment Setup project we need to get a couple of frontend tools installed, <a href="http://gulpjs.com/" target="_blank">gulp</a> and <a href="http://bower.io/" target="_blank">bower</a>.</p>
 
-<p>Type <code>npm install -g gulp bower</code> in the Terminal and hit enter. </p>
+<p>Type <code>npm install -g gulp bower</code> in the Terminal and hit enter.</p>
 
 <p>Almost ready to run our project, we still have a few more things to install.</p>
 
@@ -229,15 +229,15 @@
 
 <p>Now we can install all the required modules we’ll need from NPM and Git:</p>
 
-<p>Type <code>npm install</code> and hit enter </p>
+<p>Type <code>npm install</code> and hit enter</p>
 
-<p>Type <code>bower install</code> and hit enter. </p>
+<p>Type <code>bower install</code> and hit enter.</p>
 
 <p>Lastly type <code>gulp</code> and hit enter, you should see output which is similar to a help menu for command line which lists the config file for the project followed by Main Tasks and Sub Tasks.</p>
 
 <h2 id="conclusion">Conclusion</h2>
 
-<p>I know we just blew through a lot of important stuff without much explanation but hopefully everything installed smoothly and we can spend our time in the meetup answering questions and learning about the code that is included with the sample repository. </p>
+<p>I know we just blew through a lot of important stuff without much explanation but hopefully everything installed smoothly and we can spend our time in the meetup answering questions and learning about the code that is included with the sample repository.</p>
 
 
 </div>

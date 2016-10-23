@@ -11,6 +11,12 @@ authors             :
     display_name: Patty O'Hara
     email: patty.ohara@gmail.com
     twitter: pattyok
+  jessica:
+    display_name: Jessica Wicksnin
+    email: jwicksnin@gmail.com
+    github: https://github.com/jwicksnin
+  avajessica:
+    display_name: Ava Collins and Jessica Wicksnin
 source              : .
 destination         : ./_site
 plugins_dir         : ./_plugins
