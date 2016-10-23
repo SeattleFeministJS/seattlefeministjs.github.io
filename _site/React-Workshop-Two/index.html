@@ -346,7 +346,7 @@ You’ll notice that we are using <code>.bind()</code> and <code>this</code> in 
 This function is “stubbed out”, meaning it doesn’t really send the data anywhere to update.  This is fine for now, and we added a <code>TODO</code> comment, so we can remember to come back later and connect this with our API for creating new users.</p>
 
 <h2 id="routing">Routing</h2>
-<p>Routing is a pretty straightforward addition to our application. We will use the React Router library, it has active contributors and has been keeping up with updates and use issues. Switch to “routing” branch now, and if you haven’t already <code>npm install</code> to get the React Router modules. Looking at out entry point <code>src/index.js</code> you can see that have changed the way we mount our application, you might also notice that we have added a new directory called containers, we will be discussing the container/component in more detail in workshop three, but for now it is good enough to notice that the containers have names that indicate their function and can correspond to their route names, “Root”, “Home” and “Signup”. </p>
+<p>Routing is a pretty straightforward addition to our application. We will use the React Router library, it has active contributors and has been keeping up with updates and user issues. Switch to “routing” branch now, and if you haven’t already <code>npm install</code> to get the React Router modules. Looking at out entry point <code>src/index.js</code> you can see that have changed the way we mount our application, you might also notice that we have added a new directory called containers, we will be discussing the container/component in more detail in workshop three, but for now it is good enough to notice that the containers have names that indicate their function and can correspond to their route names, “Root”, “Home” and “Signup”. </p>
 
 <p>We are still calling to <code>ReactDOM</code> to render our application but we are now passing JSX for router components rather than our own components. The structure of the router JSX is hierarchical and represents the route tree for our application.</p>
 
@@ -375,9 +375,26 @@ This function is “stubbed out”, meaning it doesn’t really send the data an
 &lt;/Router&gt;
 </code></pre>
 
-<p>We have use a special component here called the <code>IndexRoute</code> and that is a special component that provide a default child component to a top level route, in our example the top level route is the root of our application and our <code>IndexRoute</code> component is called “Home”. You might be curious what does the Root container render is Home is our root path? The Root container is parent to the entire application and I like to use it to hold things that are site wide like headers and footers, and I generally like have the <code>App</code> component, which includes our base CSS styling, to be it’s top level element. Both <code>Root</code> and <code>App</code> components pass child components through using <code>{this.props.children}</code> and function as wrappers.</p>
+<p>We have use a component called the <code>IndexRoute</code> and that is a special component that provides a default child component to a top level route, in our example the top level route is the root of our application and our <code>IndexRoute</code> component is called “Home”. You might be curious what does the Root container render if Home is our root path? The Root container is parent to the entire application and I like to use it to hold things that are site wide like headers and footers, and I generally like have the <code>App</code> component, which includes our base CSS styling, to be it’s top level element. Both <code>Root</code> and <code>App</code> components pass child components through using <code>{this.props.children}</code> and function as wrappers.</p>
 
-<p>Looking into our Homepage container, <code>src/containers/Home.js</code> there is another React Router component we are using called <code>Link</code> and it does exactly what you think it does, it provides an internal link to a path defined in your Router component and renders an anchor tag to the final DOM output. You would only use the Link component when linking internal routes, if you are linking to a location outside or your application you would use the native <code>&lt;a href="#"&gt;</code> tag.</p>
+<pre><code>export default class Root extends Component {
+  render() {
+    return (
+      &lt;App&gt;
+        &lt;Header messages={mail} /&gt;
+        &lt;main&gt;
+          {this.props.children}
+        &lt;/main&gt;
+      &lt;/App&gt;
+    )
+  }
+}
+</code></pre>
+
+<p>Looking into our Homepage container, <code>src/containers/Home.js</code> there is another React Router component we are using called <code>Link</code> and it does exactly what you think it does, the <code>to</code> attribute is synonymous with the anchor’s <code>href</code> attribute it provides an internal link to a path defined in your Router component. You would only use the Link component when linking internal routes, if you are linking to a location outside of your application you would use the native <code>&lt;a href="#"&gt;</code> tag.</p>
+
+<pre><code>&lt;Link to="signup"&gt;here&lt;/Link&gt;
+</code></pre>
 
 <p>That should be enough to get you started hacking around with the Router and application setup, next time we will get into the details of the container component pattern that we have started, Redux, what it is, why use it and some principles of functional programming that have inspired React best practices.</p>
 
