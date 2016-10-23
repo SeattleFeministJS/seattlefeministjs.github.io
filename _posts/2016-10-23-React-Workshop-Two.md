@@ -3,7 +3,7 @@ layout: post
 title:  "React Workshop Two"
 date:   2016-10-09
 categories: meetup
-authors: ava and jessica
+author: avajessica
 ---
 
 
@@ -205,19 +205,95 @@ To see the final component, including a `handleSubmit` function:
 ```git checkout 83cfbac```
 This function is "stubbed out", meaning it doesn't really send the data anywhere to update.  This is fine for now, and we added a `TODO` comment, so we can remember to come back later and connect this with our API for creating new users.
 
+Then, checkout commit
+```git checkout f3b32f9d2bf370af342856dbe863a828d779dcb5```
 
+You can see that we've created a Form component, imported it in index.js, and created some css rules for it.  Within the form, there is one input, a checkbox.
+
+Try adding a text input or a select element to the form on your own.  If you're able to do that, great!
+
+Next, let's remove any changes and look at the next commit:
+```git checkout 418a631c75ff3fec8ea29ca10f844d379d6e1ec1```
+
+You can see that we've added a text input and a select element.  They don't have any event listeners yet, but they will!
+
+### Updating State and User Events
+
+```git checkout 00fcbc7```
+
+Note we are now handling user events on the text input.  What was added in order to update state when typing into the text input?
+If we want to similarly handle the event of the checkbox changing on user clicking it, how would we code that?  Give it a try! Add `console.log` statement to check your state before and after the user changes.
+
+`this`
+You'll notice that we are using `.bind()` and `this` in the `constructor` function.  Why do we need to do this?  What is the meaning of `this`?
+
+When using ES6 classes in React, it's necessary to bind `this`, meaning the component's context, to each function.  That way, each function can call `this.setState()`.  `this` is a very important part of JavaScript, and different libraries handle assigning `this` in different ways.
+
+Now that we're updating state based on user actions, let's see the almost-final product:
+
+```git checkout 3652e1c```
+
+What's the next step with the form?  Once the user has completed the form, we want to submit it to the backend service that will create a new user. For now, how would you update this form to have a `handleSubmit` function that can log the current state?  Try it out.  Once we're able to log the current state, we can later set up a service to submit the new user using that state.
+
+Try putting a `console.log` statement just before the `return` in the `render()` function.  Then, try filling out and submitting your form.  How often is the component re-rendering?  What values are updating when?
+
+To see the final component, including a `handleSubmit` function:
+```git checkout 83cfbac```
+This function is "stubbed out", meaning it doesn't really send the data anywhere to update.  This is fine for now, and we added a `TODO` comment, so we can remember to come back later and connect this with our API for creating new users.
+
+## Routing
+Routing is a pretty straightforward addition to our application. We will use the React Router library, it has active contributors and has been keeping up with updates and use issues. Switch to "routing" branch now, and if you haven't already `npm install` to get the React Router modules. Looking at out entry point `src/index.js` you can see that have changed the way we mount our application, you might also notice that we have added a new directory called containers, we will be discussing the container/component in more detail in workshop three, but for now it is good enough to notice that the containers have names that indicate their function and can correspond to their route names, "Root", "Home" and "Signup". 
+
+We are still calling to `ReactDOM` to render our application but we are now passing JSX for router components rather than our own components. The structure of the router JSX is hierarchical and represents the route tree for our application.
+
+
+    ReactDOM.render((
+     <Router history={browserHistory}>
+      <Route path="/" component={Root}>
+        <IndexRoute component={Home} />
+        <Route path="signup" component={Signup} />
+      </Route>
+    </Router>
+  ), document.getElementById('app'))
+
+
+The top level component `Router` passes in `browserHistory` which we have imported from React Router. The history object is what listens to the browser location object, `window.location`, and parses the object for use by React Router and your application. The router expects children of the `Route` type, to which we pass two props, a path and a component. `Route` components can also have children passed to them and this will create a path hierarchy for you, for example if you were to have a mailbox route that has paths for incoming and outgoing messages that look like the following.
+
+    /mail/incoming
+    /mail/outgoing
+
+You could setup your route components like so.
+
+    <Router history={browserHistory}>
+      <Route path="mail" component={Mailbox}>
+        <Route path="incoming" component={Incoming} />
+        <Route path="outgoing" component={Outgoing} />
+      </Route>
+    </Router>
+
+
+We have use a special component here called the `IndexRoute` and that is a special component that provide a default child component to a top level route, in our example the top level route is the root of our application and our `IndexRoute` component is called "Home". You might be curious what does the Root container render is Home is our root path? The Root container is parent to the entire application and I like to use it to hold things that are site wide like headers and footers, and I generally like have the `App` component, which includes our base CSS styling, to be it's top level element. Both `Root` and `App` components pass child components through using `{this.props.children}` and function as wrappers.
+
+Looking into our Homepage container, `src/containers/Home.js` there is another React Router component we are using called `Link` and it does exactly what you think it does, it provides an internal link to a path defined in your Router component and renders an anchor tag to the final DOM output. You would only use the Link component when linking internal routes, if you are linking to a location outside or your application you would use the native `<a href="#">` tag.
+
+That should be enough to get you started hacking around with the Router and application setup, next time we will get into the details of the container component pattern that we have started, Redux, what it is, why use it and some principles of functional programming that have inspired React best practices.
 
 ### References
-<!-- - [Containers and Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.tvxsigg7y) -->
+
 <!-- - [Animated Gradient on Codepen](http://codepen.io/13twelve/pen/xLoiH) -->
-<!-- - [ClassNames plugin](https://github.com/JedWatson/classnames) -->
 - [Let's Talk About Pay](https://modelviewculture.com/news/lets-talk-about-pay)
 - [Emoji CSS](https://afeld.github.io/emoji-css/)
 - [Emoji Cheatsheet](http://www.webpagefx.com/tools/emoji-cheat-sheet/)
+- [ClassNames plugin](https://github.com/JedWatson/classnames)
 - [React Supported Events](https://facebook.github.io/react/docs/events.html#supported-events)
 - [React DOM Reconciliation](https://facebook.github.io/react/docs/reconciliation.html)
 - [Component Lifecycle](https://facebook.github.io/react/docs/component-specs.html)
 - [ES6 Class Syntax in React](https://facebook.github.io/react/docs/reusable-components.html)
-- [ES6 Classes in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+- [ES6 Classes in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/
+Classes)
+- [React Router](https://github.com/ReactTraining/react-router)
+<!-- - [Containers and Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.tvxsigg7y) -->
+- [React Router History Guide](https://github.com/ReactTraining/react-router/blob/master/docs/guides/Histories.md)
+- [History API](https://developer.mozilla.org/en-US/docs/Web/API/History)
 
 
