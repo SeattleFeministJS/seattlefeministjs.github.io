@@ -248,7 +248,20 @@ function LogoutButton(props) {
 )
 </code></pre>
 
-<p>Switch to “logical-operator” now.</p>
+<p>Switch to “logical-operator” now. If you wanted to hide or show some information based on state you can use the logical <code>&amp;&amp;</code> operator preceded by an expression that evaluates to a boolean, if the expression evaluates true it will render the React Element if not it isn’t rendered to the page. </p>
+
+<pre><code>  { this.props.messages.length &gt; 0 &amp;&amp; this.state.isLoggedIn &amp;&amp;
+    &lt;p&gt;
+      &lt;span&gt;&lt;i className="em em-mailbox_with_mail"&gt;&lt;/i&gt;&lt;/span&gt;
+      You have {this.props.messages.length} unread messages.
+    &lt;/p&gt;
+  }
+</code></pre>
+
+<p>Switch to “conditional-operator” branch now. As you can see if you have only one message in your box the plural form of the word messages would look odd. To demonstrate another conditional render expression we can test for the length of the messages array and use the JavScript ternary operator to evaluate a boolean for which string to show, either “messages” or “message” based on the length of the messages array.</p>
+
+<pre><code> {this.props.messages.length &gt; 1 ? ' messages' : ' message'}.
+</code></pre>
 
 <p>Switch to branch “forms-1” now.
 <!-- TODO: Form content here --></p>

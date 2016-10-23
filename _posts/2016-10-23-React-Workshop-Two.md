@@ -145,7 +145,18 @@ And finally we return our React Elements with the button varaible passed in a fu
     )
 
 
-Switch to "logical-operator" now.
+Switch to "logical-operator" now. If you wanted to hide or show some information based on state you can use the logical `&&` operator preceded by an expression that evaluates to a boolean, if the expression evaluates true it will render the React Element if not it isn't rendered to the page. 
+
+      { this.props.messages.length > 0 && this.state.isLoggedIn &&
+        <p>
+          <span><i className="em em-mailbox_with_mail"></i></span>
+          You have {this.props.messages.length} unread messages.
+        </p>
+      }
+
+Switch to "conditional-operator" branch now. As you can see if you have only one message in your box the plural form of the word messages would look odd. To demonstrate another conditional render expression we can test for the length of the messages array and use the JavScript ternary operator to evaluate a boolean for which string to show, either "messages" or "message" based on the length of the messages array.
+
+     {this.props.messages.length > 1 ? ' messages' : ' message'}.
 
 
 
