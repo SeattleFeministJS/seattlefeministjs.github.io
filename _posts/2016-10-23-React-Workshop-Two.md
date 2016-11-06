@@ -307,7 +307,7 @@ That should be enough to get you started hacking around with the Router and appl
 - [ES6 Classes in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/
 Classes)
 - [React Router](https://github.com/ReactTraining/react-router)
-<!-- - [Containers and Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.tvxsigg7y) -->
+- [React Router Tutorial](https://github.com/reactjs/react-router-tutorial)
 - [React Router History Guide](https://github.com/ReactTraining/react-router/blob/master/docs/guides/Histories.md)
 - [History API](https://developer.mozilla.org/en-US/docs/Web/API/History)
 
