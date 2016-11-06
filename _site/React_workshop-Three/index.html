@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Seattle Feminist JS</title>
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="apple-touch-icon" href="icon.png"/>
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+  <!-- bower:css -->
+  <!-- endbower -->
+
+  <!-- bower:js -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+  <!-- endbower -->
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">SFJS</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!-- <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li> -->
+        <!-- <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li> -->
+      </ul>
+    <!--   <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul> -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+  <main class="one-col-container">
+    <div class="row">
+      <div class="col">
+        <h1>React Workshop Three</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        
+<p class="meta">06 Nov 2016 by
+<!-- <img src="http://www.gravatar.com/avatar/74100339cab4aedcf3c66e5b6724a096?s=40"> -->
+<span class="author">Ava Collins</span>
+</p>
+
+<div class="post">
+<h2 id="state">State</h2>
+
+<p>As we have seen React components are views that encapsulate their own state. State is used internally to respond to browser events, like entering text into a form or clicking a button, and updating the view. We know that there are events that can update the views during the React Lifecycle which can change and cause an update in the view. We’ve also seen how to change views by adding in Routing, but what happens to component state when we change routes? </p>
+
+<p>Switch to <code>state</code> branch now. To better explain application state I have moved our <code>Header</code> component out of the <code>App</code> component which is shared from the <code>Root</code> container, and instead placed a copy of the <code>Header</code> component on both the <code>Home</code> container and the <code>Signup</code> container. This is redundant and not something you would probably want to do, but it demonstrates what application state is. If you start up the app you will see that there is a login button on the homepage and the signup page, but if you click login on the homepage and change routes to the signup page the state of the login component has changed back to the default state declared internally in the <code>Header</code> component.</p>
+
+<pre><code>const isLoggedIn = this.state.isLoggedIn;
+
+let button = null;
+if (isLoggedIn) {
+  button = &lt;LogoutButton onClick={this.handleLogoutClick} /&gt;;
+} else {
+  button = &lt;LoginButton onClick={this.handleLoginClick} /&gt;;
+}
+</code></pre>
+
+<p>So how we can share the state of being logged in across components if we need to know the status of a login or logout event in different views or different components? </p>
+
+<p>Well we know that props can be passed into components to update their view state, so what if instead of the <code>Header</code> keeping track internally of logged in state we pass in the logged in state from a prop. </p>
+
+<pre><code> &lt;Header messages={mail} loggdIn={true} /&gt;
+</code></pre>
+
+<p>We still have to figure out a way to share that state between the <code>Home</code> and <code>Signup</code> containers. That is what Application State is and that is where Redux comes in, technically we will be using <em>React Redux</em>, <a href="http://Redux.js.org/">Redux</a> itself is framework agnostic.</p>
+
+<h2 id="redux">Redux</h2>
+
+<p>Redux comes from a purist place, a place of clean functions that have a single responsibility and a predictable outcome each time they are executed. This place is Functional Reactive Programming, and it is a workshop unto it’s own that we should definitely do someday, but for now the important things to remember are:</p>
+
+<ul>
+  <li>Single responsibility functions.</li>
+  <li>The product of the function will always return the same value given the same input is passed in.</li>
+  <li>Asynchronous data flows propagate change in a one way direction.</li>
+</ul>
+
+<p>In this way Redux avoids mutating state and instead creates a “pure” function that can be called with a set of parameters defining application state and returns the same state each time the same parameters are passed in. </p>
+
+<pre><code>function updateState(state, changeInState) {
+  return Object.assign(state, changeInState)
+}
+
+updateState({loggedIn: false}, {loggedIn: true})
+</code></pre>
+
+<p>Mutating state is what happens when many functions are acting upon a single state object that they share. For instance if we tried sharing our logged in state with a global variable on the <code>window</code> object we could share that object across React views by referring to the window object for our logged in state.</p>
+
+<pre><code>window.state = {
+  loggedIn: true
+}
+</code></pre>
+
+<p>Mutating is what would happen if another component wants to update the same <code>window.state</code> object with something new, let’s say the mailbox now wants to keep the number of messages in the <code>window.state</code> as well. It would do something to add the mailbox property to the state.</p>
+
+<pre><code>window.state.messages = 3
+</code></pre>
+
+<p>This makes <code>window.state</code> vulnerable to mistakes, there is nothing preventing the state object from being changed in something else entirely. A function that takes in the current state and the updated state and returns a brand new state with the new properties merged could help maintain the state object. </p>
+
+<pre><code>// value of current state object
+state : {
+  loggedIn: true
+}
+
+//mailbox wants to add messages to state
+updateState(state, {messages: 3})
+
+// results in 
+state: {
+  loggedIn: true,
+  messages: 3
+}
+</code></pre>
+
+<p>This is the first principle of Redux, which is that everything that changes in your application, including data and the view state, is contained in a single object called the state or the state tree.</p>
+
+<h2 id="actions">Actions</h2>
+
+<p>The second principle of Redux is that the state tree is not mutable, which we have also seen. But instead of our <code>updateState</code> function. Redux has a concept called <em>Actions</em> which you can <em>dispatch</em> to update the state. Actions describe the changes to be made. Switch to <code>redux</code> branch, do an <code>npm install</code> and open up <code>src/redux/index.js</code></p>
+
+<p>If we want to describe the state change that happens after logging in we would create an action for that. Actions are plain JavaScript objects that have one requirement, that they have a <code>type</code> property defined which indicates the type of action being performed. In our case logging in would only be changing the <code>loggedIn</code> property so our action could look like</p>
+
+<pre><code>{
+  type: 'LOG_IN'
+}
+</code></pre>
+
+<p>It is common to see a file with many <code>const</code> string values at the top which define the action type rather than passing inline as above. This helps when an application size grows, it is easy to look at the defined action types in one place and get an idea of what the application does without reading too much into the underlying code.</p>
+
+<h2 id="action-creators">Action Creators</h2>
+
+<p>Action creators are functions that create actions, it’s confusing terminology and easy to get mixed up, but know that the action creator is a function that creates an action.</p>
+
+<pre><code>function logIn(loggedIn) {
+  return {
+    type: 'LOG_IN',
+    loggedIn
+  }
+}
+</code></pre>
+
+<h2 id="reducers">Reducers</h2>
+
+<p>What do we mean by “create” an action if actions are just JSON objects that we return from an action creator? Remember when I said that actions get “dispatched”? In JavaScript event management is most commonly managed via a dispatch/listen pattern, think about how we <code>addEventListener('click')</code> in the DOM, the listener is waiting for the browser to dispatch a click <code>event</code>, and then it will do something in response to that <code>event</code>. It’s pretty much the same thing, but instead of an event listener to handle the actions being dispatched we create “Reducers” to handle the state changes. </p>
+
+<p>It’s called a reducer because it is the type of function you would pass to the <code>Array.prototype.reduce</code> method, wherein a function is applied against an iterated array of values and saved into a single accumulated value and finally returns that single value after all items have been passed through the reduce function. </p>
+
+<p>You begin a reducer by defining the initial state, this is a chance to set default values for application startup. The reducer function uses a switch statement to only update the data in the app that is described by the action type. </p>
+
+<pre><code> switch(action.type) {
+  case LOG_IN:
+    return {...state, loggedIn: action.loggedIn}
+  default:
+    return state
+}
+</code></pre>
+
+<p>You can see this reducer will update the state when a <code>LOG_IN</code> action type is passed into it. Another aspect of a reducer is that a default case which returns the <code>state</code> is required, and that is for the first run when the application is bootstrapping itself with the initialState. </p>
+
+<h2 id="store">Store</h2>
+
+<p>The Store is what brings together the event dispatching and state updating by providing a minimal API. The Redux store has the following responsibilities.</p>
+
+<ul>
+  <li>Hold application state</li>
+  <li>Allows access to state via <code>getState()</code></li>
+  <li>Allows state to be updated via <code>dispatch(action)</code></li>
+  <li>Registers event listeners via <code>subscribe(listener)</code></li>
+  <li>Handles unregistering of listeners via the function returned by <code>subscibe(listener)</code></li>
+</ul>
+
+<p>The store is provided by the Redux library, looking at <code>src/index.js</code> our application entry point, you can see that we have imported our Redux reducer into a variable named <code>app</code> and we have imported the <code>createStore</code> method from Redux, we create the store by passing in our reducer function. For now we are console logging the current state bu using the <code>getState()</code> method.</p>
+
+<h2 id="using-redux-with-react">Using Redux with React</h2>
+
+<p>Up to this point everything about our usage of Redux has been agnostic of the React framework, you can use Redux in any JavaScript application but you would have to manage how to share that state across your components. We could simply pass <code>state</code> into our components and they would all have access to it but we would have to manually subscribe to the updates using <code>store.subscribe()</code> which is not ideal, it is also not advised since there is a library that will manage the bindings to React components for you called React Redux. Switch to <code>react-redux</code> branch now.</p>
+
+<p>Now you can see we have added an import to <code>react-redux</code> to get a <code>Provider</code> component. The Provider does what it sounds like it does, it provides the store the child components that are passed into it, since we are passing in our Routes we are passing in all the React components in our application. So does that mean that we can access <code>store</code> as a prop to our components now? Technically you could, but you have to use the <code>connect()</code> method provided also from React Redux library in order to get connected to the store.</p>
+
+<p>If you look at either the <code>Home</code> container now you can see that we are importing <code>connect</code> from <code>react-redux</code> and we are no longer exporting the <code>Home</code> class as the default export component, it just a declared class now.</p>
+
+<pre><code>class Home extends Component {
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;Header messages={mail} /&gt;
+        &lt;h1&gt;Home&lt;/h1&gt;
+        &lt;p&gt;This is the homepage, if you'd like to see our form click &lt;Link to="signup"&gt;here&lt;/Link&gt;&lt;/p&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre>
+
+<p>Instead we are exporting as our default a call to the <code>connect()</code> method, to which we are passing in two helper functions which will manage our subscriptions and dispatching of the logIn action creator. The first function expression <code>mapStateToProps</code> is mapping the application <code>state</code> to the <code>Home</code> component’s incoming props, so now you can access the logggedIn status inside of <code>Home</code> using <code>this.props.loggedIn</code>.</p>
+
+<pre><code>const mapStateToProps = (state) =&gt; {
+  return {
+    loggedIn: state.loggedIn
+  }
+}
+</code></pre>
+
+<p>The second function expression <code>mapDispatchToProps</code> manages the dispatching of actions for us.</p>
+
+<pre><code>const mapDispatchToProps = (dispatch) =&gt; {
+  return {
+    onLogIn: () =&gt; {
+      dispatch(logIn())
+    }
+  }
+}
+</code></pre>
+
+<p>And finally the <code>connect</code> method we pass in our mapping expressions, and because <code>connect</code> is called as an <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">Immediately Invoked Function Expression (IIFE)</a> we pass our <code>Home</code> container into scope so that it can be connected and returned as our default export.</p>
+
+<pre><code>export default connect(mapStateToProps, mapDispatchToProps)(Home)
+</code></pre>
+
+<p>We’re almost ready to dispatch our log in action and use our shared state, but we need to modify the Header component to accept a prop for <code>isLoggedIn</code> rather than have it be something that the internal component state manages. Switch to the <code>dispatch</code> branch now. In the <code>Header</code> component we are changing </p>
+
+<pre><code>const isLoggedIn = this.state.isLoggedIn
+</code></pre>
+
+<p>to </p>
+
+<pre><code>const isLoggedIn = this.props.isLoggedIn
+</code></pre>
+
+<p>We also need to change the methods which update state from internal methods to passed in props from it’s parent container, <code>Home</code> in this case, which is connected to the state.  This means we can remove most of the logic code inside the <code>Header</code> and just return a React DOM object that is getting it’s state managed by Redux. This changes our <code>LoginButton</code> from </p>
+
+<pre><code> button = &lt;LoginButton onClick={this.handleLoginClick} /&gt;
+</code></pre>
+
+<p>to this</p>
+
+<pre><code> button = &lt;LoginButton onClick={this.props.handleLoginClick} /&gt;
+</code></pre>
+
+<p>And you can see now when added the <code>Header</code> component to our page we are passing props for handling the LogIn event. </p>
+
+<pre><code>&lt;Header messages={mail}
+  isLoggedIn={this.props.loggedIn}
+  handleLoginClick={this.props.onLogIn.bind(this)}
+/&gt;
+</code></pre>
+
+<p>If you log in on the homepage and navigate to the Signup page you can see that you stay logged in. </p>
+
+<h2 id="container-components">Container Components</h2>
+
+<p>Now that we have a very simple example working for Redux we can talk about the container/component organization we have started in our code. This is a design pattern to organize components into distinct sections that each address a separate concern, <a href="https://en.wikipedia.org/wiki/Separation_of_concerns">Separation of Concerns</a>. The containers are the connected to the application state, but the components are not. The components have styles associated with them, but the containers do not. This should indicate that the containers are running the application and the components are presenting the UI. By keeping presentational components “dumb” they are controlled by the containers through props, this  makes the components portable they can be moved into another application all together as long as the props are passed in.</p>
+
+<h2 id="your-turn">Your Turn</h2>
+
+<p>I know that was a lot to grok but like most things if you practice using the patterns, even blindly in the beginning, eventually you will understand the whole. That is my best advise for using React, and the whole ecosystem, don’t feel you have to fully understand <em>everything</em> we covered, and things beyond, to start using it. I hope that these workshops have given you a high level explanation of what is involved with development environment and a set of patterns that you can hack around with. </p>
+
+<p>Now your turn, implement the log out function using the patterns from log in. If you get stuck you can checkout the <code>logout</code> branch for an example of how it might be completed.</p>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Reactive_programming">Functional Reactive Programming</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign()</a></li>
+  <li><a href="http://krasimirtsonev.com/blog/article/javascript-managing-events-dispatch-listen">Managing events with dispatch and listen</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce">Array.prototype.reduce()</a></li>
+  <li><a href="https://egghead.io/series/getting-started-with-Redux">Redux Videos</a></li>
+  <li><a href="http://Redux.js.org/docs/basics/UsageWithReact.html">Redux with React</a></li>
+  <li><a href="https://github.com/reactjs/react-redux/blob/master/docs/api.md">React Redux API</a></li>
+  <li><a href="https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.jw5mq66ox">Presentational and Container Components</a></li>
+  <li><a href="https://github.com/reactjs">React Community</a></li>
+</ul>
+
+
+</div>
+
+      </div>
+    </div>
+  </main>
+
+
+
+</body>
+
+</html>
